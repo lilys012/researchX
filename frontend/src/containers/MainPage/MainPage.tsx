@@ -4,12 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../store";
 
 import "./MainPage.scss";
+import { Layout, Checkbox, Space, Button } from "antd";
+import { ArrowLeftOutlined, SyncOutlined } from "@ant-design/icons";
 
 function MainPage() {
     return (
-        <div>
+        <Layout className="MainPage">
             <p>MainPage</p>
-        </div>
+        </Layout>
     );
 }
 
