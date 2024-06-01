@@ -1,0 +1,20 @@
+#KeywordsList {
+    margin: 0;
+    // padding: 0 5px;
+    // flex-direction: column;
+}
+#KeywordsList #keywords-container {
+    display: inline-flex;
+    flex-direction: row;
+    // width: auto;
+    // margin-bottom: 5px;
+}
+#KeywordsList #keyword-container {
+    border-bottom: 1px solid;
+    max-height: 20px;
+    min-width: 200px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
