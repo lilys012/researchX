@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../store";
 
@@ -136,9 +136,11 @@ function MainPage() {
                             >
                                 {curKeyword}
                             </h1>
-                            <PostOverview
-                                post={acPosts.length ? acPosts[postId] : null}
-                            ></PostOverview>
+                            <Link to={`/post/${postId}`}>
+                                <PostOverview
+                                    post={acPosts.length ? acPosts[postId] : null}
+                                ></PostOverview>
+                            </Link>
                         </div>
                         <div
                             id="tabs-container"
