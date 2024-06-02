@@ -12,7 +12,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route
-                        path="/postdetail/:id"
+                        path="/post/:id"
                         element={<PostDetail />}
                     ></Route>
                     <Route path="/mypage" element={<MyPage />}></Route>
