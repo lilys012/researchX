@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { AppDispatch } from "../../store";
@@ -26,6 +26,8 @@ import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import PostScroll from "../../components/PostScroll/PostScroll";
+import WordCloud from "../../components/WordCloud/WordCloud";
 
 const { Header, Content } = Layout;
 
@@ -44,12 +46,18 @@ function MainPage() {
     const [refresh, setRefresh] = useState<Boolean>(true);
     const [keywordId, setKeywordId] = useState(0);
     const [postId, setPostId] = useState(0);
-    const [tabValue, setTabValue] = React.useState("one");
+    const [tabValue, setTabValue] = React.useState("1");
     const [curKeyword, setCurKeyword] = useState<string>("");
     const [keywords, setKeywords] = useState<KeywordType[]>(
         keywordState.keywords
     );
     const [posts, setPosts] = useState<PostType[]>(postState.posts);
+    const [acPosts, setAcPosts] = useState<PostType[]>([]);
+    const [opPosts, setOpPosts] = useState<PostType[]>([]);
+
+    const wordcloudJSX = useMemo(() => {
+        return <WordCloud setCurKeyword={setCurKeyword} posts={posts} />;
+    }, [curKeyword]);
 
     const onClickClose = () => {
         setSearchQuery("");
@@ -73,6 +81,11 @@ function MainPage() {
     useEffect(() => {
         setCurKeyword(keywords[0].content);
     }, []);
+
+    useEffect(() => {
+        setAcPosts(posts.filter((post) => post.isOpinion === false));
+        setOpPosts(posts.filter((post) => post.isOpinion === true));
+    }, [posts]);
 
     return (
         <Layout className="MainPage">
@@ -98,6 +111,7 @@ function MainPage() {
                     <KeywordsList
                         keywordId={keywordId}
                         keywords={keywords}
+                        setCurKeyword={setCurKeyword}
                     ></KeywordsList>
                 </div>
                 <div id="button-container">
@@ -122,13 +136,21 @@ function MainPage() {
                             >
                                 {curKeyword}
                             </h1>
-                            <PostOverview post={posts[postId]}></PostOverview>
+                            <PostOverview
+                                post={acPosts.length ? acPosts[postId] : null}
+                            ></PostOverview>
                         </div>
                         <div
                             id="tabs-container"
                             className="lowerContainer leftContainer"
                         >
-                            <Box sx={{ width: "100%", typography: "body1" }}>
+                            <Box
+                                sx={{
+                                    width: "100%",
+                                    typography: "body1",
+                                    marginTop: "30px",
+                                }}
+                            >
                                 <TabContext value={tabValue}>
                                     <Box
                                         sx={{
@@ -138,8 +160,8 @@ function MainPage() {
                                     >
                                         <TabList
                                             onChange={handleTabChange}
-                                            textColor="secondary"
-                                            indicatorColor="secondary"
+                                            // textColor="secondary"
+                                            // indicatorColor="secondary"
                                         >
                                             <Tab label="Opinons" value="1" />
                                             <Tab
@@ -159,13 +181,25 @@ function MainPage() {
                             id="summaries-container"
                             className="upperContainer rightContainer"
                         >
-                            posts
+                            <PostScroll
+                                posts={acPosts}
+                                postId={postId}
+                                setPostId={setPostId}
+                            ></PostScroll>
                         </div>
                         <div
                             id="top-keywords-container"
                             className="lowerContainer rightContainer"
                         >
-                            tabs
+                            <div
+                                style={{
+                                    textAlign: "left",
+                                    marginLeft: "10px",
+                                }}
+                            >
+                                <h2>Top Keywords in {curKeyword}</h2>
+                            </div>
+                            <div id="word-container">{wordcloudJSX}</div>
                         </div>
                     </div>
                 </Container>

@@ -78,20 +78,26 @@ $top: 20px;
     // overflow: hidden;
 }
 .MainPage .Content .columnContainer {
-    min-height: 600px;
+    height: 650px;
     margin: 10px 10px;
 }
 .MainPage .Content .upperContainer {
-    min-height: 400px;
+    height: 350px;
     margin: 10px 10px;
 }
 .MainPage .Content .lowerContainer {
-    min-height: 200px;
+    height: 250px;
     margin: 10px 10px;
 }
 .MainPage .Content .leftContainer {
-    min-width: 500px;
+    width: 750px;
 }
 .MainPage .Content .rightContainer {
-    min-width: 250px;
+    width: 500px;
+}
+.MainPage #word-container {
+    border: solid 1px;
+    // margin-top: 10px;
+    border-radius: 20px;
+    background-color: #f5f5f5;
 }

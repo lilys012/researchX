@@ -1,12 +1,12 @@
 $primary: #3185e7;
 
 #post-container {
-    // width: 95%;
+    width: 90%;
     border: solid 2px;
     margin-top: 10px;
     border-radius: 20px;
     padding: 7px;
-    min-height: 350px;
+    height: 325px;
 }
 #main-post-div {
     display: flex;
@@ -15,6 +15,7 @@ $primary: #3185e7;
 #user-info {
     display: flex;
     gap: 5px;
+    align-items: center;
 }
 #post-right-container {
     position: relative;
@@ -25,7 +26,8 @@ $primary: #3185e7;
     gap: 12px;
 }
 #user-name {
-    font-size: 14px;
+    font-size: 17px;
+    margin-top: -15px;
 }
 #time-and-location {
     display: flex;
@@ -37,10 +39,11 @@ $primary: #3185e7;
 }
 #post-content-container {
     position: relative;
-    left: 60px;
+    left: 20px;
     text-align: left;
     font-size: 14px;
     font-weight: 500;
+    max-width: 96%;
 }
 #post-reply-to {
     color: $primary;
