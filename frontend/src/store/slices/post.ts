@@ -12,7 +12,6 @@ export type PostType = {
     isOpinion: boolean;
 };
 
-// const initData = 
 export interface PostState {
     posts: PostType[];
 }
