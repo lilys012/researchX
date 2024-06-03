@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import PostDetail from "./containers/PostDetail/PostDetail";
 import MyPage from "./containers/MyPage/MyPage";
