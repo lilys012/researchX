@@ -9,6 +9,22 @@ export type PostType = {
     isOpinion: boolean;
 };
 
+{
+    /*
+PostType
+id: number (assigned)
+content: string (note_tweet/tweet)
+keywords: string[] (LLM assigned) + (note_tweet/entities/hashtags)
+summary: string (assigned)
+isOpinion: number (assigned)
+imgs: string[] (includes/media)
+urls: string[] (includes/urls/expanded_url)
+postId: number (note_tweet/id)
+createdAt: string (note_tweet/created_at)
+userinfo: UserType (users)
+*/
+}
+
 export interface PostState {
     posts: PostType[];
 }
