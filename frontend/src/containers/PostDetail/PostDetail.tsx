@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PostOverview, {
     viewProps,
 } from "../../components/PostOverview/PostOverview";
@@ -10,12 +10,12 @@ import { PostType, selectPost } from "../../store/slices/post";
 import "./PostDetail.scss";
 
 function PostDetail() {
-    const { strId } = useParams();
+    const { id } = useParams();
     const postState = useSelector(selectPost);
-    const id = strId ? parseInt(strId) : 0;
+    // const id = strId ? parseInt(strId) : 0;
     const dispatch = useDispatch<AppDispatch>();
     console.log(postState.posts);
-    let targetPost: PostType = {
+    const [targetPost, setTargetPost] = useState<PostType>({
         id: -1,
         content: "404",
         keywords: [],
@@ -27,10 +27,13 @@ function PostDetail() {
         postId: "",
         created_at: "",
         users: [],
-    };
-    postState.posts.forEach((e) => {
-        if (e.id === id) targetPost = e;
     });
+    useEffect(() => {
+        postState.posts.forEach((e) => {
+            if (id && e.id === parseInt(id)) setTargetPost(e);
+        });
+    }, [id]);
+
     return (
         <div id="postdetail-container">
             <HeaderComponent setCurKeyword={null} setRefresh={null} />

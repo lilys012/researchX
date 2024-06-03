@@ -34,6 +34,12 @@ function PostScroll({
                     overflow: "auto",
                     maxHeight: 350,
                     "& ul": { padding: 0 },
+                    "&& .Mui-selected, && .Mui-selected:hover": {
+                        bgcolor: "#3E4F5B",
+                        "&, & .MuiListItemIcon-root": {
+                            color: "white",
+                        },
+                    },
                 }}
                 subheader={<li />}
             >
@@ -43,8 +49,25 @@ function PostScroll({
                             selected={postId === post.id}
                             onClick={(e) => setPostId(post.id)}
                             className="listItem"
+                            sx={{
+                                border: "2px solid black",
+                                borderRadius: "20px",
+                                margin: "2px",
+                                padding: "2px",
+                            }}
                         >
-                            <ListItemText primary={post.summary} />
+                            <ListItemText
+                                primaryTypographyProps={{
+                                    style: {
+                                        fontFamily: "NanumGothic",
+                                        fontSize: "12px",
+                                        fontWeight: 500,
+                                        width: "96%",
+                                        paddingLeft: "2%",
+                                    },
+                                }}
+                                primary={post.summary}
+                            />
                         </ListItemButton>
                     );
                 })}

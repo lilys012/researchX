@@ -1,11 +1,11 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 import { AppDispatch } from "../../store";
 import PostOverview from "../../components/PostOverview/PostOverview";
-import { PostType, selectPost } from "../../store/slices/post";
+import { KeywordType, PostType, selectPost } from "../../store/slices/post";
 import PostScroll from "../../components/PostScroll/PostScroll";
 import WordCloud from "../../components/WordCloud/WordCloud";
 import HeaderComponent from "../../components/Header/Header";
@@ -21,21 +21,25 @@ import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { resolve } from "node:path/posix";
+import { List } from "@mui/material";
 
 const { Content } = Layout;
 
 function MainPage() {
+    const { keyword } = useParams();
+
     const postState = useSelector(selectPost);
     const [postId, setPostId] = useState(0);
     const [tabValue, setTabValue] = React.useState("1");
     const [curKeyword, setCurKeyword] = useState<string>("");
     const [posts, setPosts] = useState<PostType[]>(postState.posts);
+    const [keywords, setKeywords] = useState<KeywordType[]>(postState.keywords);
     const [acPosts, setAcPosts] = useState<PostType[]>([]);
     const [opPosts, setOpPosts] = useState<PostType[]>([]);
     const [refresh, setRefresh] = useState<Boolean>(false);
 
     const dispatch = useDispatch<AppDispatch>();
+    const navigate = useNavigate();
 
     const wordcloudJSX = useMemo(() => {
         return <WordCloud setCurKeyword={setCurKeyword} posts={posts} />;
@@ -95,6 +99,26 @@ function MainPage() {
         return shuffledArray;
     };
 
+    const getCurPost = () => {
+        let curPost = posts[0];
+        for (let i = posts.length - 1; i > 0; i--) {
+            if (posts[i].id == postId) {
+                curPost = posts[i];
+                break;
+            }
+        }
+        return curPost;
+    };
+
+    useEffect(() => {
+        if (keyword)
+            setCurKeyword(keyword === "main" ? keywords[0].content : keyword);
+    }, [keyword]);
+
+    useEffect(() => {
+        if (curKeyword) navigate(`/${curKeyword}`);
+    }, [curKeyword]);
+
     useEffect(() => {
         setAcPosts(
             sortPosts(
@@ -141,11 +165,16 @@ function MainPage() {
                             >
                                 {curKeyword}
                             </h1>
-                            <Link to={`/post/${postId}`}>
+                            <Link
+                                to={`/post/${
+                                    posts.length ? getCurPost().id : 0
+                                }`}
+                                style={{
+                                    color: "#000",
+                                }}
+                            >
                                 <PostOverview
-                                    post={
-                                        acPosts.length ? acPosts[postId] : null
-                                    }
+                                    post={posts.length ? getCurPost() : null}
                                     overview={true}
                                 />
                             </Link>
@@ -158,7 +187,7 @@ function MainPage() {
                                 sx={{
                                     width: "100%",
                                     typography: "body1",
-                                    marginTop: "30px",
+                                    marginTop: "15px",
                                 }}
                             >
                                 <TabContext value={tabValue}>
@@ -180,8 +209,96 @@ function MainPage() {
                                             />
                                         </TabList>
                                     </Box>
-                                    <TabPanel value="1">Item One</TabPanel>
-                                    <TabPanel value="2">Item Two</TabPanel>
+                                    <TabPanel value="1">
+                                        <List
+                                            sx={{
+                                                width: "100%",
+                                                bgcolor: "background.paper",
+                                                position: "relative",
+                                                overflow: "auto",
+                                                maxHeight: 200,
+                                                "& ul": { padding: 0 },
+                                            }}
+                                            subheader={<li />}
+                                        >
+                                            {opPosts.map((post) => {
+                                                return (
+                                                    <Link
+                                                        style={{
+                                                            color: "#000",
+                                                        }}
+                                                        to={`/post/${post.id}`}
+                                                    >
+                                                        <div id="op-container">
+                                                            <div id="user-main-badge">
+                                                                <img
+                                                                    className="badge-image"
+                                                                    src={
+                                                                        post.users.find(
+                                                                            (
+                                                                                u
+                                                                            ) =>
+                                                                                u.id ==
+                                                                                post.author_id
+                                                                        )
+                                                                            ?.profile_image_url
+                                                                    }
+                                                                    style={{
+                                                                        borderRadius:
+                                                                            "50%",
+                                                                    }}
+                                                                    alt="sample"
+                                                                />
+                                                            </div>
+                                                            <div id="op-right-container">
+                                                                <div id="user-name">
+                                                                    {
+                                                                        post.users.find(
+                                                                            (
+                                                                                u
+                                                                            ) =>
+                                                                                u.id ==
+                                                                                post.author_id
+                                                                        )?.name
+                                                                    }
+                                                                </div>
+                                                                <span
+                                                                    id="op-text"
+                                                                    style={{
+                                                                        whiteSpace:
+                                                                            "pre-wrap",
+                                                                        display:
+                                                                            "-webkit-box",
+                                                                        WebkitBoxOrient:
+                                                                            "vertical",
+                                                                        overflow:
+                                                                            "hidden",
+                                                                        WebkitLineClamp: 1,
+                                                                        height: "auto",
+                                                                        fontSize:
+                                                                            "14px",
+                                                                        fontWeight: 500,
+                                                                        fontFamily:
+                                                                            "NanumGothic",
+                                                                        width: "96%",
+                                                                        marginBottom:
+                                                                            "2px",
+                                                                        padding:
+                                                                            "0",
+                                                                    }}
+                                                                >
+                                                                    {
+                                                                        post.content
+                                                                    }
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </Link>
+                                                );
+                                            })}
+                                        </List>
+                                    </TabPanel>
+                                    <TabPanel value="2">Conferences</TabPanel>
                                 </TabContext>
                             </Box>
                         </div>

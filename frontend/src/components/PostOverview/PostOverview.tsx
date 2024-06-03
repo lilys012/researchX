@@ -7,8 +7,6 @@ export interface viewProps {
     overview: boolean;
 }
 
-//TODO overview일 때 post 내용 말 줄이기 표시 (truncate?)
-
 function PostOverview({ post, overview }: viewProps) {
     return (
         <div

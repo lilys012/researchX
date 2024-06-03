@@ -8,14 +8,14 @@ from tqdm import tqdm
 
 llm = ChatUpstage()
 
-with open('postDataReal.json', 'r') as dataFile: data = json.load(dataFile)
+with open('postDataRealAnnotated.json', 'r') as dataFile: data = json.load(dataFile)
 
 ret_list = []
 for d in tqdm(data):
-    if len(d['keywords']) == 0: 
+    if len(d['keywords']) != 0: 
         prompt_template = PromptTemplate.from_template(
 """
-Provide ten AI keywords from the following text, each seperated by comma. Some examples are AlphaFold 3, GPT, Diffusion, CLIP, NLP, Lanugage Model, 3D Vision, VAE.
+Provide 5~10 AI keywords from the following text, each seperated by comma. Some examples are GPT, Diffusion, CLIP, NLP, Lanugage Model, 3D Vision, VAE.
 ---
 """+d["content"]
 )
