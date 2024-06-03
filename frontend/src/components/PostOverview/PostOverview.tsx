@@ -13,6 +13,7 @@ function PostOverview({ post, overview }: viewProps) {
     return (
         <div
             id="post-container"
+            className="PostOverview"
             // className="p-1 mt-2 ms-2"
             // onClick={post.clickPost}
         >
