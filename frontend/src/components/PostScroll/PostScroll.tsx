@@ -26,6 +26,7 @@ function PostScroll({
             id="scroll-container"
         >
             <List
+                id="scroll-list"
                 sx={{
                     width: "100%",
                     maxWidth: 500,
@@ -50,8 +51,8 @@ function PostScroll({
                             onClick={(e) => setPostId(post.id)}
                             className="listItem"
                             sx={{
-                                border: "2px solid black",
-                                borderRadius: "20px",
+                                // border: "2px solid black",
+                                // borderRadius: "20px",
                                 margin: "2px",
                                 padding: "2px",
                             }}

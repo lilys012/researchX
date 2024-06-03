@@ -21,7 +21,7 @@ import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { List } from "@mui/material";
+import { Avatar, List } from "@mui/material";
 
 const { Content } = Layout;
 
@@ -102,7 +102,7 @@ function MainPage() {
     const getCurPost = () => {
         let curPost = posts[0];
         for (let i = posts.length - 1; i > 0; i--) {
-            if (posts[i].id == postId) {
+            if (posts[i].id === postId) {
                 curPost = posts[i];
                 break;
             }
@@ -230,26 +230,23 @@ function MainPage() {
                                                         to={`/post/${post.id}`}
                                                     >
                                                         <div id="op-container">
-                                                            <div id="user-main-badge">
-                                                                <img
-                                                                    className="badge-image"
-                                                                    src={
-                                                                        post.users.find(
-                                                                            (
-                                                                                u
-                                                                            ) =>
-                                                                                u.id ==
-                                                                                post.author_id
-                                                                        )
-                                                                            ?.profile_image_url
-                                                                    }
-                                                                    style={{
-                                                                        borderRadius:
-                                                                            "50%",
-                                                                    }}
-                                                                    alt="sample"
-                                                                />
-                                                            </div>
+                                                            <Avatar
+                                                                alt={
+                                                                    post.users.find(
+                                                                        (u) =>
+                                                                            u.id ===
+                                                                            post.author_id
+                                                                    )?.name
+                                                                }
+                                                                src={
+                                                                    post.users.find(
+                                                                        (u) =>
+                                                                            u.id ===
+                                                                            post.author_id
+                                                                    )
+                                                                        ?.profile_image_url
+                                                                }
+                                                            />
                                                             <div id="op-right-container">
                                                                 <div id="user-name">
                                                                     {
@@ -257,7 +254,7 @@ function MainPage() {
                                                                             (
                                                                                 u
                                                                             ) =>
-                                                                                u.id ==
+                                                                                u.id ===
                                                                                 post.author_id
                                                                         )?.name
                                                                     }

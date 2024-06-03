@@ -17,18 +17,16 @@
         "isOpinion": false,
         "content": "Excited to introduce Contextual Self-Supervised Learning (ContextSSL) for vision, an approach to learning a general representation that can adapt to be invariant or equivariant to task-specific symmetries given a few examples as the context.\n\nPaper: https://arxiv.org/pdf/2405.18193\n\n2/ SSL methods enforce invariance or equivariance to specific augmentations, introducing strong priors. While useful for some tasks, these can hurt others. E.g., invariance to flipping aids classification but harms segmentation, requiring retraining with task-specific symmetries.\n\n3/ Unlike SSL methods, human perception is highly adaptive, tuning into relevant features based on the task's context. This raises a key question: Can we incorporate context into SSL to eliminate augmentation-based priors and enable dynamic adaptation to varying task symmetries?\n\n4/ Our answer is a resounding yes! ContextSSL uses transformers to adapt to selective invariance/equivariance to transformations by attending to task-specific context. It does so by introducing Contextual World Models, a module to enhance existing Image World Models with context.\n\n5/ We show that in the absence of context, ContextSSL learns a general representation by encoding all relevant features. As the context increases, the model tailors its symmetries to a task, encouraging equivariance to a subset of transformations and invariance to the rest.\n\n6/ We show that learning with context in SSL is prone to identifying shortcuts and subsequently propose two simple modules to address it: a context mask and an auxiliary predictor. As shown experimentally, each plays a key role in avoiding shortcuts and collapse to invariance.\n\n7/ For additional results and ablations, refer to our paper. Shoutout to my wonderful collaborators! @ChenyuW64562111 @yifeiwang77 Tommi Jaakkola @StefanieJegelka",
         "imgs": [
-            "https://twitter.com/sharut_gupta/status/1796192764121555411/photo/1",
-            "https://twitter.com/sharut_gupta/status/1796192768890388588/photo/1",
-            "https://twitter.com/sharut_gupta/status/1796192776561811801/photo/1",
-            "https://twitter.com/sharut_gupta/status/1796192781712445734/photo/1",
-            "https://twitter.com/sharut_gupta/status/1796192781712445734/photo/2",
-            "https://twitter.com/sharut_gupta/status/1796192787710242856/photo/1",
-            "https://twitter.com/sharut_gupta/status/1796192787710242856/photo/2",
-            "https://twitter.com/sharut_gupta/status/1796192793213219027/photo/1"
+            "https://pbs.twimg.com/media/GO1bzH8WYAAZ4np.jpg",
+            "https://pbs.twimg.com/media/GO1bzfEWsAAp5pI.jpg",
+            "https://pbs.twimg.com/media/GO1bz5tW4AEEGTZ.jpg",
+            "https://pbs.twimg.com/media/GO1b0LsWsAAfP7E.jpg",
+            "https://pbs.twimg.com/media/GO1b0LzXYAEkAel.jpg",
+            "https://pbs.twimg.com/media/GO1b0h5WoAACk0i.jpg",
+            "https://pbs.twimg.com/media/GO1b0h3XsAAue4-.jpg",
+            "https://pbs.twimg.com/media/GO1b01lXkAEDG8d.jpg"
         ],
-        "urls": [
-            "https://arxiv.org/pdf/2405.18193"
-        ],
+        "urls": ["https://arxiv.org/pdf/2405.18193"],
         "author_id": "1297440922032955398",
         "created_at": "2024-05-30T14:51:48.000Z",
         "postId": "1796192764121555411",
@@ -85,12 +83,10 @@
         "isOpinion": false,
         "content": "Excited to share our new preprint: https://arxiv.org/abs/2405.15237\n\nWe adapt a randomized benchmarking-like protocol to bosonic modes to efficiently characterize a noise source, its strength and its correlation.\n\nPing @SydneyNano, @MJBiercuk\n\nOur goal is to characterize bosonic modes in a driven setting. To do this, we apply randomized displacements in phase space, followed by an inversion step and measure a fidelity. Similar to traditional RB, the decay of mean fidelity gives us the error rate.\n\nWith our protocol, we can also determine the noise source (heating vs dephasing) and the correlation of the noise. We built analytical error models to describe these and validated everything on our trapped ion experiment.\n\n",
         "imgs": [
-            "https://twitter.com/CValahu/status/1794973628867432473/photo/1",
-            "https://twitter.com/CValahu/status/1794979285436080421/photo/1"
+            "https://pbs.twimg.com/media/GOkGql3a8AAN337.jpg",
+            "https://pbs.twimg.com/media/GOkL1iEb0AAypPT.png"
         ],
-        "urls": [
-            "arxiv.org/abs/2405.15237"
-        ],
+        "urls": ["arxiv.org/abs/2405.15237"],
         "created_at": "2024-05-27T06:08:58.000Z",
         "author_id": "1199015844757614594",
         "postId": "1794973628867432473",
@@ -150,15 +146,13 @@
         "isOpinion": false,
         "content": "\ud83d\udea8PAPER ALERT\ud83d\udea8What\u2019s the opposite of a face?\n\nWe developed a novel fMRI clustering method based on DBSCAN to understand shared sensitivity to visual semantic concepts (and their negations!) in the brain\ud83e\udde0\ud83e\uddf5(1/7). https://arxiv.org/abs/2405.17663\n\nOur adapted clustering algorithm clusters the parameters of an NSD -> CLIP decoding model learned via contrastive learning of fMRI inputs.  Clusters are constrained to contain voxels from multiple participants but aren't required to be adjacent (yet clusters emerge!)\n\nTo better understand the semantic properties in brain-decoded CLIP embeddings, we identified images most associated with the cluster centroid (& negation). Food images are confounded with color/shape information in NSD; our method allows us to identify and decouple these factors.\n\nWe identified semantic categories reported in prior work (e.g. faces, bodies, places, orientation), but also novel fine-grained categories (e.g. body motion, legs, hands, general & body-specific numerosity) in fine-grained subsets of brain regions (e.g. EBA, rIPS, early visual).\n\nOur method allows for interpretability of semantic sensitivity in visual cortex, allowing us to discern further semantic categories related to proximity (close / far), lighting conditions, indoors / outdoors location and words in native fMRI space via our adaptation of DBSCAN.\n\nWe find that, according to visual cortex, \u201cthe opposite of a face\u201d is images of people whose faces are obscured but otherwise EXPECTED (e.g. people looking away from the camera, wearing a ski mask).\n\nWe note this similarity to the concept of \u201coffsembles\u201d in recent work (P\u00e9rez-Ortega et al., 2024). Check out our preprint for more figures and to read the full set of results. Work led by the amazing @cory_efird alongside myself, @JoelZylber16090 & @alonamarie.",
         "imgs": [
-            "https://twitter.com/Alxmrphi/status/1795990408129888682/photo/1",
-            "https://twitter.com/Alxmrphi/status/1795990410264711449/photo/1",
-            "https://twitter.com/Alxmrphi/status/1795990412479410460/photo/1",
-            "https://twitter.com/Alxmrphi/status/1795990414874345972/photo/1",
-            "https://twitter.com/Alxmrphi/status/1795990417307050141/photo/1"
+            "https://pbs.twimg.com/media/GOydug2XsAAlrN9.jpg",
+            "https://pbs.twimg.com/media/GOyeyq1WsAAtPHY.jpg",
+            "https://pbs.twimg.com/media/GOygA6CXsAAAE5i.jpg",
+            "https://pbs.twimg.com/media/GOygkWAXkAANgpX.jpg",
+            "https://pbs.twimg.com/media/GOygs16WkAAhar-.jpg"
         ],
-        "urls": [
-            "https://arxiv.org/abs/2405.17663"
-        ],
+        "urls": ["https://arxiv.org/abs/2405.17663"],
         "postId": "1795990406095651033",
         "created_at": "2024-05-30T01:27:35.000Z",
         "author_id": "358445498",
@@ -224,9 +218,9 @@
         "isOpinion": false,
         "content": "\ud83c\udf89New Paper\ud83c\udf89\n\nLanguage models possess a great deal of common-sense knowledge about real-world environments.\ud83c\udf0e\n\nHow can we take advantage of this for *non-linguistic* tasks?\n\n\ud83d\udd17: https://arxiv.org/abs/2302.02801\n\n\ud83e\uddf51/\n\nWe introduce LaMPP, a generic approach that treats LMs as priors over probabilistic models of tasks. We do this by decomposing problems p(Y|X) into p(Y)p(X|Y), then using the LM to induce a prior over the label space p(Y). 2/\n\nFor example, in image segmentation, we use  LMs to provide priors over (latent) rooms and object labels. This information can then be used to resolve perceptual ambiguity: if we see a bed, we are likely in a bedroom, and thus the nearby table is likely a nightstand. 3/\n\nOverall, we find that LaMPP improves model performance on rare, out-of-distributions, or structurally novel inputs---sometimes by a very wide margin---without hurting in-distribution accuracy. 4/\n\nWe anticipate it can benefit grounded perception and control tasks where training datasets can be sparse, biased, or hard to collect. 5/\n\nThis work is related to other works that have explored prompting LMs to generate plausible plans and actions for robotics tasks (https://aclanthology.org/2022.acl-long.120/, https://say-can.github.io) or chaining multimodal LMs to perform language-and-X tasks (https://socraticmodels.github.io). 6/\n\nUnlike model chaining approaches however, our framework enables models to perform structured reasoning under uncertainty, rather than purely passing messages in string space. 7/\n\nThere's much more in the paper, including applications to two other tasks (navigation and video-action segmentation) and ways of using LMs as a prior over *parameters* as well as labels. See links below! \ud83d\udcc4: https://arxiv.org/abs/2302.02801 \ud83d\udcbb: https://github.com/belindal/LaMPP 8/\n\nMuch thanks to amazing collaborators  @verityw_, @pratyusha_PS, @jacobandreas! (PS: PhD programs take notice -- Will is applying this cycle, and would be a fantastic asset to any lab!)9/9\n\n",
         "imgs": [
-            "https://twitter.com/belindazli/status/1624191746438762497/photo/1",
-            "https://twitter.com/belindazli/status/1624191751597756417/photo/1",
-            "https://twitter.com/belindazli/status/1624191755607474177/photo/1"
+            "https://pbs.twimg.com/media/Foo216TaMAAPbpK.jpg",
+            "https://pbs.twimg.com/media/Foo3jF-aUAAgjst.jpg",
+            "https://pbs.twimg.com/media/Foo4kR7aUAE1yO0.png"
         ],
         "urls": [
             "https://arxiv.org/abs/2302.02801",
@@ -288,11 +282,11 @@
         "isOpinion": false,
         "content": "Excited to share new work done @GoogleDeepMind: \ud83c\udfd4\ufe0f DOLOMITES: Domain-Specific Long-Form Methodical Tasks, a new long-form generation benchmark for evaluating language models on **realistic** domain-specific tasks. Website: https://dolomites-benchmark.github.io Paper: https://arxiv.org/abs/2405.05938\n\nExperts in various fields use writing to organize & report their work. From a clinician writing a plan of treatment to a teacher writing a lesson plan, these tasks are pervasive across fields. Crucially, these tasks all require producing some structured output given some input.\n\nWe generalize these tasks as **methodical tasks** because of their structured format and methodical nature of execution. Through DOLOMITES, we study the capabilities of LMs to assist experts with these tasks.\n\nFirst, we collect descriptions of 519 such tasks from experts across 25 fields. Each task has a standard format and contains a task objective, procedure, input & output sections.\n\nTasks are validated for being representative tasks from each field, most are medium-high complexity and take a significant amount of time to complete. Further, we study the societal implications of using LMs for these tasks by consulting an independent group of experts.\n\nWe then instantiate these tasks with plausible inputs and outputs by sampling relevant documents from the web and synthesizing examples (input and output pairs) of these tasks, which are further post-edited by  the same experts who provided the tasks.\n\nEvaluation is conducted through 1) factual consistency with the reference and 2) LM-based evaluation of pairs of generations. Find results for several LMs in our paper! We propose two evaluation modes, reference-based and reference-less, described here:https://dolomites-benchmark.github.io/evaluation/index.html\n\nWe are excited that this benchmark has already been adapted to evaluate models in the new Gemini-1.5 report released recently: http://goo.gle/GeminiV1-5\n\nWe are really excited to expand DOLOMITES with community contributions (more tasks, multi-turn conversations, multi-modal expansion). If you have a task of your own that you'd like to see included, please head to https://docs.google.com/forms/d/e/1FAIpQLSdMaLnT6VC9conVPK-e3LbtDF-YteOaum7_aCdOsNgdb4pk7g/viewform?usp=sf_link or just reach out if you'd like to chat. We are really excited to expand DOLOMITES with community contributions (more tasks, multi-turn conversations, multi-modal expansion). If you have a task of your own that you'd like to see included, please head to https://docs.google.com/forms/d/e/1FAIpQLSdMaLnT6VC9conVPK-e3LbtDF-YteOaum7_aCdOsNgdb4pk7g/viewform?usp=sf_link or just reach out if you'd like to chat.\n\nWork done in collaboration with @priyanka_17, @kuzman, @spranesh, @fantinehuot, @JonathanBerant, @yatskar, @dipanjand, @mlapata, @chris_alberti.",
         "imgs": [
-            "https://twitter.com/cmalaviya11/status/1795825935692034270/photo/1",
-            "https://twitter.com/cmalaviya11/status/1795825963248586961/photo/1",
-            "https://twitter.com/cmalaviya11/status/1795826011038449739/photo/1",
-            "https://twitter.com/cmalaviya11/status/1795826033616461923/photo/1",
-            "https://twitter.com/cmalaviya11/status/1795826090793123994/photo/1"
+            "https://pbs.twimg.com/media/GOwOKFrbQAA4mzd.jpg",
+            "https://pbs.twimg.com/media/GOwOMVya0AIj-En.jpg",
+            "https://pbs.twimg.com/media/GOwOOtXbwAE3QGD.jpg",
+            "https://pbs.twimg.com/media/GOwOQotaMAA9I9B.jpg",
+            "https://pbs.twimg.com/media/GOwOTz0agAAG724.jpg"
         ],
         "urls": [
             "https://arxiv.org/abs/2405.05938",
@@ -494,9 +488,7 @@
         "author_id": "2556242232",
         "postId": "1796458866903073234",
         "created_at": "2024-05-31T08:29:05.000Z",
-        "imgs": [
-            "https://twitter.com/ZilongZheng/status/1796458866903073234/photo/1"
-        ],
+        "imgs": ["https://pbs.twimg.com/media/GO5M_S4boAAwR96.jpg"],
         "urls": [
             "http://arxiv.org/abs/2311.04939",
             "http://hf.co/datasets/bigainlco/LooGLE"
@@ -530,13 +522,13 @@
         "isOpinion": false,
         "content": "\ud83d\udea8 New LLM personalization/alignment paper \ud83d\udea8 \ud83e\udd14 How can we obtain personalizable LLMs without explicitly re-training reward models/LLMs for each user? \u2714 We introduce a new zero-shot alignment method to control LLM responses via the system message \ud83d\ude80\n\nAligning LLMs with human preferences is crucial for building reliable AI systems. A vast majority of alignment methods focus mostly on simple binary schemes\u2014helpfulness or harmlessness. \ud83c\udf08 However, human preferences aren't just binary; they're multifaceted and diverse! Recent works suggest a new paradigm called personalized RLHF to consider individual preferences during alignment. \ud83d\udcb8 However, current personalization methods require collecting fine-grained preference data for each individual. This approach may not be scalable in terms of time, storage, and cost. \ud83d\udd0d We focus on the role of the system message to guide an LLM to adopt specific behaviors or roles, crafting responses that resonate on a personal level with users. Traditionally, LLMs operate under a default system message like 'You are a helpful assistant\u2026' But what if we could do more?\n\nWe introduce the Multifaceted Collection, a dataset with 196k unique system messages for aligning LLMs to diverse human preferences, enhancing our approach that trains LLMs to adapt to new and unseen preferences, boosting personalization! It consists of 65k unique instructions, each accompanied by 3 synthetic system messages, along with respective personalized responses. Through a set of quantitative analyses, it encompasses a variety of preferences. We also train Mistral 7B v0.2 on the dataset, enabling our resulting LLM, Janus 7B \ud83c\udfad, to generate personalized responses tailored to user preferences.\n\nWe tested Janus on 921 instructions across 5 benchmarks to see if it aligns with human verified diverse system messages. In a pairwise ranking human evaluation setting, Janus 7B achieves win rates of 74.8% vs Mistral 7B Instruct v0.2, 70.8% vs GPT-3.5-Turbo-0125, and 57.9% vs GPT-4-Turbo-0125! Results in direct assessment with GPT-4 evaluation show similar trends, where Janus 7B scores 4.24 out of 5, surpassing LLaMA 3 8B Instruct (4.1) and other similar sized models, and nearly matching bigger sized LLM, LLaMA 3 Instruct 70B (4.39) and proprietary LLM, GPT-4-Turbo-0125 (4.35)!\n\nSurprisingly, when assessing the helpfulness of the response on 3 benchmarks (AlpacaEval 2.0, MT-Bench, Arena Hard Auto v0.1), Janus outperforms LLaMA 3 8B Instruct by a +4.0%, +0.1%, and +0.3% margin. Janus is also designed to reflect a broad range of individual values while prioritizing safety by maintaining consistent standards for harmlessness. Janus 7B shows an average maximum toxicity of 0.256 and a toxicity probability of 0.061, significantly lower than other instruction-tuned models maintaining diversity score on RealToxicityPrompts. \ud83c\udf1fTraining models with various system messages not only boosts diversity but also efficiently enhances alignment with the general public\u2019s preferences, without compromising safety! \u2705 This confirms the powerful impact of system message generalization!\n\n To learn more about our work, please check out our paper, code, datasets and models! Paper: https://arxiv.org/abs/2405.17977 Code: https://github.com/kaistAI/Janus Datasets and models: https://t.co/QIOVRkjyiA\n\nI'd like to thank all my co-authors for their valuable comments & advice throughout the project! And a special thanks to @suehpark, who co-led this project with me! @seungonekim @seo_minjoon",
         "imgs": [
-            "https://twitter.com/sylee_ai/status/1796539962780979478/photo/1",
-            "https://twitter.com/sylee_ai/status/1796540178158453242/photo/1",
-            "https://twitter.com/sylee_ai/status/1796540310513909896/photo/1",
-            "https://twitter.com/sylee_ai/status/1796540554484031857/photo/1",
-            "https://twitter.com/sylee_ai/status/1796540554484031857/photo/2",
-            "https://twitter.com/sylee_ai/status/1796540681827328177/photo/1",
-            "https://twitter.com/sylee_ai/status/1796540681827328177/photo/2"
+            "https://pbs.twimg.com/media/GO6Xi-UbcAAYVxn.jpg",
+            "https://pbs.twimg.com/media/GO6Xw65aUAEO3H3.png",
+            "https://pbs.twimg.com/media/GO6X4qobgAA3IkU.jpg",
+            "https://pbs.twimg.com/media/GO6YG_6aAAAEpNt.jpg",
+            "https://pbs.twimg.com/media/GO6YG_6bYAIdW94.png",
+            "https://pbs.twimg.com/media/GO6YOJzaIAEAjaY.jpg",
+            "https://pbs.twimg.com/media/GO6YOJzbsAA-wR7.jpg"
         ],
         "urls": [
             "https://arxiv.org/abs/2405.17977",
@@ -602,12 +594,12 @@
         "postId": "1796220428345573399",
         "author_id": "703274475576541189",
         "imgs": [
-            "https://twitter.com/_angie_chen/status/1796220428345573399/photo/1",
-            "https://twitter.com/_angie_chen/status/1796220431709462794/photo/1",
-            "https://twitter.com/_angie_chen/status/1796220433622040661/photo/1",
-            "https://twitter.com/_angie_chen/status/1796220435501056385/photo/1",
-            "https://twitter.com/_angie_chen/status/1796220439003385857/photo/1",
-            "https://twitter.com/_angie_chen/status/1796222260245934391/photo/1"
+            "https://pbs.twimg.com/media/GO109W3WgAseSDL.jpg",
+            "https://pbs.twimg.com/media/GO1t_mdXEAAc5N0.jpg",
+            "https://pbs.twimg.com/media/GO1uY6-WIAAXEX8.jpg",
+            "https://pbs.twimg.com/media/GO1y1xGXEAQtmDb.jpg",
+            "https://pbs.twimg.com/media/GO1zomEXEAIYsXR.jpg",
+            "https://pbs.twimg.com/media/GO12b-1WEAAQBJm.png"
         ],
         "urls": [
             "https://github.com/angie-chen55/pref-learning-ranking-acc/blob/main/pref_learning_algs_do_not_learn_pref_rankings.pdf",
@@ -685,12 +677,8 @@
         "postId": "1797074412073558477",
         "author_id": "2633759965",
         "created_at": "2024-06-02T01:15:02.000Z",
-        "imgs": [
-            "https://twitter.com/samuelperezdi/status/1797074412073558477/photo/1"
-        ],
-        "urls": [
-            "https://t.co/MWPWxqkTsc"
-        ],
+        "imgs": ["https://pbs.twimg.com/media/GPB6IsaWcAAVc50.jpg"],
+        "urls": ["https://t.co/MWPWxqkTsc"],
         "users": [
             {
                 "profile_image_url": "https://pbs.twimg.com/profile_images/1749893493902749696/xH3he7d0_normal.jpg",
@@ -744,13 +732,11 @@
         "summary": "Efficiently controlling language model generation style through word embeddings.",
         "content": "\ud83d\udca1In the era of pretrained LLM backbones, what are fundamental mechanisms behind effectively & efficiently controlling LM generation style? \ud83d\ude80 Introducing \u201cWord Embeddings Are Steers for Language Models\u201d, which we'll present at #ACL2024! \ud83d\udcdc Preprint: https://arxiv.org/pdf/2305.12798\n\nThis is work led by my amazing labmate, Chi, and many thanks to our amazing team of collaborators @uiuc_nlp for all of the thoughtful discussion & contributions! Happy to discuss more in \ud83c\uddf9\ud83c\udded ACL main venue. \ud83e\udd17",
         "imgs": [
-            "https://twitter.com/YiFung10/status/1792610904892387519/photo/1",
-            "https://twitter.com/YiFung10/status/1792610904892387519/photo/2",
-            "https://twitter.com/YiFung10/status/1792610904892387519/photo/3"
+            "https://pbs.twimg.com/media/GOCiHhUXwAAK-PI.jpg",
+            "https://pbs.twimg.com/media/GOCiHhUXEAAUyNd.png",
+            "https://pbs.twimg.com/media/GOCiHhbXEAAsNlF.png"
         ],
-        "urls": [
-            "https://t.co/SyOKkZUf9h"
-        ],
+        "urls": ["https://t.co/SyOKkZUf9h"],
         "author_id": "1188626449911160834",
         "created_at": "2024-05-20T17:38:39.000Z",
         "postId": "1792610904892387519",
@@ -802,18 +788,13 @@
     },
     {
         "id": 12,
-        "keywords": [
-            "AI",
-            "OpenAI",
-            "Google",
-            "Aesthetic Difference"
-        ],
+        "keywords": ["AI", "OpenAI", "Google", "Aesthetic Difference"],
         "summary": "Comparing aesthetics of OpenAI and Google.",
         "isOpinion": true,
         "content": "i try not to think about competitors too much, but i cannot stop thinking about the aesthetic difference between openai and google",
         "imgs": [
-            "https://twitter.com/sama/status/1791183356274921568/photo/1",
-            "https://twitter.com/sama/status/1791183356274921568/photo/2"
+            "https://pbs.twimg.com/media/GNuEQohbUAAOfIo.jpg",
+            "https://pbs.twimg.com/media/GNuERQ_aAAIlLSQ.jpg"
         ],
         "urls": [],
         "created_at": "2024-05-16T19:06:05.000Z",
@@ -848,8 +829,8 @@
         "isOpinion": true,
         "content": "Even as a non-lawyer on this team, I find fascinating the concrete examples of hallucinated & wrong LLM RAG \u201cfacts\u201d we see. Some examples from v2 of the paper\u2014now including Westlaw\u2019s AI-Assisted Research, which we were given access to after posting v1. https://dho.stanford.edu/wp-content/uploads/Legal_RAG_Hallucinations.pdf",
         "imgs": [
-            "https://twitter.com/chrmanning/status/1796593594654130230/photo/1",
-            "https://twitter.com/chrmanning/status/1796593594654130230/photo/2"
+            "https://pbs.twimg.com/media/GO7IWkyb0AAPHum.jpg",
+            "https://pbs.twimg.com/media/GO7IWkzb0AAtCTT.jpg"
         ],
         "urls": [
             "https://dho.stanford.edu/wp-content/uploads/Legal_RAG_Hallucinations.pdf"
@@ -907,12 +888,8 @@
         "summary": "AI alignment paradox: well-aligned models can become easily misaligned, emphasizing the need for a broad research community to find solutions.",
         "isOpinion": false,
         "content": "AI alignment steers AI toward human goals & values. In a recent perspective piece, we draw attention to a fundamental challenge with all such endeavors: the \u201cAI alignment paradox\u201d\u2014better-aligned models are more easily misaligned. \ud83d\udcddhttps://arxiv.org/pdf/2405.20806 \ud83d\udc47Example below\ud83d\udc47\n\nWe illustrate the paradox w/ 3 incarnations (borrowed from @AnthropicAI @NinaRimsky @AmnonShashua @YotamWolf et al.). E.g., in \u201cmodel tinkering\u201d\ud83d\udc47, a better-aligned model can be more easily made to generate misaligned text by adding a \u201csteering vector\u201d to neural net latent state.\n\nMore examples in the paper.With AI\u2019s increasing real-world impact, it\u2019s imperative that a broad community of researchers be aware of the AI alignment paradox and work to find ways to break out of it, in order to ensure the beneficial use of AI for the good of humanity.\n\nThanks to Tim Davidson, Valentin Hartmann, @manoelribeiro, @erichorvitz, @zachary_horvitz, @wendlerch, @john_orders, and others for early feedback.(Also, there's much more relevant work than what is cited in the paper. The dearth of citations stems from a format constraint.)",
-        "imgs": [
-            "https://twitter.com/cervisiarius/status/1797568324827488725/photo/1"
-        ],
-        "urls": [
-            "https://arxiv.org/pdf/2405.20806"
-        ],
+        "imgs": ["https://pbs.twimg.com/media/GPI9bYIX0AAxuWd.jpg"],
+        "urls": ["https://arxiv.org/pdf/2405.20806"],
         "postId": "1797568321853825162",
         "author_id": "193115103",
         "created_at": "2024-06-03T09:57:39.000Z",
@@ -990,10 +967,10 @@
             "https://github.com/salesforce/GlueGen"
         ],
         "imgs": [
-            "https://twitter.com/CaimingXiong/status/1679984926882660353/photo/1",
-            "https://twitter.com/CaimingXiong/status/1679984928656879618/photo/1",
-            "https://twitter.com/CaimingXiong/status/1679984930250719232/photo/1",
-            "https://twitter.com/CaimingXiong/status/1679984931706138625/photo/1"
+            "https://pbs.twimg.com/media/F1CAlcPakAE26vF.jpg",
+            "https://pbs.twimg.com/media/F1CA49naQAIotsC.jpg",
+            "https://pbs.twimg.com/media/F1CBEVjakAAl1sW.jpg",
+            "https://pbs.twimg.com/media/F1CBQTNaYAAFo4O.jpg"
         ],
         "created_at": "2023-07-14T22:43:13.000Z",
         "author_id": "325839895",
@@ -1082,10 +1059,10 @@
             "https://github.com/princeton-nlp/LESS"
         ],
         "imgs": [
-            "https://twitter.com/xiamengzhou/status/1757832742903943215/photo/1",
-            "https://twitter.com/xiamengzhou/status/1757832745198170621/photo/1",
-            "https://twitter.com/xiamengzhou/status/1757832747261755423/photo/1",
-            "https://twitter.com/xiamengzhou/status/1757832749509960102/photo/1"
+            "https://pbs.twimg.com/media/GGURQLBXYAAZF3k.jpg",
+            "https://pbs.twimg.com/media/GGURo9pWMAAKUF4.jpg",
+            "https://pbs.twimg.com/media/GGUSH14XcAAP8tr.png",
+            "https://pbs.twimg.com/media/GGUStHgWIAEk7hw.png"
         ],
         "users": [
             {
@@ -1154,18 +1131,16 @@
         "isOpinion": false,
         "content": "So, what really matters for instruction fine-tuning? Surprisingly, simply fine-tuning on the *longest* examples is an extremely strong baseline for alignment of LLMs. Really excited to share our new work: https://arxiv.org/abs/2402.04833. Full story below! \ud83e\uddf51/n\n\nDetailed breakdown of the GPT-4-based evaluation on different evaluation sets (LIMA, Vicuna, Koala, WizardLM, Self-Instruct) for models trained on different sets of instructions (Alpaca-52k, Evol-Instruct-70k). The naive longest-1k baseline looks pretty good! \ud83e\uddf52/n\n\nA lightweight refinement of the 1k longest responses with GPT-3.5 can further boost the generation quality of the fine-tuned LLMs. \ud83e\uddf53/n\n\nThe refinement + NEFTune allows us to obtain a top-2 Llama-2-7B-based model on AlpacaEval 2.0 while training on *only 1,000 examples* and no extra preference data. Also, there are many examples in the table with the same response length but totally different win rate (!). \ud83e\uddf54/n\n\nNow if you are still skeptical and think that we are just overfitting to GPT-4/PALM-2-based evaluation via long responses, we perform further analysis. Here is an evaluation on Open LLM datasets: ARC, MMLU, Winogrande. Our 1k-longest models look pretty good here as well! \ud83e\uddf55/n\n\nHere we control for the response length at test time: our 1k-longest models are again preferred by GPT-4 and PALM-2 as judges. \ud83e\uddf56/n\n\nHere is the win rate against GPT-4-Turbo and response length over the training epochs for one of our 1k-longest models. Surprisingly, the average response length _decreases_ after the 2nd epoch, while the win rate keeps increasing. \ud83e\uddf57/n\n\nFinally, some examples of open-ended generations \u2013 our Alpaca-1k-longest model is pretty fluent & answers the question well! This supports the superficial alignment hypothesis: we don\u2019t need lots of instructions to turn a pre-trained LLM into a useful conversational model \ud83e\uddf58/n\n\nFor more details, check out our paper https://arxiv.org/abs/2402.04833. Instruction FT is (still) very counter-intuitive :-) We believe we need simple baselines to really understand what\u2019s going on! Joint work with @H_aoZhao (in fact, it was his master thesis!), @fra__31, @tml_lab \ud83e\uddf5n/n",
         "imgs": [
-            "https://twitter.com/maksym_andr/status/1755636355537715564/photo/1",
-            "https://twitter.com/maksym_andr/status/1755636358108901750/photo/1",
-            "https://twitter.com/maksym_andr/status/1755636361535644001/photo/1",
-            "https://twitter.com/maksym_andr/status/1755636364043804948/photo/1",
-            "https://twitter.com/maksym_andr/status/1755636366346477715/photo/1",
-            "https://twitter.com/maksym_andr/status/1755636368552669663/photo/1",
-            "https://twitter.com/maksym_andr/status/1755636371014697242/photo/1",
-            "https://twitter.com/maksym_andr/status/1755636373552316530/photo/1"
+            "https://pbs.twimg.com/media/GF1EPSCXAAAt-ZQ.jpg",
+            "https://pbs.twimg.com/media/GF1EiNrXMAAMjGX.jpg",
+            "https://pbs.twimg.com/media/GF1EoD8XoAAqWfJ.jpg",
+            "https://pbs.twimg.com/media/GF1ExCaWMAAliq0.png",
+            "https://pbs.twimg.com/media/GF1E8vkX0AAmpiV.jpg",
+            "https://pbs.twimg.com/media/GF1FAU4WgAAJeCg.jpg",
+            "https://pbs.twimg.com/media/GF1FE47WcAAB-KP.jpg",
+            "https://pbs.twimg.com/media/GF1FI9-XcAE3Yv-.jpg"
         ],
-        "urls": [
-            "https://arxiv.org/abs/2402.04833"
-        ],
+        "urls": ["https://arxiv.org/abs/2402.04833"],
         "created_at": "2024-02-08T16:54:59.000Z",
         "author_id": "987061319378587649",
         "postId": "1755636355537715564",
@@ -1218,11 +1193,11 @@
             "https://haoxiang-wang.github.io"
         ],
         "imgs": [
-            "https://twitter.com/Haoxiang__Wang/status/1717022959003459693/photo/1",
-            "https://twitter.com/Haoxiang__Wang/status/1717022961339601385/photo/1",
-            "https://twitter.com/Haoxiang__Wang/status/1717022963055092019/photo/1",
-            "https://twitter.com/Haoxiang__Wang/status/1717022965198471653/photo/1",
-            "https://twitter.com/Haoxiang__Wang/status/1717022966888669503/photo/1"
+            "https://pbs.twimg.com/media/F9QLrK1WUAEggFI.png",
+            "https://pbs.twimg.com/media/F9QK4UcWgAAtR4Z.jpg",
+            "https://pbs.twimg.com/media/F9QMg6lWMAA_anB.jpg",
+            "https://pbs.twimg.com/media/F9QODb4WEAA9zvM.jpg",
+            "https://pbs.twimg.com/media/F9QPd6hXEAEVmrL.jpg"
         ],
         "author_id": "2777901043",
         "created_at": "2023-10-25T03:39:08.000Z",
@@ -1294,9 +1269,7 @@
         "summary": "Arxiv and peer-reviewed version citation loop.",
         "isOpinion": true,
         "content": "When my paper cites a paper from arxiv and then that paper's peer reviewed version cites the arxiv version of my paper",
-        "imgs": [
-            "https://twitter.com/lucy3_li/status/1797437259308007594/photo/1"
-        ],
+        "imgs": ["https://pbs.twimg.com/media/GPHHHiTbgAEH3ZB.png"],
         "urls": [],
         "postId": "1797437259308007594",
         "created_at": "2024-06-03T01:16:52.000Z",

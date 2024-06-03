@@ -1,6 +1,8 @@
 import React from "react";
 import { PostType } from "../../store/slices/post";
 import "./PostOverview.scss";
+import { Avatar } from "@mui/material";
+import { Col, Container, Row, Image } from "react-bootstrap";
 
 export interface viewProps {
     post: PostType | null;
@@ -19,30 +21,28 @@ function PostOverview({ post, overview }: viewProps) {
             ) : (
                 <div id="main-post-div">
                     <div id="user-info">
-                        <div id="user-main-badge">
-                            <img
-                                className="badge-image"
-                                src={
-                                    post.users.find(
-                                        (u) => u.id == post.author_id
-                                    )?.profile_image_url
-                                }
-                                style={{ borderRadius: "50%" }}
-                                alt="sample"
-                            />
-                        </div>
+                        <Avatar
+                            alt={
+                                post.users.find((u) => u.id === post.author_id)
+                                    ?.name
+                            }
+                            src={
+                                post.users.find((u) => u.id === post.author_id)
+                                    ?.profile_image_url
+                            }
+                        />
                         <div id="post-right-container">
                             <div id="user-name">
                                 {
                                     post.users.find(
-                                        (u) => u.id == post.author_id
+                                        (u) => u.id === post.author_id
                                     )?.name
                                 }
                             </div>
                         </div>
                     </div>
                     <div id="post-content-container">
-                        {post.content === "" ? null : (
+                        {post.imgs.length ? (
                             <div id="post-content">
                                 <span
                                     id="post-text"
@@ -51,7 +51,25 @@ function PostOverview({ post, overview }: viewProps) {
                                         display: "-webkit-box",
                                         WebkitBoxOrient: "vertical",
                                         overflow: "hidden",
-                                        WebkitLineClamp: 9, // Set the number of lines to show before truncation
+                                        WebkitLineClamp: 14, // Set the number of lines to show before truncation
+                                        height: "auto", // Adjust the height based on the content
+                                        // maxHeight: "150px", // Optionally set a max height
+                                    }}
+                                >
+                                    {post.content}
+                                </span>
+                                <Image src={post.imgs[0]} fluid />
+                            </div>
+                        ) : (
+                            <div id="post-content">
+                                <span
+                                    id="post-text-full"
+                                    style={{
+                                        whiteSpace: "pre-wrap",
+                                        display: "-webkit-box",
+                                        WebkitBoxOrient: "vertical",
+                                        overflow: "hidden",
+                                        WebkitLineClamp: 18, // Set the number of lines to show before truncation
                                         height: "auto", // Adjust the height based on the content
                                         // maxHeight: "150px", // Optionally set a max height
                                     }}
