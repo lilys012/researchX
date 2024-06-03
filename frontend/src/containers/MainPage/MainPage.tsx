@@ -25,8 +25,6 @@ import { resolve } from "node:path/posix";
 
 const { Content } = Layout;
 
-
-
 function MainPage() {
     const postState = useSelector(selectPost);
     const [postId, setPostId] = useState(0);
@@ -35,8 +33,9 @@ function MainPage() {
     const [posts, setPosts] = useState<PostType[]>(postState.posts);
     const [acPosts, setAcPosts] = useState<PostType[]>([]);
     const [opPosts, setOpPosts] = useState<PostType[]>([]);
+    const [refresh, setRefresh] = useState<Boolean>(false);
 
-    const dispatch = useDispatch<AppDispatch>()
+    const dispatch = useDispatch<AppDispatch>();
 
     const wordcloudJSX = useMemo(() => {
         return <WordCloud setCurKeyword={setCurKeyword} posts={posts} />;
@@ -46,15 +45,90 @@ function MainPage() {
         setTabValue(newValue);
     };
 
-    useEffect(() => {
-        setAcPosts(posts.filter((post) => post.isOpinion === false));
-        setOpPosts(posts.filter((post) => post.isOpinion === true));
-    }, [posts]);
+    const calculateTokenRecall = (keyword: string, content: string) => {
+        const contentTokens = content.split(/\s+/);
+        const keywordTokens = keyword.split(/\s+/);
+        const recall = keywordTokens.reduce((count, token) => {
+            return contentTokens.includes(token) ? count + 1 : count;
+        }, 0);
+        return recall / keywordTokens.length;
+    };
 
+    const sortPosts = (posts: PostType[], curKeyword: string) => {
+        return posts.sort((a, b) => {
+            const aContainsKeyword = a.keywords.includes(curKeyword);
+            const bContainsKeyword = b.keywords.includes(curKeyword);
+
+            if (aContainsKeyword && !bContainsKeyword) return -1;
+            if (!aContainsKeyword && bContainsKeyword) return 1;
+
+            if (aContainsKeyword && bContainsKeyword) {
+                const aRecall = calculateTokenRecall(curKeyword, a.content);
+                const bRecall = calculateTokenRecall(curKeyword, b.content);
+                if (aRecall !== bRecall) return bRecall - aRecall;
+                return (
+                    new Date(b.created_at).getDate() -
+                    new Date(a.created_at).getDate()
+                );
+            }
+
+            const aRecall = calculateTokenRecall(curKeyword, a.content);
+            const bRecall = calculateTokenRecall(curKeyword, b.content);
+
+            if (aRecall !== bRecall) return bRecall - aRecall;
+            return (
+                new Date(b.created_at).getDate() -
+                new Date(a.created_at).getDate()
+            );
+        });
+    };
+
+    const shuffleArray = (array: PostType[]) => {
+        let shuffledArray = [...array];
+        for (let i = shuffledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledArray[i], shuffledArray[j]] = [
+                shuffledArray[j],
+                shuffledArray[i],
+            ];
+        }
+        return shuffledArray;
+    };
+
+    useEffect(() => {
+        setAcPosts(
+            sortPosts(
+                posts.filter((post) => post.isOpinion === false),
+                curKeyword
+            )
+        );
+        setOpPosts(
+            sortPosts(
+                posts.filter((post) => post.isOpinion === true),
+                curKeyword
+            )
+        );
+    }, [posts, curKeyword]);
+
+    useEffect(() => {
+        if (refresh) {
+            const shuffledPosts = shuffleArray(postState.posts);
+            const sampleSize = Math.ceil(shuffledPosts.length * 1.0);
+            setPosts(shuffledPosts.slice(0, sampleSize));
+            setRefresh(false);
+        }
+    }, [refresh]);
+
+    useEffect(() => {
+        if (acPosts.length) setPostId(acPosts[0].id);
+    }, [acPosts]);
 
     return (
         <Layout className="MainPage">
-            <HeaderComponent />
+            <HeaderComponent
+                setCurKeyword={setCurKeyword}
+                setRefresh={setRefresh}
+            />
             <Content className="Content">
                 <Container className="Container">
                     <div className="columnContainer">
@@ -69,7 +143,9 @@ function MainPage() {
                             </h1>
                             <Link to={`/post/${postId}`}>
                                 <PostOverview
-                                    post={acPosts.length ? acPosts[postId] : null}
+                                    post={
+                                        acPosts.length ? acPosts[postId] : null
+                                    }
                                     overview={true}
                                 />
                             </Link>
