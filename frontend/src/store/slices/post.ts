@@ -1,31 +1,51 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "..";
 import axios from "axios";
-import { postData } from "../../data/postData"
+import { postData } from "../../data/postDataReal";
+import { keywordData } from "../../data/keywordsReal";
+
+export type UserType = {
+    url: string | null;
+    username: string;
+    created_at: string;
+    id: string;
+    name: string;
+    profile_image_url: string;
+};
+
+export type KeywordType = {
+    id: number;
+    content: string;
+};
 
 export type PostType = {
     id: number;
-    content: string;
-    imgs: string[];
-    keyword: string;
+    keywords: string[];
     summary: string;
     isOpinion: boolean;
+    content: string;
+    imgs: string[];
+    urls: string[];
+    author_id: string;
+    created_at: string;
+    postId: string;
+    users: UserType[];
 };
 
 export interface PostState {
     posts: PostType[];
+    keywords: KeywordType[];
 }
 
 const initialState: PostState = {
     posts: postData,
+    keywords: keywordData,
 };
 
 export const postSlice = createSlice({
     name: "post",
     initialState,
-    reducers: {
-
-    },
+    reducers: {},
 });
 
 // export const fetchInitPosts = createAsyncThunk(

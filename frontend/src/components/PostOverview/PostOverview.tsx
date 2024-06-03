@@ -1,15 +1,15 @@
 import React from "react";
 import { PostType } from "../../store/slices/post";
 import "./PostOverview.scss";
+import { Avatar } from "@mui/material";
+import { Col, Container, Row, Image } from "react-bootstrap";
 
 export interface viewProps {
     post: PostType | null;
-    overview: boolean
+    overview: boolean;
 }
 
-//TODO overview일 때 post 내용 말 줄이기 표시 (truncate?)
-
-function PostOverview({post, overview}: viewProps) {
+function PostOverview({ post, overview }: viewProps) {
     return (
         <div
             id="post-container"
@@ -22,21 +22,61 @@ function PostOverview({post, overview}: viewProps) {
             ) : (
                 <div id="main-post-div">
                     <div id="user-info">
-                        <div id="user-main-badge">
-                            <img
-                                className="badge-image"
-                                src={"/account.svg"}
-                                alt="sample"
-                            />
-                        </div>
+                        <Avatar
+                            alt={
+                                post.users.find((u) => u.id === post.author_id)
+                                    ?.name
+                            }
+                            src={
+                                post.users.find((u) => u.id === post.author_id)
+                                    ?.profile_image_url
+                            }
+                        />
                         <div id="post-right-container">
-                            <div id="user-name">User1</div>
+                            <div id="user-name">
+                                {
+                                    post.users.find(
+                                        (u) => u.id === post.author_id
+                                    )?.name
+                                }
+                            </div>
                         </div>
                     </div>
                     <div id="post-content-container">
-                        {post.content === "" ? null : (
+                        {post.imgs.length ? (
                             <div id="post-content">
-                                <span id="post-text">{post.content}</span>
+                                <span
+                                    id="post-text"
+                                    style={{
+                                        whiteSpace: "pre-wrap",
+                                        display: "-webkit-box",
+                                        WebkitBoxOrient: "vertical",
+                                        overflow: "hidden",
+                                        WebkitLineClamp: 14, // Set the number of lines to show before truncation
+                                        height: "auto", // Adjust the height based on the content
+                                        // maxHeight: "150px", // Optionally set a max height
+                                    }}
+                                >
+                                    {post.content}
+                                </span>
+                                <Image src={post.imgs[0]} fluid />
+                            </div>
+                        ) : (
+                            <div id="post-content">
+                                <span
+                                    id="post-text-full"
+                                    style={{
+                                        whiteSpace: "pre-wrap",
+                                        display: "-webkit-box",
+                                        WebkitBoxOrient: "vertical",
+                                        overflow: "hidden",
+                                        WebkitLineClamp: 18, // Set the number of lines to show before truncation
+                                        height: "auto", // Adjust the height based on the content
+                                        // maxHeight: "150px", // Optionally set a max height
+                                    }}
+                                >
+                                    {post.content}
+                                </span>
                             </div>
                         )}
                     </div>

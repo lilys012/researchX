@@ -11,7 +11,7 @@ function KeywordsList({
 }: {
     keywordId: number;
     keywords: KeywordType[];
-    setCurKeyword: React.Dispatch<React.SetStateAction<string>>;
+    setCurKeyword: React.Dispatch<React.SetStateAction<string>> | null;
 }) {
     const [slicedKeywords, setSlicedKeywords] = useState<KeywordType[]>([]);
 
@@ -37,7 +37,11 @@ function KeywordsList({
                             key={k.id}
                             className="col-4"
                             id="keyword-container"
-                            onClick={() => setCurKeyword(k.content)}
+                            onClick={() =>
+                                setCurKeyword == null
+                                    ? {}
+                                    : setCurKeyword(k.content)
+                            }
                         >
                             {k.id + 1}. {k.content}
                         </Col>

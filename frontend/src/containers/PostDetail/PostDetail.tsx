@@ -1,5 +1,7 @@
-import React from "react";
-import PostOverview from "../../components/PostOverview/PostOverview";
+import React, { useEffect, useState } from "react";
+import PostOverview, {
+    viewProps,
+} from "../../components/PostOverview/PostOverview";
 import HeaderComponent from "../../components/Header/Header";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -8,25 +10,31 @@ import GPTInteraction from "../../components/GPTInteraction/GPTInteraction";
 import "./PostDetail.scss";
 
 function PostDetail() {
-    const { strId } = useParams();
+    const { id } = useParams();
     const postState = useSelector(selectPost);
-    const id = strId? parseInt(strId): 0;
-    
-    
-    let targetPost: PostType = {
+    // const id = strId ? parseInt(strId) : 0;
+    const dispatch = useDispatch<AppDispatch>();
+    console.log(postState.posts);
+    const [targetPost, setTargetPost] = useState<PostType>({
         id: -1,
         content: "404",
-        keyword: "",
+        keywords: [],
         summary: "",
         isOpinion: false,
         imgs: [],
-    };
-
-    postState.posts.forEach(e => {
-        if(e.id === id) targetPost = e;
-    })
+        urls: [],
+        author_id: "",
+        postId: "",
+        created_at: "",
+        users: [],
+    });
+  useEffect(() => {
+        postState.posts.forEach((e) => {
+            if (id && e.id === parseInt(id)) setTargetPost(e);
+        });
+    }, [id]);
     return <div id='PostDetail'>
-        <HeaderComponent />
+        <HeaderComponent setCurKeyword={null} setRefresh={null} />
         <div className="postdetail-main-container">
             <div className="upper">
                 <div className="postdetail-overview">

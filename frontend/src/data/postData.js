@@ -1,5 +1,5 @@
 // import { PostType } from "../store/slices/post"
-export const postData = [
+const postData = [
     {
         id: 0,
         content:
@@ -91,4 +91,4 @@ export const postData = [
         isOpinion: false,
         imgs: [],
     },
-]
+];
