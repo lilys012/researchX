@@ -2,7 +2,14 @@ import React from "react";
 import { PostType } from "../../store/slices/post";
 import "./PostOverview.scss";
 
-function PostOverview({ post }: { post: PostType | null }) {
+export interface viewProps {
+    post: PostType | null;
+    overview: boolean
+}
+
+//TODO overview일 때 post 내용 말 줄이기 표시 (truncate?)
+
+function PostOverview({post, overview}: viewProps) {
     return (
         <div
             id="post-container"
