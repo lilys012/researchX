@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 import { AppDispatch } from "../../store";
 import PostOverview from "../../components/PostOverview/PostOverview";
@@ -20,6 +21,7 @@ import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import { resolve } from "node:path/posix";
 
 const { Content } = Layout;
 
@@ -34,6 +36,8 @@ function MainPage() {
     const [acPosts, setAcPosts] = useState<PostType[]>([]);
     const [opPosts, setOpPosts] = useState<PostType[]>([]);
 
+    const dispatch = useDispatch<AppDispatch>()
+
     const wordcloudJSX = useMemo(() => {
         return <WordCloud setCurKeyword={setCurKeyword} posts={posts} />;
     }, [curKeyword]);
@@ -46,6 +50,7 @@ function MainPage() {
         setAcPosts(posts.filter((post) => post.isOpinion === false));
         setOpPosts(posts.filter((post) => post.isOpinion === true));
     }, [posts]);
+
 
     return (
         <Layout className="MainPage">
