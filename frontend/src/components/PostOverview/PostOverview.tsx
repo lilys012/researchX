@@ -33,7 +33,7 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
     const addPost = () => {
         if (post) {
             setMyPosts((prevPosts: number[]) => {
-                return [...prevPosts, post.id];
+                return [post.id, ...prevPosts];
             });
         }
     };

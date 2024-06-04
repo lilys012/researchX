@@ -119,7 +119,7 @@ function MainPage({
         // return array containing saved posts
         let curPost: PostType[] = [];
         for (let i = myposts.length - 1; i >= 0; i--) {
-            curPost = [...curPost, posts[myposts[i]]];
+            curPost = [posts[myposts[i]], ...curPost];
         }
         return curPost;
     };
@@ -172,7 +172,9 @@ function MainPage({
         if (isMyPost) {
             setCurKeyword("Saved Posts");
             setIsMyPost(false);
-            setPostId(myposts[myposts.length - 1]);
+            setPostId(
+                getMyPost().filter((post) => post.isOpinion === false)[0].id
+            );
         }
     }, [isMyPost]);
 

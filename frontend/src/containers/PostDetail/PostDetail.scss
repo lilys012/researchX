@@ -1,9 +1,17 @@
 .upper {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-evenly;
 }
 .postdetail-overview {
-  width: 50%;
-  text-align: center;
-  justify-content: center;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+}
+.lower {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-evenly;
 }
