@@ -12,6 +12,7 @@ with open('postDataRealAnnotated.json', 'r') as dataFile: data = json.load(dataF
 
 ret_list = []
 for d in tqdm(data):
+    # keywords
     if len(d['keywords']) != 0: 
         prompt_template = PromptTemplate.from_template(
 """
@@ -27,6 +28,7 @@ Provide 5~10 AI keywords from the following text, each seperated by comma. Some 
         d['keywords'] = keywords
         # print(chain.invoke({}))
 
+    # summary
     if len(d['summary']) == 0:
         prompt_template = PromptTemplate.from_template(
 """
@@ -37,6 +39,17 @@ Summarize the topic of following text. You must use less than 10 words.
         chain = prompt_template | llm | StrOutputParser()
         d['summary'] = chain.invoke({})
         # print(chain.invoke({}))
+
+    # opinion
+    prompt_template = PromptTemplate.from_template(
+"""
+Does the following text talks about an academic paper? Answer in 'yes' or 'no' only.
+---
+"""+d["content"]
+)
+    chain = prompt_template | llm | StrOutputParser()
+    res = chain.invoke({})
+    if ((not d['isOpinion'] and 'yes' in res.lower()) or (d['isOpinion'] and 'no' in res.lower())) == False: print(d['id'], res, d["isOpinion"])
 
     user_list = []
     for u in d["users"]:

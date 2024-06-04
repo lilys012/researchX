@@ -96,7 +96,10 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                         whiteSpace: "pre-wrap",
                                         display: "-webkit-box",
                                         WebkitBoxOrient: "vertical",
-                                        overflow: "hidden",
+                                        overflowY: overview
+                                            ? "hidden"
+                                            : "scroll",
+                                        overflowX: "hidden",
                                         WebkitLineClamp: 14, // Set the number of lines to show before truncation
                                         height: "auto", // Adjust the height based on the content
                                         // maxHeight: "150px", // Optionally set a max height
@@ -114,7 +117,11 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                         whiteSpace: "pre-wrap",
                                         display: "-webkit-box",
                                         WebkitBoxOrient: "vertical",
-                                        overflow: "hidden",
+                                        overflowY: overview
+                                            ? "hidden"
+                                            : "scroll",
+                                        overflowX: "hidden",
+                                        maxWidth: "70%",
                                         WebkitLineClamp: 18, // Set the number of lines to show before truncation
                                         height: "auto", // Adjust the height based on the content
                                         // maxHeight: "150px", // Optionally set a max height

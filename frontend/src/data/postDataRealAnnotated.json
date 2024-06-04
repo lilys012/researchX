@@ -2,16 +2,7 @@
     {
         "id": 0,
         "keywords": [
-            "Contextual Self-Supervised Learning",
-            "Vision",
-            "Invariance",
-            "Equivariance",
-            "SSL",
-            "Human Perception",
-            "Transformers",
-            "Contextual World Models",
-            "Image World Models",
-            "Shortcuts"
+            "AI keywords from the given text:\n\n1. Contextual Self-Supervised Learning (ContextSSL)\n2. Vision\n3. Invariance\n4. Equivariance\n5. Task-specific symmetries\n6. Contextual World Models\n7. Image World Models\n8. Transformers\n9. Attention\n10. Shortcuts\n11. Auxiliary predictor\n12. Collapse to invariance\n13. General representation\n14. Task-specific features\n15. Adaptive perception\n16. Human perception\n17. Augmentation-based priors\n18. SSL methods\n19. Transformations\n20. Auxiliary modules\n21. Contextual learning\n22. Dynamic adaptation\n23. Task-specific context\n24. Task-specific equivariance\n25. Task-specific invariance"
         ],
         "summary": "Introducing Contextual SSL (ContextSSL) for vision, a method that learns to adapt to task-specific symmetries using context.",
         "isOpinion": false,
@@ -26,7 +17,9 @@
             "https://pbs.twimg.com/media/GO1b0h3XsAAue4-.jpg",
             "https://pbs.twimg.com/media/GO1b01lXkAEDG8d.jpg"
         ],
-        "urls": ["https://arxiv.org/pdf/2405.18193"],
+        "urls": [
+            "https://arxiv.org/pdf/2405.18193"
+        ],
         "author_id": "1297440922032955398",
         "created_at": "2024-05-30T14:51:48.000Z",
         "postId": "1796192764121555411",
@@ -68,16 +61,7 @@
     {
         "id": 1,
         "keywords": [
-            "Quantum Computing",
-            "Bosonic Modes",
-            "Noise Characterization",
-            "Randomized Benchmarking",
-            "Error Rate",
-            "Fidelity",
-            "Heating",
-            "Dephasing",
-            "Noise Correlation",
-            "Trapped Ion Experiment"
+            "1. Randomized Benchmarking\n2. Bosonic Modes\n3. Noise Characterization\n4. Trapped Ion Experiment\n5. Error Models\n6. Fidelity Measurement\n7. Phase Space Displacements\n8. Quantum Error Correction\n9. Quantum State Tomography\n10. Quantum Process Tomography"
         ],
         "summary": "Developed a benchmarking protocol to characterize noise in bosonic modes, examining error rates, source, and correlation; validated using trapped ion experiment.",
         "isOpinion": false,
@@ -86,7 +70,9 @@
             "https://pbs.twimg.com/media/GOkGql3a8AAN337.jpg",
             "https://pbs.twimg.com/media/GOkL1iEb0AAypPT.png"
         ],
-        "urls": ["arxiv.org/abs/2405.15237"],
+        "urls": [
+            "arxiv.org/abs/2405.15237"
+        ],
         "created_at": "2024-05-27T06:08:58.000Z",
         "author_id": "1199015844757614594",
         "postId": "1794973628867432473",
@@ -120,27 +106,33 @@
     {
         "id": 2,
         "keywords": [
-            "DBSCAN",
             "fMRI",
+            "DBSCAN",
             "NSD",
             "CLIP",
             "Decoding",
             "Contrastive Learning",
             "Semantic Concepts",
+            "Voxels",
+            "Brain Regions",
+            "EBA",
+            "rIPS",
             "Body Motion",
             "Legs",
             "Hands",
             "Numerosity",
-            "EBA",
-            "rIPS",
-            "Early Visual",
-            "Native fMRI Space",
-            "Opposite of a Face",
+            "Proximity",
+            "Lighting Conditions",
+            "Indoors/Outdoors",
             "Offsembles",
             "Preprint",
-            "Cory Efird",
-            "Joel Zylber",
-            "Alona Mariam"
+            "Neuroscience",
+            "AI",
+            "Machine Learning",
+            "Image Recognition",
+            "Face Recognition",
+            "Body Recognition",
+            "CLIP Decoding Model"
         ],
         "summary": "The text presents a novel fMRI clustering method based on DBSCAN to understand shared sensitivity to visual semantic concepts and their negations in the brain.",
         "isOpinion": false,
@@ -152,7 +144,9 @@
             "https://pbs.twimg.com/media/GOygkWAXkAANgpX.jpg",
             "https://pbs.twimg.com/media/GOygs16WkAAhar-.jpg"
         ],
-        "urls": ["https://arxiv.org/abs/2405.17663"],
+        "urls": [
+            "https://arxiv.org/abs/2405.17663"
+        ],
         "postId": "1795990406095651033",
         "created_at": "2024-05-30T01:27:35.000Z",
         "author_id": "358445498",
@@ -194,25 +188,7 @@
     {
         "id": 3,
         "keywords": [
-            "Language models",
-            "common-sense knowledge",
-            "non-linguistic tasks",
-            "LaMPP",
-            "probabilistic models",
-            "image segmentation",
-            "rare inputs",
-            "out-of-distribution inputs",
-            "grounded perception",
-            "control tasks",
-            "prompting LMs",
-            "robotics tasks",
-            "multimodal LMs",
-            "language-and-X tasks",
-            "structured reasoning",
-            "uncertainty",
-            "navigation",
-            "video-action segmentation",
-            "LMs as a prior over parameters and labels"
+            "1. Language Models\n2. Common-Sense Knowledge\n3. Non-Linguistic Tasks\n4. LaMPP\n5. Probabilistic Models\n6. Image Segmentation\n7. Perceptual Ambiguity\n8. Grounded Perception\n9. Control Tasks\n10. Robotics Tasks"
         ],
         "summary": "Introducing LaMPP, a generic approach that uses language models as priors over probabilistic models of tasks to improve performance on rare, out-of-distribution, or structurally novel inputs without hurting in-distribution accuracy.",
         "isOpinion": false,
@@ -267,16 +243,22 @@
     {
         "id": 4,
         "keywords": [
-            "AI",
-            "Language Model",
-            "Long-Form Generation",
-            "Benchmark",
-            "Language Models",
-            "Domain-Specific",
-            "Methodical Tasks",
-            "Evaluation",
-            "Factual Consistency",
-            "Multi-Modal"
+            "5) AI",
+            "6) Language Model",
+            "7) Task",
+            "8) Benchmark",
+            "9) Long-Form Generation",
+            "10) Domain-Specific",
+            "11) Evaluation",
+            "12) Document",
+            "13) Synthesis",
+            "14) Expert",
+            "15) Web",
+            "16) Factual Consistency",
+            "17) Evaluation Mode",
+            "18) Community Contribution",
+            "19) Multi-Turn Conversation",
+            "20) Multi-Modal Expansion"
         ],
         "summary": "Google DeepMind introduces DOLOMITES, a long-form generation benchmark for evaluating language models on realistic domain-specific tasks.",
         "isOpinion": false,
@@ -381,22 +363,7 @@
     {
         "id": 5,
         "keywords": [
-            "MEMORYLLM",
-            "self-updatable parameters",
-            "long-term information retention",
-            "extensive benchmarks",
-            "icmlconf",
-            "read the full paper",
-            "arxiv",
-            "check out the code on GitHub",
-            "great collaboration",
-            "Yifan_Gao",
-            "XtremSup",
-            "ShiyangLi6",
-            "JingfengY",
-            "YinQingyu",
-            "jiang_haoming",
-            "generous help"
+            "Here are five to ten AI keywords from the text:"
         ],
         "summary": "MemoryLLM: Self-updatable parameters for seamless integration of new knowledge, retaining long-term info without performance drops.",
         "isOpinion": false,
@@ -471,16 +438,15 @@
     {
         "id": 6,
         "keywords": [
+            "long-context language models",
+            "understanding",
+            "long-dependency",
             "LooGLE",
             "ACL2024",
-            "Long-context language models",
-            "Long-dependency understanding",
-            "Post-2022 long documents",
-            "Natural Language Processing (NLP)",
-            "Language Model",
-            "Benchmark",
-            "Arxiv.org",
-            "Hugging Face (HF) Data"
+            "benchmark",
+            "post-2022 long documents",
+            "Arxiv",
+            "HF Data"
         ],
         "summary": "LooGLE benchmark for long-dependency understanding in post-2022 long documents.",
         "isOpinion": false,
@@ -488,7 +454,9 @@
         "author_id": "2556242232",
         "postId": "1796458866903073234",
         "created_at": "2024-05-31T08:29:05.000Z",
-        "imgs": ["https://pbs.twimg.com/media/GO5M_S4boAAwR96.jpg"],
+        "imgs": [
+            "https://pbs.twimg.com/media/GO5M_S4boAAwR96.jpg"
+        ],
         "urls": [
             "http://arxiv.org/abs/2311.04939",
             "http://hf.co/datasets/bigainlco/LooGLE"
@@ -507,16 +475,7 @@
     {
         "id": 7,
         "keywords": [
-            "LLM",
-            "personalization",
-            "alignment",
-            "zero-shot",
-            "system message",
-            "preference",
-            "personalized RLHF",
-            "Mistral 7B v0.2",
-            "Janus 7B",
-            "Multifaceted Collection"
+            "1. LLM personalization/alignment\n2. Zero-shot alignment method\n3. System message\n4. RLHF (reinforcement learning from human feedback)\n5. Personalized LLMs\n6. Multifaceted Collection\n7. Mistral 7B v0.2\n8. Janus 7B\n9. Instruction tuning\n10. RealToxicityPrompts\n11. GPT-3.5-Turbo-0125\n12. GPT-4-Turbo-0125\n13. LLaMA 3 8B Instruct\n14. LLaMA 3 Instruct 70B\n15. AlpacaEval 2.0\n16. MT-Bench\n17. Arena Hard Auto v0.1\n18. Toxicity probability\n19. Model generalization\n20. AI safety"
         ],
         "summary": "New zero-shot alignment method for personalizable LLMs using system messages, achieving high win rates and surpassing other models in alignment and diversity.",
         "isOpinion": false,
@@ -576,16 +535,17 @@
     {
         "id": 8,
         "keywords": [
-            "RLHF/DPO",
+            "AI",
+            "RLHF",
+            "DPO",
             "Ranking Accuracy",
-            "Preference Data",
             "Alignment Gap",
-            "Policies",
-            "Optimization",
-            "Ref. Model",
-            "Ranking",
-            "Win Rates",
-            "Loss"
+            "Policy",
+            "Reference Model",
+            "Preference Data",
+            "Win Rate",
+            "Loss",
+            "Pref-Learning Algorithms"
         ],
         "summary": "RLHF/DPO does not produce policies that mostly assign higher likelihood to preferred responses than to less preferred ones, resulting in an alignment gap between idealized and actual ranking accuracy.",
         "isOpinion": false,
@@ -659,17 +619,7 @@
     {
         "id": 9,
         "keywords": [
-            "ICML2024",
-            "Machine Learning",
-            "Neural Networks",
-            "Mechanistic Interpretability",
-            "Low-Dimensional Representations",
-            "Human Knowledge",
-            "Nuclear Physics",
-            "Collaboration",
-            "MIT_Physics",
-            "IAIFI_News",
-            "AIatMeta"
+            "1. AI\n2. Machine Learning (ML)\n3. Neural Networks\n4. Mechanistic Interpretability\n5. Low-Dimensional Representations\n6. Nuclear Physics\n7. Collaboration\n8. Research\n9. Publication\n10. Conference (ICML)"
         ],
         "summary": "Mechanistic interpretability reveals low-dimensional representations in neural networks aligned with human knowledge in nuclear physics case study.",
         "isOpinion": false,
@@ -677,8 +627,12 @@
         "postId": "1797074412073558477",
         "author_id": "2633759965",
         "created_at": "2024-06-02T01:15:02.000Z",
-        "imgs": ["https://pbs.twimg.com/media/GPB6IsaWcAAVc50.jpg"],
-        "urls": ["https://t.co/MWPWxqkTsc"],
+        "imgs": [
+            "https://pbs.twimg.com/media/GPB6IsaWcAAVc50.jpg"
+        ],
+        "urls": [
+            "https://t.co/MWPWxqkTsc"
+        ],
         "users": [
             {
                 "profile_image_url": "https://pbs.twimg.com/profile_images/1749893493902749696/xH3he7d0_normal.jpg",
@@ -717,16 +671,8 @@
     {
         "id": 10,
         "keywords": [
-            "AI",
-            "Language Model",
-            "LLM",
-            "Pretrained",
-            "Word Embeddings",
-            "ACL2024",
-            "Preprint",
-            "Chi",
-            "UIUC\\_NLP",
-            "ACL"
+            "AI \ud0a4\uc6cc\ub4dc:\n\n* \uc790\ub3d9 \ud68c\uadc0 \uc5b8\uc5b4 \ubaa8\ub378 (ARLM)\n* \ucee8\ud2b8\ub864\ub7ec \ubaa8\ub4c8\n* \ub2e8\uc5b4 \uc784\ubca0\ub529\n* \ud559\uc2b5\ub41c \ubaa8\ub378\n* \ub9e4\uac1c \ubcc0\uc218 \ud6a8\uc728\uc801\uc778 \ubaa8\ub378\n* \ubbf8\uc138 \uc870\uc815\n* \uc0ac\uc804 \ud6c8\ub828\n* \ud2b8\ub79c\uc2a4\ud3ec\uba38 \uc544\ud0a4\ud14d\ucc98\n* \ud63c\ud569 \uc815\ubc00\ub3c4\n* \uacc4\uce35\uc801 \ud53c\ub4dc\ubc31\n\n\ucc38\uace0: \uc704\uc5d0\uc11c \uc5b8\uae09\ub41c \ud0a4\uc6cc\ub4dc\ub294 \ud14d\uc2a4\ud2b8\uc5d0\uc11c \uc5b8\uae09\ub41c \ub0b4\uc6a9\uc744 \uae30\ubc18\uc73c\ub85c \ud55c \uac83\uc774\uba70",
+            "\uc5f0\uad6c\uc5d0\uc11c \uc0ac\uc6a9\ub41c \uad6c\uccb4\uc801\uc778 \ub0b4\uc6a9\uc774\ub098 \ubc29\ubc95\uc744 \ubc18\uc601\ud558\uc9c0 \uc54a\uc744 \uc218 \uc788\uc2b5\ub2c8\ub2e4"
         ],
         "isOpinion": false,
         "summary": "Efficiently controlling language model generation style through word embeddings.",
@@ -736,7 +682,9 @@
             "https://pbs.twimg.com/media/GOCiHhUXEAAUyNd.png",
             "https://pbs.twimg.com/media/GOCiHhbXEAAsNlF.png"
         ],
-        "urls": ["https://t.co/SyOKkZUf9h"],
+        "urls": [
+            "https://t.co/SyOKkZUf9h"
+        ],
         "author_id": "1188626449911160834",
         "created_at": "2024-05-20T17:38:39.000Z",
         "postId": "1792610904892387519",
@@ -754,16 +702,21 @@
     {
         "id": 11,
         "keywords": [
+            "AI",
             "Mark Zuckerberg",
             "Silicon Valley",
-            "Meta",
-            "Open-Source",
+            "Open-source",
             "Artificial Intelligence",
-            "AI",
-            "Zuckerberg",
-            "Meta Chief",
+            "Meta",
+            "AI Strategy",
+            "Tech Industry",
+            "New Industry Ecosystem",
+            "Positive Force",
             "Open-Source AI",
-            "Industry Ecosystem"
+            "AI Made Popular",
+            "Developers",
+            "Technologists",
+            "Open-Source Artificial Intelligence"
         ],
         "summary": "Zuckerberg's popularity in Silicon Valley rises due to Meta's open source AI strategy.",
         "isOpinion": true,
@@ -788,7 +741,21 @@
     },
     {
         "id": 12,
-        "keywords": ["AI", "OpenAI", "Google", "Aesthetic Difference"],
+        "keywords": [
+            "AI",
+            "OpenAI",
+            "Google",
+            "Aesthetic",
+            "Difference",
+            "Competitors",
+            "GPT",
+            "Diffusion",
+            "CLIP",
+            "NLP",
+            "Lanugage Model",
+            "3D Vision",
+            "VAE"
+        ],
         "summary": "Comparing aesthetics of OpenAI and Google.",
         "isOpinion": true,
         "content": "i try not to think about competitors too much, but i cannot stop thinking about the aesthetic difference between openai and google",
@@ -818,12 +785,12 @@
             "LLM",
             "RAG",
             "Westlaw",
-            "Stanford",
-            "Legal Research",
-            "AI-Assisted Research",
+            "Legal",
             "Hallucinations",
+            "NLP",
+            "Lawyer",
             "Paper",
-            "V2"
+            "Diffusion"
         ],
         "summary": "Legal AI-generated \"facts\" hallucinations and examples.",
         "isOpinion": true,
@@ -861,35 +828,26 @@
         "id": 14,
         "keywords": [
             "AI alignment",
-            "fundamental challenge",
-            "AI alignment paradox",
             "human goals",
-            "human values",
-            "perspective piece",
+            "values",
+            "paradox",
+            "aligned models",
+            "misaligned",
             "model tinkering",
-            "neural net latent state",
-            "steering vector",
-            "broad community",
+            "AI impact",
             "research",
-            "real-world impact",
             "beneficial use",
-            "humanity",
-            "AI safety",
-            "machine ethics",
-            "AGI alignment",
-            "value learning",
-            "value misalignment",
-            "alignment problem",
-            "alignment research",
-            "ethical AI",
-            "value alignment",
-            "value specification"
+            "humanity"
         ],
         "summary": "AI alignment paradox: well-aligned models can become easily misaligned, emphasizing the need for a broad research community to find solutions.",
         "isOpinion": false,
         "content": "AI alignment steers AI toward human goals & values. In a recent perspective piece, we draw attention to a fundamental challenge with all such endeavors: the \u201cAI alignment paradox\u201d\u2014better-aligned models are more easily misaligned. \ud83d\udcddhttps://arxiv.org/pdf/2405.20806 \ud83d\udc47Example below\ud83d\udc47\n\nWe illustrate the paradox w/ 3 incarnations (borrowed from @AnthropicAI @NinaRimsky @AmnonShashua @YotamWolf et al.). E.g., in \u201cmodel tinkering\u201d\ud83d\udc47, a better-aligned model can be more easily made to generate misaligned text by adding a \u201csteering vector\u201d to neural net latent state.\n\nMore examples in the paper.With AI\u2019s increasing real-world impact, it\u2019s imperative that a broad community of researchers be aware of the AI alignment paradox and work to find ways to break out of it, in order to ensure the beneficial use of AI for the good of humanity.\n\nThanks to Tim Davidson, Valentin Hartmann, @manoelribeiro, @erichorvitz, @zachary_horvitz, @wendlerch, @john_orders, and others for early feedback.(Also, there's much more relevant work than what is cited in the paper. The dearth of citations stems from a format constraint.)",
-        "imgs": ["https://pbs.twimg.com/media/GPI9bYIX0AAxuWd.jpg"],
-        "urls": ["https://arxiv.org/pdf/2405.20806"],
+        "imgs": [
+            "https://pbs.twimg.com/media/GPI9bYIX0AAxuWd.jpg"
+        ],
+        "urls": [
+            "https://arxiv.org/pdf/2405.20806"
+        ],
         "postId": "1797568321853825162",
         "author_id": "193115103",
         "created_at": "2024-06-03T09:57:39.000Z",
@@ -947,16 +905,16 @@
     {
         "id": 15,
         "keywords": [
-            "GlueGen",
-            "diffusion models",
-            "multimodal controls",
-            "multilingual texts",
-            "sounds",
+            "GPT",
+            "Diffusion",
+            "CLIP",
             "NLP",
-            "Stable Diffusion",
+            "Language Model",
+            "3D Vision",
+            "VAE",
+            "GlueGen",
             "XLM-Roberta",
-            "sound-to-image generation",
-            "image generation"
+            "Stable Diffusion"
         ],
         "summary": "GlueGen: Efficient adapters for diffusion models that achieve X-to-image generation by multimodal controls.",
         "isOpinion": false,
@@ -1037,16 +995,16 @@
     {
         "id": 16,
         "keywords": [
-            "LLM",
-            "instruction tuning",
             "LESS",
+            "instruction tuning",
+            "LLM",
             "Adam",
-            "Influence Formulation",
-            "Bengali QA",
-            "Collaboration",
-            "Princeton NLP",
-            "Princeton PLI",
-            "UW NLP"
+            "QA",
+            "Bengali",
+            "English",
+            "Princeton_nlp",
+            "PLI",
+            "uwnlp"
         ],
         "summary": "LESS, a new method using less data to adapt LLMs for specific queries, outperforms baselines and identifies reasoning type datapoints.",
         "content": "Lots of instruction tuning data out there...but how to best adapt LLMs for specific queries? Don\u2019t use ALL of the data, use LESS! 5% beats the full dataset. Can even use one small model to select data for others! Paper: https://arxiv.org/abs/2402.04333 Code: https://github.com/princeton-nlp/LESS [1/n]\n\n4 easy and efficient steps. Crucial component: theoretically motivated influence formulation, specialized to instruction tuning with Adam. [2/n]\n\nLESS outperforms baselines! [3/n]\n\nLESS doesn\u2019t rely on heuristics, so it doesn\u2019t fall for superficial similarities! It identifies datapoints with the same reasoning type as the provided examples. Given a Bengali QA example: LESS selects an English QA example! (Others select Bengali examples in other tasks) [4/n]\n\nJoint work with my awesome collaborators @SadhikaMalladi (equal contribution) @ssgrn @prfsanjeevarora @danqi_chen at @princeton_nlp, @PrincetonPLI, and @uwnlp! [5/n]",
@@ -1110,22 +1068,7 @@
     {
         "id": 17,
         "keywords": [
-            "Instruction fine-tuning",
-            "GPT-4",
-            "evaluation sets",
-            "LLMs",
-            "Alpaca-52k",
-            "Evol-Instruct-70k",
-            "GPT-3.5",
-            "NEFTune",
-            "Llama-2-7B",
-            "AlpacaEval 2.0",
-            "Open LLM datasets",
-            "ARC",
-            "MMLU",
-            "Winogrande",
-            "response length",
-            "superficial alignment hypothesis"
+            "1. GPT\n2. Diffusion\n3. CLIP\n4. NLP\n5. Language Model\n6. 3D Vision\n7. VAE\n8. Fine-tuning\n9. LLM\n10. Evaluation\n\nNote: The keywords provided are related to the text and may not be directly mentioned in the text"
         ],
         "summary": "The topic of the text is about fine-tuning large language models (LLMs) by using the longest examples as a strong baseline for alignment, and the effectiveness of this approach in various evaluations.",
         "isOpinion": false,
@@ -1140,7 +1083,9 @@
             "https://pbs.twimg.com/media/GF1FE47WcAAB-KP.jpg",
             "https://pbs.twimg.com/media/GF1FI9-XcAE3Yv-.jpg"
         ],
-        "urls": ["https://arxiv.org/abs/2402.04833"],
+        "urls": [
+            "https://arxiv.org/abs/2402.04833"
+        ],
         "created_at": "2024-02-08T16:54:59.000Z",
         "author_id": "987061319378587649",
         "postId": "1755636355537715564",
@@ -1174,14 +1119,18 @@
     {
         "id": 18,
         "keywords": [
+            "AI",
+            "Merging",
+            "Vision",
+            "Foundation Models",
             "SAM-CLIP",
-            "Vision Foundation Models",
             "Continual Learning",
-            "Distillation Techniques",
+            "Distillation",
             "Semantic Segmentation",
-            "Zero-Shot Semantic Segmentation",
-            "Text-Prompted Segmentation",
-            "Head-Probing Experiments",
+            "Text-Prompted",
+            "Zero-Shot",
+            "Classification",
+            "Segmentation",
             "Visual Features",
             "Industry Jobs"
         ],
@@ -1256,20 +1205,23 @@
     {
         "id": 19,
         "keywords": [
-            "AI",
-            "Machine Learning",
-            "Citations",
-            "Arxiv",
+            "Citation",
             "Peer Review",
-            "Papers",
-            "Research",
-            "Scholarship",
-            "Bibliometrics"
+            "Arxiv",
+            "Citations",
+            "Paper",
+            "Version",
+            "Publication",
+            "Academic Research",
+            "Scientific Publication",
+            "Research Impact"
         ],
         "summary": "Arxiv and peer-reviewed version citation loop.",
         "isOpinion": true,
         "content": "When my paper cites a paper from arxiv and then that paper's peer reviewed version cites the arxiv version of my paper",
-        "imgs": ["https://pbs.twimg.com/media/GPHHHiTbgAEH3ZB.png"],
+        "imgs": [
+            "https://pbs.twimg.com/media/GPHHHiTbgAEH3ZB.png"
+        ],
         "urls": [],
         "postId": "1797437259308007594",
         "created_at": "2024-06-03T01:16:52.000Z",
@@ -1282,6 +1234,386 @@
                 "profile_image_url": "https://pbs.twimg.com/profile_images/1658676396712132613/xPnCHE_a_normal.jpg",
                 "created_at": "2017-05-08T03:07:57.000Z",
                 "id": "861417356756533248"
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "keywords": [],
+        "summary": "Career change to Research Scientist in RLHF team at DbrxMosaicAI in SF.",
+        "isOpinion": true,
+        "content": "\ud83d\udce3 Exciting life update!! I am starting the next chapter of my career at @DbrxMosaicAI as a Research Scientist in the RLHF team! To all my friends in SF, let's catch up!",
+        "imgs": [],
+        "urls": [],
+        "postId": "1797799348702753272",
+        "created_at": "2024-06-04T01:15:40.000Z",
+        "author_id": "3083528599",
+        "users": [
+            {
+                "username": "wat_the_fun",
+                "created_at": "2015-03-15T04:48:22.000Z",
+                "url": "https://t.co/stWHxpLnCv",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1319653524838428675/bmWBMfam_normal.jpg",
+                "name": "Ashutosh Baheti",
+                "id": "3083528599"
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "keywords": [],
+        "summary": "The text discusses the development of a BioDiscoveryAgent using LLM-powered agents to enhance the effectiveness and interpretability of genetic perturbation experiments.",
+        "isOpinion": false,
+        "content": "Amid growing interest in closed-loop design for biological experiments, we demonstrate how LLM-powered agents can enhance both effectiveness and interpretability. We develop BioDiscoveryAgent to design genetic perturbation experiments \ud83e\uddf51/6 @JianVora1 @qhwang3 @percyliang @jure\n\nBioDiscoveryAgent designs experiments using only an LLM + tools In each round, the agent constructs a prompt that combines task description + experimental results The LLM response identifies genes to perturb in the next round and provides reasoning and long-term strategy\n\nLLMs add value through prior knowledge + reasoning over experimental results In addition, the agent uses tools to search/read papers, execute code to analyze data, and critique predictions Its decision-making is interpretable at each step, enabling effective scientist feedback\n\nBioDiscoveryAgent detects 18% more hits in 1-gene perturbation screens, 29% more non-essential hit genes This is *without* being specifically trained for this task, unlike Bayesian optimization baselines It also shows 2x improvement over random baseline in 2-gene perturbations\n\nBioDiscoveryAgent uses both prior knowledge + experimental results for decision-making Early rounds rely more on prior knowledge (Prompt Only performs better) while later rounds focus on experimental results (Observation Only) Agent with access to both consistently outperforms\n\nThanks to the organizers of ICLR @MLGenX Workshop for recognizing our work with the Best Poster award! \ud83c\udfc6 Preprint: https://arxiv.org/abs/2405.17631 Github: https://github.com/snap-stanford/BioDiscoveryAgent We have more exciting work ongoing in this direction, please reach out if interested in collaborating!",
+        "imgs": [
+            "https://pbs.twimg.com/tweet_video_thumb/GPIkYo0bAAAnHLT.jpg",
+            "https://pbs.twimg.com/media/GPIl1J5agAAXBJi.jpg",
+            "https://pbs.twimg.com/media/GPIv97Ta8AAw6Bi.jpg",
+            "https://pbs.twimg.com/media/GPImy-8aQAERzFI.jpg",
+            "https://pbs.twimg.com/media/GPIswy9acAA9MJp.jpg"
+        ],
+        "urls": [
+            "https://arxiv.org/abs/2405.17631",
+            "https://github.com/snap-stanford/BioDiscoveryAgent"
+        ],
+        "created_at": "2024-06-03T09:27:55.000Z",
+        "postId": "1797560838695666049",
+        "author_id": "40564990",
+        "users": [
+            {
+                "url": "https://t.co/1yaT76Lrfu",
+                "created_at": "2009-05-16T23:29:54.000Z",
+                "username": "yusufroohani",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1002261313135890432/Mqv6WVRB_normal.jpg",
+                "name": "Yusuf Roohani",
+                "id": "40564990"
+            },
+            {
+                "created_at": "2022-06-25T18:31:49.000Z",
+                "username": "JianVora1",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1540764718482083842/a13Bv0mP_normal.jpg",
+                "name": "Jian Vora",
+                "id": "1540764671346475008",
+                "url": null
+            },
+            {
+                "url": "https://t.co/GBHngkDLMs",
+                "created_at": "2017-03-30T01:44:04.000Z",
+                "username": "qhwang3",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1337167619816710149/Ydk4Ti_M_normal.jpg",
+                "name": "Qian Huang",
+                "id": "847263121865441281"
+            },
+            {
+                "url": "https://t.co/eDtsxiBXQg",
+                "created_at": "2009-10-31T07:26:37.000Z",
+                "username": "percyliang",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1319828397699129346/wjBcgUH0_normal.jpg",
+                "name": "Percy Liang",
+                "id": "86481377"
+            },
+            {
+                "url": "https://t.co/S8h0zVuPHc",
+                "created_at": "2007-08-12T18:14:57.000Z",
+                "username": "jure",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1758953504415334400/QiZeIXbi_normal.jpg",
+                "name": "Jure Leskovec",
+                "id": "8143682"
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "keywords": [],
+        "summary": "The topic of the text is \"Confidence Calibration in Large Language Models (LLMs) using LACIE method.\"",
+        "isOpinion": false,
+        "content": "\ud83d\udea8 Excited to share our new work on **confidence calibration** in LLMs! LLMs are often badly calibrated & overconfident, explicitly (eg. 'I'm 100% sure') and implicitly, eg. giving details/authoritative tone. We address both w/ a pragmatic speaker-listener multi-agent method \ud83e\uddf5\n\nWe implement this through multi-agent RSA/pragmatics-inspired preference optimization: the speaker agent generates answers, which are accepted/rejected by a listener agent based on how they sound. We prefer confident+correct or unconfident+incorrect, and disprefer mismatches.\n\nUsing bootstrapped pref. data, we finetune LLMs to be implicitly + explicitly calibrated. w/ a modeled listener, we get gains in calibration (+20.7 AUROC, -7.8 ECE) & precision (+18%). More importantly, gains transfer to humans, w/ 47% fewer false answers accepted in human eval\n\nCrucially, LACIE is better than just optimizing for truthfulness alone, i.e. pragmatic training with consideration for the listener is key. We show that LACIE's benefits transfer to other data as well, with major truthfulness gains on TruthfulQA when trained on TriviaQA!\n\nQualitatively, after LACIE-finetuning, models have a better separation in confidence between correct and incorrect answers. LACIE also leads to more hedging when models are wrong, and more detailed/explicitly confident answers when models are right.\n\nFinally, we see some cool emergent properties: LACIE training results in big increases in abstention, even though abstention is unattested in the training data. Tuning also leads to snarky models. When confident, models say things like 'Duh' or 'obviously' to convey confidence\ud83d\ude02\n\nThanks to my co-authors @peterbhase and @mohitban47! Paper: https://arxiv.org/abs/2405.21028 Code: https://github.com/esteng/pragmatic_calibration @huggingface page/models :https://huggingface.co/papers/2405.21028",
+        "author_id": "1037116695926792192",
+        "created_at": "2024-06-03T17:20:02.000Z",
+        "postId": "1797679651307032652",
+        "imgs": [
+            "https://pbs.twimg.com/media/GPKi1ROakAYnkBV.jpg",
+            "https://pbs.twimg.com/media/GPKjGHxboAAmFl9.jpg",
+            "https://pbs.twimg.com/media/GPKjIdrbUAAXgPh.jpg",
+            "https://pbs.twimg.com/media/GPKjPvobIAAGWMH.jpg",
+            "https://pbs.twimg.com/media/GPKjRmmagAAmFDI.jpg",
+            "https://pbs.twimg.com/media/GPKjTH4akAIROhQ.jpg",
+            "https://pbs.twimg.com/media/GPKjZIrb0AAAksK.jpg",
+            "https://pbs.twimg.com/media/GPKje1lXUAAB-q0.jpg",
+            "https://pbs.twimg.com/media/GPKjgMZakAUNgOj.jpg",
+            "https://pbs.twimg.com/media/GPKjkTXXoAAVYJN.jpg"
+        ],
+        "urls": [
+            "https://arxiv.org/abs/2405.21028",
+            "https://github.com/esteng/pragmatic_calibration",
+            "https://t.co/jQE6xwNBAy"
+        ],
+        "users": [
+            {
+                "username": "EliasEskin",
+                "url": "https://t.co/Jh7VvrT4i7",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1092506897066934272/x3rlmuHQ_normal.jpg",
+                "created_at": "2018-09-04T23:14:23.000Z",
+                "name": "Elias Stengel-Eskin",
+                "id": "1037116695926792192"
+            },
+            {
+                "username": "peterbhase",
+                "url": "https://t.co/stzY5QZUXe",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1147955093469356032/96kAzX_2_normal.png",
+                "created_at": "2019-04-19T14:52:30.000Z",
+                "name": "Peter Hase",
+                "id": "1119252439050354688"
+            },
+            {
+                "username": "mohitban47",
+                "url": "https://t.co/OLYSCSynXm",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1179127220037537792/zPLfOVwH_normal.jpg",
+                "created_at": "2012-09-18T04:25:22.000Z",
+                "name": "Mohit Bansal",
+                "id": "830355049"
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "keywords": [],
+        "summary": "Improved Few-Shot Jailbreaking (I-FSJ) for efficient and SOTA few-shot jailbreaking against advanced defenses of Llama-2/3.",
+        "isOpinion": false,
+        "content": "\ud83d\udc7aMake Few-Shot Jailbreaking 'Great' Again! \ud83d\ude15Vanilla few-shot jailbreaking (FSJ) is inefficient, while many-shot jailbreaking (MSJ by @AnthropicAI) requires long-context capability. \ud83d\ude2fOur improved FSJ (I-FSJ) achieves SOTA ASRs against Llama-2/3, even with advanced defenses! Paper: https://arxiv.org/abs/2406.01288 Code: https://github.com/sail-sg/I-FSJ",
+        "imgs": [
+            "https://pbs.twimg.com/media/GPNRJ_qbUAAMWZr.png"
+        ],
+        "urls": [
+            "https://arxiv.org/abs/2406.01288",
+            "https://github.com/sail-sg/I-FSJ"
+        ],
+        "created_at": "2024-06-04T05:57:47.000Z",
+        "postId": "1797870346047258924",
+        "author_id": "1202375676004667392",
+        "users": [
+            {
+                "url": "https://t.co/W864bCsPA4",
+                "username": "TianyuPang1",
+                "created_at": "2019-12-04T23:54:44.000Z",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1745476062237405184/-fVx6sn-_normal.jpg",
+                "id": "1202375676004667392",
+                "name": "Tianyu Pang"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "keywords": [],
+        "summary": "State-space models are effective due to diagonal recurrence, which helps in better conditioning the loss landscape and facilitates Adam's job by making the Hessian diagonal. Normalization and reparametrization can mitigate the effect of large gradients.",
+        "isOpinion": false,
+        "content": "Why do state-space models work so well? With @orvieto_antonio, we study their learning dynamics and find that diagonal recurrence is key: 1. It helps in better conditioning the loss landscape 2. It facilitates Adam's job by making the Hessian diagonal \ud83d\udcdd https://arxiv.org/abs/2405.21064\n\nSSMs are linear RNNs and are thus simple enough to be studied theoretically. We start with a 1D teacher-student example and find that as the memory of the network increases, the loss becomes sharper. Gradient-based learning of long-term memories is hard, even in this simple case!\n\nWe can formalize this intuition by looking at the sensitivity of the hidden states on the recurrent parameters. Under reasonable assumptions, this quantity has a closed-form solution, which depends on the input distribution (c.f. \u03c1). It explodes as the network's memory increases.\n\nHow can we mitigate this effect? Normalization of the forward pass and reparametrization of the recurrent parameters can do so. This is directly featured in SSMs, but also indirectly in LSTMs! Importantly, it is easier to apply those fixes when the recurrence is diagonal.\n\nSSM-like models, such as the LRU, should thus be easier to learn than fully connected linear RNNs. We confirm that on a teacher-student task. Diagonality has another interesting effect: it makes explosion directions more axis-aligned, and Adam can also compensate for that.\n\nWe conclude with an analysis of how large gradients can be at initialization, as a function of how much memory they encode, on a next-token prediction task. Reparametrization is successful at mitigating the explosion effect, except for complex numbers (more on that in the paper).\n\nOverall, our results complement the common deep learning wisdom around vanishing and exploding gradients. We show that explosive behaviors still exist in RNNs, even when exploding gradients are removed from the picture (by keeping the dynamics stable).\n\nThis work was greatly inspired by the early work of @HochreiterSepp @SchmidhuberAI, and more recently by @_albertgu @orvieto_antonio and @sohamde_.",
+        "imgs": [
+            "https://pbs.twimg.com/media/GPJ-b65XUAAOOoL.png",
+            "https://pbs.twimg.com/media/GPJ-aIuWcAAcqKu.jpg",
+            "https://pbs.twimg.com/media/GPJ-hheWIAASNBZ.png",
+            "https://pbs.twimg.com/media/GPJ_KUvXUAADSoh.png",
+            "https://pbs.twimg.com/media/GPJ_XYBWwAA4Eo5.jpg",
+            "https://pbs.twimg.com/media/GPJ_XYRXsAA-yOu.png",
+            "https://pbs.twimg.com/media/GPJ_qhjWsAASl5E.png"
+        ],
+        "urls": [
+            "https://arxiv.org/abs/2405.21064"
+        ],
+        "created_at": "2024-06-03T14:49:29.000Z",
+        "author_id": "936865625233817600",
+        "postId": "1797641762204430725",
+        "users": [
+            {
+                "created_at": "2017-12-02T07:52:25.000Z",
+                "name": "Nicolas Zucchet",
+                "username": "NicolasZucchet",
+                "id": "936865625233817600",
+                "url": "https://t.co/4La0vtiDjk",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1545353618223730688/bhzZv_tv_normal.jpg"
+            },
+            {
+                "created_at": "2021-11-23T12:18:29.000Z",
+                "name": "Sepp Hochreiter",
+                "username": "HochreiterSepp",
+                "id": "1463119548115087362",
+                "url": "https://t.co/P3x5jU0zrp",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1463121437196267522/lT6EWJED_normal.jpg"
+            },
+            {
+                "created_at": "2019-08-20T12:15:46.000Z",
+                "name": "J\u00fcrgen Schmidhuber",
+                "username": "SchmidhuberAI",
+                "id": "1163786515144724485",
+                "url": "https://t.co/16khDh3Vwn",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1715797038535680000/ZFrYnYWD_normal.jpg"
+            },
+            {
+                "created_at": "2018-12-21T23:57:16.000Z",
+                "name": "Albert Gu",
+                "username": "_albertgu",
+                "id": "1076265378118959104",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1737900609616117760/rF23YDtv_normal.jpg",
+                "url": null
+            },
+            {
+                "created_at": "2019-09-14T15:13:38.000Z",
+                "name": "Antonio Orvieto",
+                "username": "orvieto_antonio",
+                "id": "1172891108076077057",
+                "url": "https://t.co/VXg6JbHaXN",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1715721495480070145/gRAWAkLO_normal.jpg"
+            },
+            {
+                "created_at": "2011-05-27T05:59:44.000Z",
+                "name": "Soham De",
+                "username": "sohamde_",
+                "id": "306050621",
+                "url": "https://t.co/AaAuJWVK07",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1496089686628048898/7iWlv9TI_normal.jpg"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "summary": "Meta's fine-tuned Llama-3 model is still the best, while open-source variants are overfit to benchmarks and perform poorly on unseen tasks.",
+        "keywords": [],
+        "isOpinion": true,
+        "content": "The llama-3 instruct model fine tuned by Meta is still the best llama-3 on HF. I tried a dozen open source variants on various offline benchmarks and they are all quite literally overfit to leaderboards and do very poorly on tasks that are not present in benchmarks. Yes even the fancy \u201citerative DPO\u201d one does very very poorly with in context\n\nThis is pretty much why I stopped talking about any fine tuned variants because they are optimizing for benchmarks that don\u2019t matter\n\nOne model I tried did well in zero shot programming. When I give the model context (documentation) the score drops below the zero shot score! This is not the case with the Meta llama-3 variant. How can this be? My theory is that they are just overfit to  benchmark style questions or don\u2019t have enough data to cover the use cases",
+        "imgs": [],
+        "urls": [],
+        "users": [
+            {
+                "created_at": "2009-08-31T22:06:04.000Z",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1678598826544734210/Z8ZMuiAR_normal.jpg",
+                "id": "70514287",
+                "username": "abacaj",
+                "name": "anton",
+                "url": null
+            }
+        ],
+        "created_at": "2024-06-03T14:24:02.000Z",
+        "postId": "1797635357552328756",
+        "author_id": "70514287"
+    },
+    {
+        "id": 25,
+        "summary": "Designing Generative AI Systems with User Control and Transparency",
+        "keywords": [],
+        "isOpinion": true,
+        "content": "Looking for recommendations of papers on designing generative AI-based systems in a way that supports user control / agency. Bonus points if the paper touches on the relationship between control and transparency. THANK YOU!!",
+        "imgs": [],
+        "urls": [],
+        "created_at": "2024-06-03T21:16:44.000Z",
+        "postId": "1797739217247666683",
+        "author_id": "2869101210",
+        "users": [
+            {
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1134822582715392001/2okzkHQ9_normal.png",
+                "id": "2869101210",
+                "name": "Jenn Wortman Vaughan",
+                "created_at": "2014-10-21T17:25:24.000Z",
+                "url": "https://t.co/E4ZgCK0aFy",
+                "username": "jennwvaughan"
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "summary": "Text Summarization",
+        "keywords": [],
+        "isOpinion": true,
+        "content": "Do you use gpt4o or did you switch back to gpt4?",
+        "imgs": [],
+        "urls": [],
+        "created_at": "2024-06-03T20:01:44.000Z",
+        "postId": "1797720343106457789",
+        "author_id": "1574621478557208577",
+        "users": [
+            {
+                "created_at": "2022-09-27T04:46:40.000Z",
+                "username": "shakoistsLog",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1755724139531517952/LeKqLzQ-_normal.jpg",
+                "name": "shako",
+                "id": "1574621478557208577",
+                "url": null
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "keywords": [],
+        "summary": "ProtEx: A Retrieval-Augmented Approach for Protein Function Prediction",
+        "isOpinion": false,
+        "content": "Excited to share new work from @GoogleDeepMind: \u201cProtEx: A Retrieval-Augmented Approach for Protein Function Prediction\u201d https://biorxiv.org/content/10.1101/2024.05.30.596539v1\n\nWe propose a model, ProtEx, that can predict a protein\u2019s function given its amino acid sequence. ProtEx achieves state-of-the-art results across EC number, GO term, and Pfam family prediction tasks, with the largest improvements for rare classes, as highlighted for Pfam below.\n\nOur approach is inspired by retrieval-augmented models for NLP. By applying these methods to protein function prediction, we can combine the strengths of similarity-based search methods like BLAST and pre-trained protein language models.\n\nProtEx uses a new multi-sequence pre-training task which helps the model effectively compare query and exemplar sequences.\n\nOn a personal note, this is my first paper related to applications in biology, a truly inspiring space for applying ML/AI. It was a privilege to work with and learn from @bhaskar_gurram_, David Belanger, @andreea_gane, @mlbileschi_pub, @LucyColwell37, @toutanova, and @ank_parikh",
+        "imgs": [
+            "https://pbs.twimg.com/media/GPKqGHOaQAEF-DP.png",
+            "https://pbs.twimg.com/media/GPKqXcxa0AAoMbD.jpg",
+            "https://pbs.twimg.com/media/GPKqcMLbkAAlUyw.jpg",
+            "https://pbs.twimg.com/media/GPKqhN4bkAAPBjE.jpg"
+        ],
+        "urls": [
+            "https://biorxiv.org/content/10.1101/2024.05.30.596539v1"
+        ],
+        "created_at": "2024-06-03T17:49:46.000Z",
+        "author_id": "1075460972",
+        "postId": "1797687131219071130",
+        "users": [
+            {
+                "created_at": "2013-01-10T02:28:10.000Z",
+                "id": "1075460972",
+                "name": "Pete Shaw",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1407474130505453570/P9ckZtjS_normal.jpg",
+                "username": "ptshaw2",
+                "url": "https://t.co/ykBFUZ7rO1"
+            },
+            {
+                "created_at": "2014-09-17T13:35:59.000Z",
+                "id": "2814951920",
+                "name": "bhaskar gurram",
+                "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+                "username": "bhaskar_gurram_",
+                "url": null
+            },
+            {
+                "created_at": "2016-06-22T17:13:32.000Z",
+                "id": "745666038956703744",
+                "name": "Andreea Gane",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/840835419470221312/VG0Qz8ep_normal.jpg",
+                "username": "andreea_gane",
+                "url": null
+            },
+            {
+                "created_at": "2021-03-24T15:30:32.000Z",
+                "id": "1374745424804843524",
+                "name": "Max Bileschi",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1374746614338875393/tgFTfE8K_normal.jpg",
+                "username": "mlbileschi_pub",
+                "url": null
+            },
+            {
+                "created_at": "2019-05-04T21:16:53.000Z",
+                "id": "1124784990300950529",
+                "name": "Lucy Colwell",
+                "profile_image_url": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+                "username": "LucyColwell37",
+                "url": null
+            },
+            {
+                "created_at": "2018-10-12T21:03:16.000Z",
+                "id": "1050854439072882688",
+                "name": "Kristina Toutanova",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1142235832679485440/rbAWrMyC_normal.png",
+                "username": "toutanova",
+                "url": null
+            },
+            {
+                "created_at": "2012-08-27T09:43:57.000Z",
+                "id": "784289617",
+                "name": "Ankur Parikh",
+                "profile_image_url": "https://pbs.twimg.com/profile_images/1535674848734855168/Ze1aHxHg_normal.jpg",
+                "username": "ank_parikh",
+                "url": "https://t.co/hvpeQeeqp2"
             }
         ]
     }
