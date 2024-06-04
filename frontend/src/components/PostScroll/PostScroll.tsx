@@ -56,6 +56,7 @@ function PostScroll({
                                 margin: "2px",
                                 padding: "2px",
                             }}
+                            key={post.id}
                         >
                             <ListItemText
                                 primaryTypographyProps={{

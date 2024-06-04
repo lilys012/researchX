@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { unwrapResult } from "@reduxjs/toolkit";
 
 import { AppDispatch } from "../../store";
 import PostOverview from "../../components/PostOverview/PostOverview";
@@ -11,21 +10,25 @@ import WordCloud from "../../components/WordCloud/WordCloud";
 import HeaderComponent from "../../components/Header/Header";
 
 import "./MainPage.scss";
-import { Layout, Checkbox, Space } from "antd";
+import { Layout } from "antd";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { Avatar, List } from "@mui/material";
+import { List } from "@mui/material";
+import OpinionLink from "../../components/OpinionLink/OpinionLink";
 
 const { Content } = Layout;
 
-function MainPage() {
+function MainPage({
+    myposts,
+    setMyPosts,
+}: {
+    myposts: number[];
+    setMyPosts: React.Dispatch<React.SetStateAction<number[]>>;
+}) {
     const { keyword } = useParams();
 
     const postState = useSelector(selectPost);
@@ -37,6 +40,7 @@ function MainPage() {
     const [acPosts, setAcPosts] = useState<PostType[]>([]);
     const [opPosts, setOpPosts] = useState<PostType[]>([]);
     const [refresh, setRefresh] = useState<Boolean>(false);
+    const [isMyPost, setIsMyPost] = useState<Boolean>(false);
 
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
@@ -71,8 +75,8 @@ function MainPage() {
                 const bRecall = calculateTokenRecall(curKeyword, b.content);
                 if (aRecall !== bRecall) return bRecall - aRecall;
                 return (
-                    new Date(b.created_at).getDate() -
-                    new Date(a.created_at).getDate()
+                    new Date(b.created_at).getTime() -
+                    new Date(a.created_at).getTime()
                 );
             }
 
@@ -81,15 +85,15 @@ function MainPage() {
 
             if (aRecall !== bRecall) return bRecall - aRecall;
             return (
-                new Date(b.created_at).getDate() -
-                new Date(a.created_at).getDate()
+                new Date(b.created_at).getTime() -
+                new Date(a.created_at).getTime()
             );
         });
     };
 
     const shuffleArray = (array: PostType[]) => {
         let shuffledArray = [...array];
-        for (let i = shuffledArray.length - 1; i > 0; i--) {
+        for (let i = shuffledArray.length - 1; i >= 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [shuffledArray[i], shuffledArray[j]] = [
                 shuffledArray[j],
@@ -100,6 +104,7 @@ function MainPage() {
     };
 
     const getCurPost = () => {
+        // return post s.t. its id equals postId
         let curPost = posts[0];
         for (let i = posts.length - 1; i > 0; i--) {
             if (posts[i].id === postId) {
@@ -110,16 +115,28 @@ function MainPage() {
         return curPost;
     };
 
+    const getMyPost = () => {
+        // return array containing saved posts
+        let curPost: PostType[] = [];
+        for (let i = myposts.length - 1; i >= 0; i--) {
+            curPost = [...curPost, posts[myposts[i]]];
+        }
+        return curPost;
+    };
+
     useEffect(() => {
+        // initial redirection from 'main'
         if (keyword)
             setCurKeyword(keyword === "main" ? keywords[0].content : keyword);
     }, [keyword]);
 
     useEffect(() => {
+        // navigation if curKeyword changes
         if (curKeyword) navigate(`/${curKeyword}`);
     }, [curKeyword]);
 
     useEffect(() => {
+        // classify into academic and opinions
         setAcPosts(
             sortPosts(
                 posts.filter((post) => post.isOpinion === false),
@@ -135,7 +152,8 @@ function MainPage() {
     }, [posts, curKeyword]);
 
     useEffect(() => {
-        if (refresh) {
+        // refresh posts
+        if (refresh && curKeyword !== "Saved Posts") {
             const shuffledPosts = shuffleArray(postState.posts);
             const sampleSize = Math.ceil(shuffledPosts.length * 1.0);
             setPosts(shuffledPosts.slice(0, sampleSize));
@@ -144,14 +162,26 @@ function MainPage() {
     }, [refresh]);
 
     useEffect(() => {
-        if (acPosts.length) setPostId(acPosts[0].id);
+        // set default overview post
+        if (acPosts.length && curKeyword !== "Saved Posts")
+            setPostId(acPosts[0].id);
     }, [acPosts]);
+
+    useEffect(() => {
+        // handle showing saved posts
+        if (isMyPost) {
+            setCurKeyword("Saved Posts");
+            setIsMyPost(false);
+            setPostId(myposts[myposts.length - 1]);
+        }
+    }, [isMyPost]);
 
     return (
         <Layout className="MainPage">
             <HeaderComponent
                 setCurKeyword={setCurKeyword}
                 setRefresh={setRefresh}
+                setIsMyPost={setIsMyPost}
             />
             <Content className="Content">
                 <Container className="Container">
@@ -176,6 +206,8 @@ function MainPage() {
                                 <PostOverview
                                     post={posts.length ? getCurPost() : null}
                                     overview={true}
+                                    myposts={myposts}
+                                    setMyPosts={setMyPosts}
                                 />
                             </Link>
                         </div>
@@ -209,7 +241,10 @@ function MainPage() {
                                             />
                                         </TabList>
                                     </Box>
-                                    <TabPanel value="1">
+                                    <TabPanel
+                                        value="1"
+                                        sx={{ padding: "10px" }}
+                                    >
                                         <List
                                             sx={{
                                                 width: "100%",
@@ -221,78 +256,29 @@ function MainPage() {
                                             }}
                                             subheader={<li />}
                                         >
-                                            {opPosts.map((post) => {
-                                                return (
-                                                    <Link
-                                                        style={{
-                                                            color: "#000",
-                                                        }}
-                                                        to={`/post/${post.id}`}
-                                                    >
-                                                        <div id="op-container">
-                                                            <Avatar
-                                                                alt={
-                                                                    post.users.find(
-                                                                        (u) =>
-                                                                            u.id ===
-                                                                            post.author_id
-                                                                    )?.name
-                                                                }
-                                                                src={
-                                                                    post.users.find(
-                                                                        (u) =>
-                                                                            u.id ===
-                                                                            post.author_id
-                                                                    )
-                                                                        ?.profile_image_url
-                                                                }
-                                                            />
-                                                            <div id="op-right-container">
-                                                                <div id="user-name">
-                                                                    {
-                                                                        post.users.find(
-                                                                            (
-                                                                                u
-                                                                            ) =>
-                                                                                u.id ===
-                                                                                post.author_id
-                                                                        )?.name
-                                                                    }
-                                                                </div>
-                                                                <span
-                                                                    id="op-text"
-                                                                    style={{
-                                                                        whiteSpace:
-                                                                            "pre-wrap",
-                                                                        display:
-                                                                            "-webkit-box",
-                                                                        WebkitBoxOrient:
-                                                                            "vertical",
-                                                                        overflow:
-                                                                            "hidden",
-                                                                        WebkitLineClamp: 1,
-                                                                        height: "auto",
-                                                                        fontSize:
-                                                                            "14px",
-                                                                        fontWeight: 500,
-                                                                        fontFamily:
-                                                                            "NanumGothic",
-                                                                        width: "96%",
-                                                                        marginBottom:
-                                                                            "2px",
-                                                                        padding:
-                                                                            "0",
-                                                                    }}
-                                                                >
-                                                                    {
-                                                                        post.content
-                                                                    }
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </Link>
-                                                );
-                                            })}
+                                            {curKeyword === "Saved Posts"
+                                                ? getMyPost()
+                                                      .filter(
+                                                          (post) =>
+                                                              post.isOpinion ===
+                                                              true
+                                                      )
+                                                      .map((post) => {
+                                                          return (
+                                                              <OpinionLink
+                                                                  post={post}
+                                                                  key={post.id}
+                                                              />
+                                                          );
+                                                      })
+                                                : opPosts.map((post) => {
+                                                      return (
+                                                          <OpinionLink
+                                                              post={post}
+                                                              key={post.id}
+                                                          />
+                                                      );
+                                                  })}
                                         </List>
                                     </TabPanel>
                                     <TabPanel value="2">Conferences</TabPanel>
@@ -306,7 +292,13 @@ function MainPage() {
                             className="upperContainer rightContainer"
                         >
                             <PostScroll
-                                posts={acPosts}
+                                posts={
+                                    curKeyword === "Saved Posts"
+                                        ? getMyPost().filter(
+                                              (post) => post.isOpinion === false
+                                          )
+                                        : acPosts
+                                }
                                 postId={postId}
                                 setPostId={setPostId}
                             ></PostScroll>

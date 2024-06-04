@@ -1,0 +1,15 @@
+.OpinionLink #op-container {
+    border: solid 2px;
+    border-radius: 20px;
+    padding: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+}
+.OpinionLink #op-right-container {
+    padding-left: 10px;
+}
+.OpinionLink #user-name {
+    margin-top: 2px;
+    font-size: 14px;
+}

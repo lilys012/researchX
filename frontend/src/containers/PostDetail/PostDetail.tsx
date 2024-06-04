@@ -10,7 +10,13 @@ import GPTInteraction from "../../components/GPTInteraction/GPTInteraction";
 import "./PostDetail.scss";
 import { AppDispatch } from "../../store";
 
-function PostDetail() {
+function PostDetail({
+    myposts,
+    setMyPosts,
+}: {
+    myposts: number[];
+    setMyPosts: React.Dispatch<React.SetStateAction<number[]>>;
+}) {
     const { id } = useParams();
     const postState = useSelector(selectPost);
     // const id = strId ? parseInt(strId) : 0;
@@ -36,11 +42,20 @@ function PostDetail() {
     }, [id]);
     return (
         <div id="PostDetail">
-            <HeaderComponent setCurKeyword={null} setRefresh={null} />
+            <HeaderComponent
+                setCurKeyword={null}
+                setRefresh={null}
+                setIsMyPost={null}
+            />
             <div className="postdetail-main-container">
                 <div className="upper">
                     <div className="postdetail-overview">
-                        <PostOverview post={targetPost} overview={false} />
+                        <PostOverview
+                            post={targetPost}
+                            overview={false}
+                            myposts={myposts}
+                            setMyPosts={setMyPosts}
+                        />
                     </div>
                     <div className="gpt-container">
                         <GPTInteraction />

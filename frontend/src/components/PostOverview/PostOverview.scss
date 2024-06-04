@@ -1,6 +1,6 @@
 $primary: hsl(212, 79%, 55%);
 $img-size: 250px;
-#post-container {
+.PostOverview {
     width: 90%;
     border: solid 2px;
     margin-top: 10px;
@@ -8,18 +8,27 @@ $img-size: 250px;
     padding: 7px;
     height: 325px;
 }
-#main-post-div {
+.PostOverview #main-post-div {
     display: flex;
     flex-direction: column;
 }
-#user-info {
+.PostOverview #main-post-div #upper-post-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.PostOverview #main-post-div #upper-post-div .badge {
+    padding-right: 15px;
+    padding-top: 10px;
+}
+.PostOverview #user-info {
     display: flex;
     gap: 5px;
     align-items: center;
     padding-bottom: 10px;
     padding-left: 10px;
 }
-#post-right-container {
+.PostOverview #post-right-container {
     position: relative;
     top: 7px;
     display: flex;
@@ -28,23 +37,23 @@ $img-size: 250px;
     gap: 12px;
     padding-left: 5px;
 }
-#user-name {
+.PostOverview #user-name {
     font-size: 17px;
     margin-top: -15px;
 }
-#time-and-location {
+.PostOverview #time-and-location {
     display: flex;
     gap: 5px;
     font-size: 10px;
 }
-#user-main-badge {
+.PostOverview #user-main-badge {
     width: 55px;
     margin-right: 5px;
 }
-#user-main-badge img {
+.PostOverview #user-main-badge img {
     width: 55px;
 }
-#post-content-container {
+.PostOverview #post-content-container {
     position: relative;
     left: 20px;
     text-align: left;
@@ -52,15 +61,15 @@ $img-size: 250px;
     font-weight: 500;
     max-width: 96%;
 }
-#post-reply-to {
+.PostOverview #post-reply-to {
     color: $primary;
     font-weight: 700;
 }
-#chain-container {
+.PostOverview #chain-container {
     margin: 7px;
     text-align: left;
 }
-.chain-toggle-button {
+.PostOverview .chain-toggle-button {
     border: 0;
     outline: 0;
     background: none;
@@ -68,11 +77,11 @@ $img-size: 250px;
     font-weight: 700;
     font-size: 14px;
 }
-#post-photo {
+.PostOverview #post-photo {
     padding: 10px;
     text-align: left;
 }
-#post-photo img {
+.PostOverview #post-photo img {
     margin-left: 25px;
     width: 200px;
     border-radius: 15px;
@@ -82,16 +91,16 @@ $img-size: 250px;
 //     justify-content: space-between;
 //     height: 150px;
 // }
-#post-content-container img {
+.PostOverview #post-content-container img {
     margin: auto;
     max-width: 250px;
     max-height: 180px;
 }
-#post-content {
+.PostOverview #post-content {
     margin-right: 10px;
     display: flex;
     flex-direction: row;
 }
-#post-text {
+.PostOverview #post-text {
     max-width: 380px;
 }

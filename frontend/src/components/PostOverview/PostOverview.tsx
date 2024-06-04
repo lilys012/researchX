@@ -1,15 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PostType } from "../../store/slices/post";
 import "./PostOverview.scss";
-import { Avatar } from "@mui/material";
+import { Avatar, Badge } from "@mui/material";
 import { Col, Container, Row, Image } from "react-bootstrap";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 export interface viewProps {
     post: PostType | null;
     overview: boolean;
+    myposts: number[];
+    setMyPosts: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-function PostOverview({ post, overview }: viewProps) {
+function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
+    const isInMyPost = () => {
+        if (post) {
+            for (let i = myposts.length - 1; i >= 0; i--) {
+                if (myposts[i] === post.id) return true;
+            }
+        }
+        return false;
+    };
+
+    const removePost = () => {
+        if (post) {
+            setMyPosts((prevPosts: number[]) => {
+                return prevPosts.filter((p) => p !== post.id);
+            });
+        }
+    };
+    const addPost = () => {
+        if (post) {
+            setMyPosts((prevPosts: number[]) => {
+                return [...prevPosts, post.id];
+            });
+        }
+    };
+
     return (
         <div
             id="post-container"
@@ -21,25 +49,42 @@ function PostOverview({ post, overview }: viewProps) {
                 <div></div>
             ) : (
                 <div id="main-post-div">
-                    <div id="user-info">
-                        <Avatar
-                            alt={
-                                post.users.find((u) => u.id === post.author_id)
-                                    ?.name
-                            }
-                            src={
-                                post.users.find((u) => u.id === post.author_id)
-                                    ?.profile_image_url
-                            }
-                        />
-                        <div id="post-right-container">
-                            <div id="user-name">
-                                {
+                    <div id="upper-post-div">
+                        <div id="user-info">
+                            <Avatar
+                                alt={
                                     post.users.find(
                                         (u) => u.id === post.author_id
                                     )?.name
                                 }
+                                src={
+                                    post.users.find(
+                                        (u) => u.id === post.author_id
+                                    )?.profile_image_url
+                                }
+                            />
+                            <div id="post-right-container">
+                                <div id="user-name">
+                                    {
+                                        post.users.find(
+                                            (u) => u.id === post.author_id
+                                        )?.name
+                                    }
+                                </div>
                             </div>
+                        </div>
+                        <div className="badge">
+                            {isInMyPost() ? (
+                                <FavoriteIcon
+                                    color="action"
+                                    onClick={overview ? () => {} : removePost}
+                                />
+                            ) : (
+                                <FavoriteBorderIcon
+                                    color="action"
+                                    onClick={overview ? () => {} : addPost}
+                                />
+                            )}
                         </div>
                     </div>
                     <div id="post-content-container">

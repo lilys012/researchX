@@ -29,9 +29,11 @@ export const CustomSearchBar = styled(SearchBar)({
 function HeaderComponent({
     setCurKeyword,
     setRefresh,
+    setIsMyPost,
 }: {
     setCurKeyword: React.Dispatch<React.SetStateAction<string>> | null;
     setRefresh: React.Dispatch<React.SetStateAction<Boolean>> | null;
+    setIsMyPost: React.Dispatch<React.SetStateAction<Boolean>> | null;
 }) {
     const navigate = useNavigate();
     const postState = useSelector(selectPost);
@@ -48,6 +50,10 @@ function HeaderComponent({
     const onClickRefreshButton = () => {
         if (setRefresh != null) setRefresh(true);
     };
+    const onClickIsMyPostsButton = () => {
+        if (setIsMyPost != null) setIsMyPost(true);
+    };
+
     useEffect(() => {
         if (setCurKeyword != null) setCurKeyword(keywords[0].content);
     }, []);
@@ -95,7 +101,11 @@ function HeaderComponent({
                     className="button"
                     onClick={onClickRefreshButton}
                 />
-                <PushpinOutlined id="saved-button" className="button" />
+                <PushpinOutlined
+                    id="saved-button"
+                    className="button"
+                    onClick={onClickIsMyPostsButton}
+                />
                 {/* <UserOutlined id="account-button" className="button" /> */}
                 <div id="user-main-badge">
                     <img
