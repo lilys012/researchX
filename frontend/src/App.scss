@@ -1,0 +1,20 @@
+$main-color: #3185e7;
+$sub-color: #edf9ff;
+$small-text: 12px;
+$button-size: 40px;
+$top: 20px;
+
+.App {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+
+  font-family: "NanumGothic", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: $small-text;
+  line-height: 140%;
+  color: rgba(0, 0, 0, 0.75);
+
+  overflow: hidden;
+}

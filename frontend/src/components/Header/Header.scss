@@ -1,0 +1,59 @@
+$main-color: #3185e7;
+$sub-color: #edf9ff;
+$small-text: 12px;
+$button-size: 40px;
+$top: 20px;
+
+.Header {
+    padding: 10px;
+    height: 125px;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+
+#logo-container {
+    width: auto;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#search-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+}
+#search-box-container {
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+#search-box-container .search-box {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    font-family: "NanumGothic", serif;
+    font-size: 10px;
+    min-width: 800px;
+}
+#button-container {
+    margin: 0;
+    text-align: left;
+    width: auto;
+    display: flex;
+    align-items: start;
+    justify-content: space-around;
+    margin-top: 15px;
+    min-width: 200px;
+}
+#button-container .button {
+    font-size: $button-size;
+    // height: $button-size;
+    width: $button-size;
+    cursor: pointer;
+    z-index: 100;
+}
+#user-main-badge img {
+    width: 47px;
+    cursor: pointer;
+}

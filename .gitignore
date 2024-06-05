@@ -37,3 +37,5 @@ __pycache__
 /backend/db.sqlite3
 
 /hcienv/
+/backend/
+.env
