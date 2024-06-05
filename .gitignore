@@ -39,4 +39,3 @@ __pycache__
 /hcienv/
 /backend/
 .env
-/frontend/src/credentials.js
