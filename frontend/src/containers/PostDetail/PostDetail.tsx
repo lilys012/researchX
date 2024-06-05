@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import PostOverview, {
-    viewProps,
-} from "../../components/PostOverview/PostOverview";
+import PostOverview from "../../components/PostOverview/PostOverview";
 import HeaderComponent from "../../components/Header/Header";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { PostType, selectPost } from "../../store/slices/post";
 import GPTInteraction from "../../components/GPTInteraction/GPTInteraction";
+import { Avatar } from "@mui/material";
 import "./PostDetail.scss";
-import { AppDispatch } from "../../store";
 
 function PostDetail({
     myposts,
@@ -19,9 +17,6 @@ function PostDetail({
 }) {
     const { id } = useParams();
     const postState = useSelector(selectPost);
-    // const id = strId ? parseInt(strId) : 0;
-    const dispatch = useDispatch<AppDispatch>();
-    console.log(postState.posts);
     const [targetPost, setTargetPost] = useState<PostType>({
         id: -1,
         content: "404",
@@ -58,15 +53,27 @@ function PostDetail({
                         />
                     </div>
                     <div className="gpt-container">
-                        <GPTInteraction />
+                        <div className="gpt-header">
+                            <h2>Ask GPT</h2>
+                        </div>
+                        <GPTInteraction tweet={targetPost.content}/>
                     </div>
                 </div>
                 <div className="lower">
-                    <div className="author-bio">Author Bio</div>
+                    <div className="author-bio-container">
+                        <div className="author-bio-header">
+                            <h2>Authors</h2>
+                        </div>
+                        <ul className="authors">
+                            {targetPost.users.map((u, i)=><li key={i}>
+                                <Avatar alt={u.name} src={u.profile_image_url} />
+                                <div className="author-name">{u.name}</div>
+                            </li>)}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
-
 export default PostDetail;

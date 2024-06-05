@@ -2,6 +2,7 @@ import OpenAI from "openai";
 import { UPSTAGE_API_KEY } from "../../credentials";
 import { useEffect, useState } from "react";
 import { ChatCompletionMessageParam } from "openai/resources/chat";
+import './GPTInteraction.scss';
 
 const apiKey = UPSTAGE_API_KEY;
 const openai = new OpenAI({
@@ -10,10 +11,6 @@ const openai = new OpenAI({
     dangerouslyAllowBrowser: true,
 });
 
-// export type ChatType = {
-//     role: string;
-//     content: string;
-// };
 interface chatProps {
     chatList: ChatCompletionMessageParam[];
 }
@@ -30,27 +27,22 @@ function ChatView({ chatList }: chatProps) {
 const callGPT = async (content: string, chat: ChatCompletionMessageParam[]) =>
     await openai.chat.completions.create({
         model: "solar-1-mini-chat",
-        // messages: [
-        //     {
-        //         role: "assistant",
-        //         content: content,
-        //     },
-        // ],
         messages: [...chat, { role: "user", content: content }],
         stream: false,
     });
 
-function GPTInteraction() {
+function GPTInteraction({ tweet } : {tweet: string|null}) {
     const [text, setText] = useState<string>("");
     const [chat, setChat] = useState<ChatCompletionMessageParam[]>([
-        { role: "system", content: "You are a helpful assistant." },
+        { role: "system", content: "Ask anything!" },
     ]);
 
+    if(tweet){
+        const instruction = `${tweet} \n\n This is a tweet that I'm reading. I'm going to ask questions related to this.`
+        callGPT(instruction, []);
+    }
+
     const onClickSubmit = async () => {
-        // setChat((prevChat) => {
-        //     return [...prevChat, { role: "user", content: text }];
-        // });
-        // setText("");
         await callGPT(text, chat).then((res) => {
             setChat((prevChat) => {
                 return [
@@ -62,8 +54,6 @@ function GPTInteraction() {
                     },
                 ];
             });
-            console.log(chat);
-            console.log(res);
             setText("");
         });
     };
@@ -73,17 +63,19 @@ function GPTInteraction() {
             <div className="chat-container">
                 <ChatView chatList={chat} />
             </div>
-            <textarea
-                name="gpt-input"
-                id="gpt-input"
-                value={text}
-                onChange={(e) => {
-                    setText(e.target.value);
-                }}
-            ></textarea>
-            <button className="submit" onClick={onClickSubmit}>
-                Ask
-            </button>
+            <div className="chat-input">
+                <textarea
+                    name="gpt-input"
+                    id="gpt-input"
+                    value={text}
+                    onChange={(e) => {
+                        setText(e.target.value);
+                    }}
+                ></textarea>
+                <button className="submit" onClick={onClickSubmit}>
+                    Ask
+                </button>
+            </div>
         </div>
     );
 }
