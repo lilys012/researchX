@@ -4,7 +4,9 @@
 
 ## Run Project
 
-To run this project, you can install required packages via `yarn install`.
+To run this project, first move to `frontend` directory.
+
+Then, you can install required packages via `yarn install`.
 
 Afterwards, you can run the project via `yarn start`.
 
