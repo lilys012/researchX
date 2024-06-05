@@ -64,8 +64,12 @@ function MainPage({
 
     const sortPosts = (posts: PostType[], curKeyword: string) => {
         return posts.sort((a, b) => {
-            const aContainsKeyword = a.keywords.includes(curKeyword);
-            const bContainsKeyword = b.keywords.includes(curKeyword);
+            const aContainsKeyword = a.keywords.filter((str) =>
+                str.toLowerCase().includes(curKeyword.toLowerCase())
+            );
+            const bContainsKeyword = b.keywords.filter((str) =>
+                str.toLowerCase().includes(curKeyword.toLowerCase())
+            );
 
             if (aContainsKeyword && !bContainsKeyword) return -1;
             if (!aContainsKeyword && bContainsKeyword) return 1;

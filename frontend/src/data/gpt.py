@@ -13,7 +13,7 @@ with open('postDataRealAnnotated.json', 'r') as dataFile: data = json.load(dataF
 ret_list = []
 for d in tqdm(data):
     # keywords
-    if len(d['keywords']) != 0: 
+    if len(d['keywords']) == 0: 
         prompt_template = PromptTemplate.from_template(
 """
 Provide 5~10 AI keywords from the following text, each seperated by comma. Some examples are GPT, Diffusion, CLIP, NLP, Lanugage Model, 3D Vision, VAE.
@@ -28,6 +28,8 @@ Provide 5~10 AI keywords from the following text, each seperated by comma. Some 
         d['keywords'] = keywords
         # print(chain.invoke({}))
 
+    if len(d['keywords']) == 1: d['keywords'] = d['keywords'][0].split("\n")
+
     # summary
     if len(d['summary']) == 0:
         prompt_template = PromptTemplate.from_template(
@@ -41,15 +43,17 @@ Summarize the topic of following text. You must use less than 10 words.
         # print(chain.invoke({}))
 
     # opinion
-    prompt_template = PromptTemplate.from_template(
-"""
-Does the following text talks about an academic paper? Answer in 'yes' or 'no' only.
----
-"""+d["content"]
-)
-    chain = prompt_template | llm | StrOutputParser()
-    res = chain.invoke({})
-    if ((not d['isOpinion'] and 'yes' in res.lower()) or (d['isOpinion'] and 'no' in res.lower())) == False: print(d['id'], res, d["isOpinion"])
+#     prompt_template = PromptTemplate.from_template(
+# """
+# Does the following text talks about an academic paper? Answer in 'yes' or 'no' only.
+# ---
+# """+d["content"]
+# )
+#     chain = prompt_template | llm | StrOutputParser()
+#     res = chain.invoke({})
+#     if len(d['urls']):
+#         if ((not d['isOpinion'] and 'yes' in res.lower()) or (d['isOpinion'] and 'no' in res.lower())) == False: 
+#             print(d['id'], res, d["isOpinion"])
 
     user_list = []
     for u in d["users"]:
@@ -60,10 +64,3 @@ Does the following text talks about an academic paper? Answer in 'yes' or 'no' o
     ret_list.append(d)
 
 with open("postDataRealAnnotated.json", "w") as f1: json.dump(ret_list, f1, indent=4)
-
-# ---
-# Can LMs correctly distinguish🔎 confusing entity mentions in multiple documents?\n\nWe study how current LMs perform QA task when provided ambiguous questions and a document set📚 that requires challenging entity disambiguation.\n\nWork done at @UTCompSci✨ w/ @xiye_nlp, @eunsolc\n\n(2/6) We establish an ontology of five types of LM generated answers💬 (complete, partial, no, ambiguous, merged), in response to questions containing ambiguous entities. LM should generate a complete answer, pairing each disambiguated entity with each answer.\n\n(3/6) Major obstacle in ambiguous QA has been the lack of annotated documents containing gold disambiguated entity-answer pairs. We build AmbigDocs💫, a synthetic dataset that pairs a question and a set of documents that suggests multiple answers based on entity disambiguation.\n\n(4/6) We identify such documents by leveraging Wikipedia's disambiguation pages. Then, we generate a question and answers from the documents, ensuring full annotation of gold document for each answer. We obtain a total of 36K examples that covers 2.92 answers on average.\n\n(5/6) In addition to standard QA metrics, we develop an automatic classification heuristic, characterizing distinct behaviours of LMs. Our analysis reveals that current models often yield ambiguous answers or incorrectly merge information belonging to different entities.\n\n(6/6) Check our paper and website here!👇\n\nPaper: https://arxiv.org/abs/2404.12447\n\nWebsite: http://ambigdocs.github.io
-# 1. Natural Language Processing
-# 2. Question Answering
-# 3. Large Language Models
-# Please summarize the following text in a single sentence using less than 10 words:
