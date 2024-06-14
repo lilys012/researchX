@@ -11,6 +11,7 @@ llm = ChatUpstage()
 with open('postDataRealAnnotated.json', 'r') as dataFile: data = json.load(dataFile)
 
 ret_list = []
+i = 0
 for d in tqdm(data):
     # keywords
     if len(d['keywords']) == 0: 
@@ -60,7 +61,9 @@ Summarize the topic of following text. You must use less than 10 words.
         if "url" not in u: u["url"] = None
         user_list.append(u)
     d["users"] = user_list
+    d["id"] = i
 
     ret_list.append(d)
+    i += 1
 
 with open("postDataRealAnnotated.json", "w") as f1: json.dump(ret_list, f1, indent=4)

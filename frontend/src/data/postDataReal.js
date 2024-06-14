@@ -1682,7 +1682,7 @@ export const postData = [
         ],
     },
     {
-        id: 24,
+        id: 25,
         summary:
             "Meta's fine-tuned Llama-3 model is still the best, while open-source variants are overfit to benchmarks and perform poorly on unseen tasks.",
         keywords: [
@@ -1718,7 +1718,7 @@ export const postData = [
         author_id: "70514287",
     },
     {
-        id: 25,
+        id: 26,
         summary:
             "Designing Generative AI Systems with User Control and Transparency",
         keywords: [
@@ -1754,7 +1754,7 @@ export const postData = [
         ],
     },
     {
-        id: 26,
+        id: 27,
         summary: "Text Summarization",
         keywords: ["GPT", "GPT4", "GPT4O"],
         isOpinion: true,
@@ -1777,7 +1777,7 @@ export const postData = [
         ],
     },
     {
-        id: 27,
+        id: 28,
         keywords: [
             "AI",
             "Machine Learning",
@@ -1871,7 +1871,7 @@ export const postData = [
         ],
     },
     {
-        id: 28,
+        id: 29,
         keywords: [
             "OpenAI",
             "API",
@@ -1908,7 +1908,7 @@ export const postData = [
         ],
     },
     {
-        id: 29,
+        id: 30,
         keywords: [
             "AI",
             "code",
@@ -1973,7 +1973,7 @@ export const postData = [
         ],
     },
     {
-        id: 30,
+        id: 31,
         keywords: [
             "LLM",
             "Simulation",
@@ -2011,7 +2011,7 @@ export const postData = [
         ],
     },
     {
-        id: 31,
+        id: 32,
         keywords: [
             "Task Drift Detection",
             "LLM Internals Analysis",
@@ -2102,7 +2102,7 @@ export const postData = [
         ],
     },
     {
-        id: 32,
+        id: 33,
         keywords: [
             "AI",
             "Papers",
@@ -2136,7 +2136,7 @@ export const postData = [
         ],
     },
     {
-        id: 33,
+        id: 34,
         keywords: [
             "LoFiT",
             "Localized fine-tuning",
@@ -2192,6 +2192,311 @@ export const postData = [
                 profile_image_url:
                     "https://pbs.twimg.com/profile_images/1662545047017910272/zzOwmMsh_normal.jpg",
                 url: null,
+            },
+        ],
+    },
+    {
+        id: 35,
+        keywords: [
+            "AI-synthesized data",
+            "Rank-and-prune feedback",
+            "Catastrophic degradation",
+            "Restore performance",
+            "Weaker models",
+            "AI at Meta",
+            "Felix Feng",
+            "Dohmatobelvis",
+            "F_charton",
+            "YangpuPKU",
+        ],
+        summary:
+            "The topic of the text is Leveraging AI-synthesized data without catastrophic degradation using Rank-and-prune feedback.",
+        isOpinion: false,
+        content:
+            "How to leverage AI-synthesized data without catastrophic degradation? Rank-and-prune feedback, from humans or even weaker models, provably restores and even surpasses original performance! See https://arxiv.org/abs/2406.07515 @AIatMeta @feeelix_feng @dohmatobelvis @f_charton @yangpuPKU",
+        users: [
+            {
+                created_at: "2020-03-23T17:06:14.000Z",
+                url: "https://twitter.com/KempeLab",
+                id: "12341939808398209",
+                name: "Julia Kempe",
+                username: "KempeLab",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1784317709791928322/5cp7Upcm_normal.jpg",
+            },
+            {
+                created_at: "2020-03-23T17:06:14.000Z",
+                url: "https://twitter.com/feeelix_feng",
+                id: "19230918080382342",
+                name: "Yunzhen Feng",
+                username: "feeelix_feng",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1523345883269632003/ySCLoSIF_normal.jpg",
+            },
+            {
+                created_at: "2020-03-23T17:06:14.000Z",
+                url: "https://twitter.com/dohmatobelvis",
+                id: "112918098401384",
+                name: "Elvis Dohmatob",
+                username: "dohmatobelvis",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/938415053665193985/AosWG1VB_normal.jpg",
+            },
+            {
+                created_at: "2020-03-23T17:06:14.000Z",
+                url: "https://twitter.com/f_charton",
+                id: "12934098209483",
+                name: "Fran\u00e7ois Charton",
+                username: "dohmatobelvis",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1202167628124606465/J0uFRFxL_normal.jpg",
+            },
+            {
+                created_at: "2020-03-23T17:06:14.000Z",
+                url: "https://twitter.com/yangpuPKU",
+                id: "1234028093242",
+                name: "Pu Yang \u6768 \u57d4",
+                username: "yangpuPKU",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1314479358371799041/XTl-O5bH_normal.jpg",
+            },
+        ],
+        urls: ["https://arxiv.org/abs/2406.07515"],
+        imgs: ["https://pbs.twimg.com/media/GP3OaPIWIAMCq7B.jpg"],
+        created_at: "2024-06-12T18:29:37.000Z",
+        postId: "1800822751273636109",
+        author_id: "12341939808398209",
+    },
+    {
+        id: 36,
+        summary:
+            "Preference for training multiple smaller models over one large model.",
+        keywords: [
+            "GPT",
+            "Diffusion",
+            "CLIP",
+            "NLP",
+            "Language Model",
+            "VAE",
+            "Model Training",
+            "Team Size",
+            "Scalability",
+            "Parallel Processing",
+        ],
+        content:
+            "i prefer 100 teams of 10 each to train 100 models than one team of 1000 to train one gigantic model.",
+        isOpinion: true,
+        postId: "1801477204196433964",
+        urls: [],
+        imgs: [],
+        created_at: "2024-06-14T13:50:12.000Z",
+        author_id: "48642190",
+        users: [
+            {
+                username: "kchonyc",
+                created_at: "2009-06-19T07:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1594801711884935189/ztAJPx0b_normal.jpg",
+                id: "48642190",
+                name: "Kyunghyun Cho",
+                url: "https://t.co/GFET1Wumg1",
+            },
+        ],
+    },
+    {
+        id: 37,
+        summary:
+            "In this work, we introduce 'PEGASUS', a method for creating personalized generative 3D face avatars using a monocular video input. It enables disentangled controls for attribute alteration while preserving identity.",
+        keywords: [
+            "3D Face Avatar",
+            "Personalized Generative 3D Avatar",
+            "Monocular Video Input",
+            "Disentangled Controls",
+            "Facial Attributes",
+            "Synthetic Video Collection",
+            "Person-Specific Generative 3D Avatar",
+            "CVPR2024",
+            "Poster Session",
+            "Seattle",
+        ],
+        content:
+            "We present our work 'PEGASUS: Personalized Generative 3D Avatars with Composable Attributes' at #CVPR2024! Project page: https://snuvclab.github.io/pegasus/ Code: https://github.com/snuvclab/pegasus \ud83e\uddf5(1/N) (Poster session information at the end) \n\nWe present a method for creating personalized generative 3D face avatars using a monocular video input. #PEGASUS enables disentangled controls to selectively alter the facial attributes of the target individual while preserving the identity. \ud83e\uddf5(2/N)\n\nOur approach consists of two stages: synthetic database generation and constructing a personalized generative avatar. \ud83e\uddf5(3/N)\n\nWe generate a synthetic video collection of the target identity with varying facial attributes, where the videos are synthesized by borrowing the attributes from monocular videos of diverse identities. \ud83e\uddf5(4/N)\n\nThen, we build a person-specific generative 3D avatar that can modify its attributes continuously while preserving its identity. \ud83e\uddf5(5/N)\n\nOur #CVPR2024 poster will be in Poster Session 1 & Exhibit Hall (Arch 4A-E, 88) during June 19, 2024 (Wednesday, 10:30 am - 12:00 pm). See you in Seattle! Work with @byungjun__kim. @jhugestar is the corresponding author. \ud83e\uddf5(6/N)",
+        isOpinion: false,
+        postId: "1801250625898111467",
+        urls: [
+            "https://t.co/LpYx3AR3pT",
+            "https://github.com/snuvclab/pegasus",
+        ],
+        imgs: [],
+        created_at: "2024-06-13T22:49:11.000Z",
+        author_id: "129942121",
+        users: [
+            {
+                username: "hyunssu_cha",
+                created_at: "2020-04-17T09:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1506986018188136451/2DJ9Cf3l_normal.jpg",
+                id: "129942121",
+                name: "Hyunsoo Cha",
+                url: "https://twitter.com/hyunssu_cha",
+            },
+            {
+                username: "byungjun__kim",
+                created_at: "2019-03-12T09:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1660544253901295621/kjHzawBt_normal.jpg",
+                id: "12938109381",
+                name: "Byungjun Kim",
+                url: "https://twitter.com/byungjun__kim",
+            },
+            {
+                username: "jhugestar",
+                created_at: "2016-03-12T09:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1273165183322644481/Z04oOn32_normal.jpg",
+                id: "1272832983",
+                name: "Hanbyul (Han) Joo",
+                url: "https://twitter.com/jhugestar",
+            },
+        ],
+    },
+    {
+        id: 38,
+        summary:
+            "The text discusses the rapid advancements in AI and the importance of understanding the dominant driving force behind the change, which is exponentially cheaper compute and the scaling of end-to-end models.",
+        keywords: [
+            "AI",
+            "GPT",
+            "Transformer",
+            "Encoder-Decoder",
+            "Decoder-Only",
+            "Language Models",
+            "Multiturn Chat Interface",
+            "Scalability",
+            "Structures",
+            "Learning Objectives",
+            "Architectures",
+            "Compute",
+            "Data",
+            "Driving Force",
+        ],
+        content:
+            "I gave a lecture at Stanford CS 25. Lecture video: https://youtu.be/orDKvo8h71o?si=RIfyZ7NSUAJifOBF AI is moving so fast that it's hard to keep up. Instead of spending all our energy catching up with the latest development, we should study the change itself. First step is to identify and understand the dominant driving force behind the change. For AI, a single driving force stands out; exponentially cheaper compute and scaling of progressively more end-to-end models to leverage that compute. However this doesn\u2019t mean we should blindly adopt the most end-to-end approach because such an approach is simply infeasible. Instead we should find an \u201coptimal\u201d structure to add given the current level of 1) compute, 2) data, 3) learning objectives, 4) architectures. In other words, what is the most end-to-end structure that just started to show signs of life? These are more scalable and eventually outperform those with more structures when scaled up. Later on, when one or more of those 4 factors improve (e.g. we got more compute or found a more scalable architecture), then we should revisit the structures we added and remove those that hinder further scaling. Repeat this over and over. As a community we love adding structures but a lot less for removing them. We need to do more cleanup. In this lecture, I use the early history of Transformer architecture as a running example of what structures made sense to be added in the past, and why they are less relevant now. I find comparing encoder-decoder and decoder-only architectures highly informative. For example, encoder-decoder has a structure where input and output are handled by separate parameters whereas decoder-only uses the shared parameters for both. Having separate parameters was natural when Transformer was first introduced with translation as the main evaluation task; input is in one language and output is in another. Modern language models used in multiturn chat interfaces make this assumption awkward. Output in the current turn becomes the input of the next turn. Why treat them separately? Going through examples like this, my hope is that you will be able to view seemingly overwhelming AI advances in a unified perspective, and from that be able to see where the field is heading. If more of us develop such a unified perspective, we can better leverage the incredible exponential driving force! Slides: https://docs.google.com/presentation/d/1u05yQQaw4QXLVYGLI6o3YoFHv6eC3YN8GvWD8JMumpE/edit?usp=sharing",
+        isOpinion: true,
+        postId: "1800676312916656592",
+        urls: ["https://t.co/Js7SThVO6S", "https://t.co/RccKFOqK7e"],
+        imgs: ["https://pbs.twimg.com/media/GP1JW84bgAAI5J9.jpg"],
+        created_at: "2024-06-12T08:47:12.000Z",
+        author_id: "1231283897",
+        users: [
+            {
+                username: "hwchung27",
+                created_at: "2013-06-19T07:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1583376951527411713/yhyNEYMa_normal.jpg",
+                id: "1231283897",
+                name: "Hyung Won Chung",
+                url: "https://twitter.com/hwchung27",
+            },
+        ],
+    },
+    {
+        id: 39,
+        summary:
+            "LLM's internal representation of complex semantic structure as simplices and orthogonal subspaces, extending linear representation hypothesis.",
+        keywords: [
+            "LLMs",
+            "Categorical Variables",
+            "Semantic Hierarchy",
+            "Linear Representation Hypothesis",
+            "Simplices",
+            "Orthogonal Subspaces",
+            "Binary Concepts",
+            "Complex Concepts",
+            "Polytopes",
+            "Semantic Hierarchy",
+        ],
+        content:
+            "Fundamentally, high-level concepts group into categorical variables---mammal, reptile, fish, bird---with a semantic hierarchy---poodle is a dog is a mammal is an animal. How do LLMs internally represent this structure? https://arxiv.org/abs/2406.01506\n\nWe find an astonishingly simple answer: categorical concepts are simplices in the representation space, and hierarchically related variables are encoded in orthogonal subspaces. This extends the linear representation hypothesis to handle complex semantic structure.\n\nThis is work from @KihoPark_, @_Mr_YJ, @yibophd. Give them a follow! They're doing consistently great things in advancing our understanding of LLMs. Also check out the code at https://github.com/KihoPark/LLM_Categorical_Hierarchical_Representations\n\nThe problem here is extending linear representations from binary concepts to general, more complex, concepts.  A core idea: any categorical concept can be partitioned into many binary concepts, so we can build up complex representations from simple ones.\n\nWe want to compose the representations of binary representations to get representations of complex concepts. Problem: linear representations are naturally _directions_, not _vectors_. So, we don't have addition or natural composition operations.\n\nThe key insight is a way of assigning magnitudes to linear representations of binary features. Then we can use ordinary vector operations to build up complex concepts from simple ones.  This gets us categorical concepts represented as (very complex) polytopes.\n\nThe second insight is that the representation geometry handles hierarchical structure very elegantly. Specifically: different levels of the semantic hierarchy are represented in (nearly) orthogonal subspaces of the representation space.\n\nIn total, this gives an amazingly simple structure. Simple concepts are represented as simplices in the representation space, and complex concepts are built up as direct sums reflecting the hierarchical semantics. Experiments with Gemma and WordNet show the structure clearly!",
+        isOpinion: false,
+        postId: "1800221324348125617",
+        urls: ["https://t.co/HK2iFLUpte", "https://t.co/ytDyv939LR"],
+        imgs: [
+            "https://pbs.twimg.com/media/GPupCEqW8AA0oif.jpg",
+            "https://pbs.twimg.com/media/GPupGIzXIAARs1C.png",
+        ],
+        author_id: "129310283098",
+        created_at: "2024-06-11T02:39:12.000Z",
+        users: [
+            {
+                username: "victorveitch",
+                created_at: "2020-06-19T07:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1105223309380198400/3I5wCV_5_normal.png",
+                id: "129310283098",
+                name: "Victor Veitch",
+                url: "https://twitter.com/victorveitch",
+            },
+            {
+                username: "KihoPark_",
+                created_at: "2023-06-19T07:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1722291179612418048/lDOdBX9d_normal.jpg",
+                id: "192830928",
+                name: "Kiho Park",
+                url: "https://twitter.com/KihoPark_",
+            },
+            {
+                username: "_Mr_YJ",
+                created_at: "2022-06-19T07:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1722300592133898240/1kCt3ZKX_normal.jpg",
+                id: "192831028",
+                name: "YJ Choe",
+                url: "https://twitter.com/_Mr_YJ",
+            },
+            {
+                username: "yibophd",
+                created_at: "2021-06-19T07:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1598312430458867713/yGldomE__normal.jpg",
+                id: "1901802323",
+                name: "Yibo Jiang",
+                url: "https://twitter.com/yibophd",
+            },
+        ],
+    },
+    {
+        id: 40,
+        summary: "Intelligence is more than comparing humans and machines.",
+        keywords: [
+            "Evolutionary Intelligence",
+            "Social Intelligence",
+            "Collective Intelligence",
+            "Machine Intelligence",
+            "Human Intelligence",
+            "AI",
+            "Machine Learning",
+            "Artificial Intelligence",
+            "Intelligence",
+        ],
+        author_id: "123919083208",
+        content:
+            "people often miss evolutionary, social, and collective intelligence when they narrowly compare a human's intelligence with that of machines",
+        isOpinion: true,
+        postId: "1801037789242212768",
+        urls: [],
+        imgs: [],
+        created_at: "2024-06-13T08:44:12.000Z",
+        users: [
+            {
+                username: "jeffbigham",
+                created_at: "2015-06-19T07:35:16.000Z",
+                profile_image_url:
+                    "https://pbs.twimg.com/profile_images/1729294554434531328/lRtZEFZY_normal.jpg",
+                id: "123919083208",
+                name: "Jeffrey P. Bigham",
+                url: "https://twitter.com/jeffbigham",
             },
         ],
     },
