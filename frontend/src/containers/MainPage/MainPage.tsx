@@ -201,21 +201,12 @@ function MainPage({
                             >
                                 {curKeyword}
                             </h1>
-                            <Link
-                                to={`/post/${
-                                    posts.length ? getCurPost().id : 0
-                                }`}
-                                style={{
-                                    color: "#000",
-                                }}
-                            >
-                                <PostOverview
+                            <PostOverview
                                     post={posts.length ? getCurPost() : null}
                                     overview={true}
                                     myposts={myposts}
                                     setMyPosts={setMyPosts}
-                                />
-                            </Link>
+                            />
                         </div>
                         <div
                             id="tabs-container"

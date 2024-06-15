@@ -66,8 +66,10 @@ function PostDetail({
                         </div>
                         <ul className="authors">
                             {targetPost.users.map((u, i)=><li key={i}>
-                                <Avatar alt={u.name} src={u.profile_image_url} />
-                                <div className="author-name">{u.name}</div>
+                                <a href={u?.url||`https://x.com/${u.username}`} className="link-author-profile">
+                                    <Avatar alt={u.name} src={u.profile_image_url} />
+                                    <div className="author-name">{u.name}</div>
+                                </a>
                             </li>)}
                         </ul>
                     </div>

@@ -5,6 +5,9 @@ import { Avatar, Badge } from "@mui/material";
 import { Col, Container, Row, Image } from "react-bootstrap";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export interface viewProps {
     post: PostType | null;
@@ -14,6 +17,7 @@ export interface viewProps {
 }
 
 function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
+    const navigate = useNavigate();
     const isInMyPost = () => {
         if (post) {
             for (let i = myposts.length - 1; i >= 0; i--) {
@@ -131,6 +135,8 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                 </span>
                             </div>
                         )}
+                        {overview? 
+                        <button onClick={()=>{navigate(`/post/${post.id}`)}}>View Full Post <FontAwesomeIcon icon={faArrowRight} /></button>: null}
                     </div>
                 </div>
             )}
