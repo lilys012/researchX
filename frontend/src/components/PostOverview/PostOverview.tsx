@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { PostType } from "../../store/slices/post";
 import "./PostOverview.scss";
 import { Avatar, Badge } from "@mui/material";
-import { Col, Container, Row, Image } from "react-bootstrap";
+// import { Col, Container, Row, Image } from "react-bootstrap";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { ImageList, ImageListItem } from '@mui/material';
 
 export interface viewProps {
     post: PostType | null;
@@ -41,6 +40,41 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
             });
         }
     };
+    
+    const userUrl = ()=>{
+        if (post==null) return "";
+        const username = post.users.find((u) => u.id === post.author_id)?.username
+        return `https://x.com/${username}`
+    }
+
+    const imgContainer = ()=>{
+        if(post===null) return;
+        else if(post.imgs.length===0) return;
+
+        const numImg = post.imgs.length;
+        const cols=numImg>=2? 2: 1;
+
+        return (
+        <ul
+            // sx={{
+            //     height: "250px", 
+            //     width: "100%",
+            //     overflow: "hidden",
+            // }}
+            // cols={cols}
+            // gap={4}
+            className="image-list"
+        >
+            {post.imgs.slice(0, 2).map((img, i)=>{
+                return(
+                <li >
+                    <a href={img} className="img-link">
+                        <img src={img} alt=""/>
+                    </a>
+                </li>
+            )})}
+        </ul>)
+    }
 
     return (
         <div
@@ -48,13 +82,13 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
             className="PostOverview"
             // className="p-1 mt-2 ms-2"
             // onClick={post.clickPost}
-        >
+        > 
             {post === null ? (
                 <div></div>
             ) : (
                 <div id="main-post-div">
                     <div id="upper-post-div">
-                        <div id="user-info">
+                        <a id="user-info" href={userUrl()}>
                             <Avatar
                                 alt={
                                     post.users.find(
@@ -66,8 +100,18 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                         (u) => u.id === post.author_id
                                     )?.profile_image_url
                                 }
+                                sx={{
+                                    border: "1px solid #3E4F5B"
+                                }}
                             />
-                            <div id="post-right-container">
+                            <div id="user-right-container">
+                                <div id="user-username">
+                                    @{
+                                        post.users.find(
+                                            (u) => u.id === post.author_id
+                                        )?.username
+                                    }
+                                </div>
                                 <div id="user-name">
                                     {
                                         post.users.find(
@@ -76,7 +120,7 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                     }
                                 </div>
                             </div>
-                        </div>
+                        </a>
                         <div className="badge">
                             {isInMyPost() ? (
                                 <FavoriteIcon
@@ -96,7 +140,7 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                     <div id="post-content-container">
                         {post.imgs.length ? (
                             <div id="post-content">
-                                <span
+                                <div
                                     id="post-text"
                                     style={{
                                         whiteSpace: "pre-wrap",
@@ -108,12 +152,34 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                         overflowX: "hidden",
                                         WebkitLineClamp: 14, // Set the number of lines to show before truncation
                                         height: "auto", // Adjust the height based on the content
-                                        // maxHeight: "150px", // Optionally set a max height
+                                        maxHeight: "60px", // Optionally set a max height
                                     }}
                                 >
                                     {post.content}
-                                </span>
-                                <Image src={post.imgs[0]} fluid />
+                                </div>
+                                
+                                
+                                {imgContainer()}
+                                {/* <ul className="image-list">
+                                    {post.imgs.slice(0, 4).map((img, i)=>{
+                                        return <li className="image-wrapper" key={i}>
+                                            <img src={img} alt="image in the post" />
+                                        </li>
+                                    })}
+                                </ul> */}
+                                {/* <Image src={post.imgs[0]} fluid /> */}
+                                <div className="showall-btn-container">
+                                    {overview ? (
+                                        <button
+                                            onClick={() => {
+                                                navigate(`/post/${post.id}`);
+                                            }}
+                                        >
+                                            <span>View Full Post</span>
+                                        </button>
+                                    ) : null}
+                                </div>
+                            
                             </div>
                         ) : (
                             <div id="post-content">
@@ -137,16 +203,7 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                 </span>
                             </div>
                         )}
-                        {overview ? (
-                            <button
-                                onClick={() => {
-                                    navigate(`/post/${post.id}`);
-                                }}
-                            >
-                                View Full Post{" "}
-                                <FontAwesomeIcon icon={faArrowRight} />
-                            </button>
-                        ) : null}
+                        
                     </div>
                 </div>
             )}

@@ -1,106 +1,206 @@
+$main-color: #3E4F5B;
+$main-shadow-color: #667f92;
+$sub-color: #f5f5f5;
+$shadow-color: rgba(0, 0, 0, 0.1);
+$small-text: 12px;
+$text-size: 14px;
+$button-size: 40px;
+
+$top: 20px;
+
 $primary: hsl(212, 79%, 55%);
 $img-size: 250px;
+
 .PostOverview {
-    width: 100%;
-    border: solid 2px;
+    // width: 100%;
+    border: 2px solid $main-color;
     margin-top: 10px;
     border-radius: 20px;
     padding: 7px;
-    height: 325px;
+    font-size: $text-size;
+    // height: 325px;
+
+    #main-post-div {
+        padding: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    #upper-post-div {
+        display: flex;
+        justify-content: space-between;
+
+        #user-info {
+            display: flex;
+            gap: 10px;
+
+            #user-right-container{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-bottom: 5px;
+
+                #user-username {
+                    font-size: 11px;
+                    color: $main-shadow-color;
+                }
+
+                #user-name {
+                    font-size: 15px;
+                    font-weight: 1000;
+                }
+            }
+        }
+
+        .badge svg {
+            height: 30px;
+            width: 30px;
+        }
+    }
+
+    #post-content-container {
+        margin-top: 17px;
+        font-weight: 600;
+        font-size: $text-size;
+        line-height: 1.5;
+
+        .showall-btn-container {
+            text-align: right;
+
+            button {
+                background: none;
+                border: none;
+                color: $primary;
+                text-decoration-line: underline;
+                font-weight: 600;
+                margin-top: 5px;
+                margin-right: 10px;
+            }
+        }
+
+        .image-list {
+            // border: 1px solid;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 10px 0 0 0;
+            padding: 0;
+            display: flex;
+            gap: 4px;
+
+            li {
+                width: calc(50% - 2px);
+                list-style: none;
+                // border: 1px solid;
+
+                img {
+                    width:100%;
+                    height:100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
 }
-.PostOverview #main-post-div {
-    display: flex;
-    flex-direction: column;
-}
-.PostOverview #main-post-div #upper-post-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-.PostOverview #main-post-div #upper-post-div .badge {
-    padding-right: 15px;
-    padding-top: 10px;
-}
-.PostOverview #user-info {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    padding-bottom: 10px;
-    padding-left: 10px;
-}
-.PostOverview #post-right-container {
-    position: relative;
-    top: 7px;
-    display: flex;
-    flex-flow: column wrap;
-    text-align: left;
-    gap: 12px;
-    padding-left: 5px;
-}
-.PostOverview #user-name {
-    font-size: 17px;
-    margin-top: -15px;
-}
-.PostOverview #time-and-location {
-    display: flex;
-    gap: 5px;
-    font-size: 10px;
-}
-.PostOverview #user-main-badge {
-    width: 55px;
-    margin-right: 5px;
-}
-.PostOverview #user-main-badge img {
-    width: 55px;
-}
-.PostOverview #post-content-container {
-    position: relative;
-    left: 20px;
-    text-align: left;
-    font-size: 14px;
-    font-weight: 500;
-    max-width: 96%;
-}
-.PostOverview #post-reply-to {
-    color: $primary;
-    font-weight: 700;
-}
-.PostOverview #chain-container {
-    margin: 7px;
-    text-align: left;
-}
-.PostOverview .chain-toggle-button {
-    border: 0;
-    outline: 0;
-    background: none;
-    color: $primary;
-    font-weight: 700;
-    font-size: 14px;
-}
-.PostOverview #post-photo {
-    padding: 10px;
-    text-align: left;
-}
-.PostOverview #post-photo img {
-    margin-left: 25px;
-    width: 200px;
-    border-radius: 15px;
-}
-// #image-container {
+
+
+// .PostOverview #main-post-div {
 //     display: flex;
-//     justify-content: space-between;
-//     height: 150px;
+//     flex-direction: column;
 // }
-.PostOverview #post-content-container img {
-    margin: auto;
-    max-width: 250px;
-    max-height: 180px;
-}
-.PostOverview #post-content {
-    margin-right: 10px;
-    display: flex;
-    flex-direction: row;
-}
-.PostOverview #post-text {
-    max-width: 380px;
-}
+// .PostOverview #main-post-div #upper-post-div {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+// }
+// .PostOverview #main-post-div #upper-post-div .badge {
+//     padding-right: 15px;
+//     padding-top: 10px;
+// }
+// .PostOverview #user-info {
+//     display: flex;
+//     gap: 5px;
+//     align-items: center;
+//     padding-bottom: 10px;
+//     padding-left: 10px;
+// }
+// .PostOverview #post-right-container {
+//     position: relative;
+//     top: 7px;
+//     display: flex;
+//     flex-flow: column wrap;
+//     text-align: left;
+//     gap: 12px;
+//     padding-left: 5px;
+// }
+// .PostOverview #user-name {
+//     font-size: 17px;
+//     margin-top: -15px;
+// }
+// .PostOverview #time-and-location {
+//     display: flex;
+//     gap: 5px;
+//     font-size: 10px;
+// }
+// .PostOverview #user-main-badge {
+//     width: 55px;
+//     margin-right: 5px;
+// }
+// .PostOverview #user-main-badge img {
+//     width: 55px;
+// }
+// .PostOverview #post-content-container {
+//     position: relative;
+//     left: 20px;
+//     text-align: left;
+//     font-size: 14px;
+//     font-weight: 500;
+//     max-width: 96%;
+// }
+// .PostOverview #post-reply-to {
+//     color: $primary;
+//     font-weight: 700;
+// }
+// .PostOverview #chain-container {
+//     margin: 7px;
+//     text-align: left;
+// }
+// .PostOverview .chain-toggle-button {
+//     border: 0;
+//     outline: 0;
+//     background: none;
+//     color: $primary;
+//     font-weight: 700;
+//     font-size: 14px;
+// }
+// .PostOverview #post-photo {
+//     padding: 10px;
+//     text-align: left;
+// }
+// .PostOverview #post-photo img {
+//     margin-left: 25px;
+//     width: 200px;
+//     border-radius: 15px;
+// }
+// // #image-container {
+// //     display: flex;
+// //     justify-content: space-between;
+// //     height: 150px;
+// // }
+// .PostOverview #post-content-container img {
+//     margin: auto;
+//     max-width: 250px;
+//     max-height: 180px;
+// }
+// .PostOverview #post-content {
+//     margin-right: 10px;
+//     display: flex;
+//     flex-direction: row;
+// }
+// .PostOverview #post-text {
+//     max-width: 380px;
+// }

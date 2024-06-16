@@ -229,23 +229,20 @@ function MainPage({
     }, [isMyPost]);
 
     return (
-        <Layout className="MainPage">
+        <div className="MainPage">
             <HeaderComponent
                 setCurKeyword={setCurKeyword}
                 setRefresh={setRefresh}
                 setIsMyPost={setIsMyPost}
             />
-            <Content className="Content">
-                <Container className="Container">
-                    <div className="columnContainer">
+                <div className="Container">
+                    <div className="columnContainer left-container">
                         <div
                             id="posts-container"
                             className="upperContainer leftContainer"
                         >
-                            <h1
-                                style={{ textAlign: "left", marginLeft: "3px" }}
-                            >
-                                {curKeyword}
+                            <h1>
+                                Topic: {curKeyword}
                             </h1>
                             <PostOverview
                                 post={posts.length ? getCurPost() : null}
@@ -270,7 +267,7 @@ function MainPage({
                             <div id="word-container">{wordcloudJSX}</div>
                         </div>
                     </div>
-                    <div className="columnContainer">
+                    <div className="columnContainer right-container">
                         <div
                             id="summaries-container"
                             className="rightContainer"
@@ -355,9 +352,10 @@ function MainPage({
                             </Box>
                         </div>
                     </div>
-                </Container>
-            </Content>
-        </Layout>
+                </div>
+            {/* <div className="Content">
+            </div> */}
+        </div>
     );
 }
 

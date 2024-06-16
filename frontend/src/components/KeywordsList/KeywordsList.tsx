@@ -30,24 +30,26 @@ function KeywordsList({
 
     return (
         <div id="KeywordsList">
-            <span className="keyword-title">Trending Keywords</span>
-            <div id="keywords-container">
-                {slicedKeywords.map((k) => {
-                    return (
-                        <div
-                            key={k.id}
-                            className="col-4"
-                            id="keyword-container"
-                            onClick={() =>
-                                setCurKeyword == null
-                                    ? {}
-                                    : setCurKeyword(k.content)
-                            }
-                        >
-                            {k.id + 1}. {k.content}
-                        </div>
-                    );
-                })}
+            <div className="keywords-container">
+                <span className="keyword-title">Trending Keywords</span>
+                <div id="keywords-container">
+                    {slicedKeywords.map((k) => {
+                        return (
+                            <div
+                                key={k.id}
+                                className="col-4"
+                                id="keyword-container"
+                                onClick={() =>
+                                    setCurKeyword == null
+                                        ? {}
+                                        : setCurKeyword(k.content)
+                                }
+                            >
+                                {k.id + 1}. {k.content}
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );
