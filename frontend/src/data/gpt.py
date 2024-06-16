@@ -32,16 +32,17 @@ Provide 5~10 AI keywords from the following text, each seperated by comma. Some 
     if len(d['keywords']) == 1: d['keywords'] = d['keywords'][0].split("\n")
 
     # summary
-    if len(d['summary']) == 0:
+    if 'title' not in d: d['title'] = ""
+    if len(d['title']) == 0:
         prompt_template = PromptTemplate.from_template(
 """
-Summarize the topic of following text. You must use less than 10 words.
+Generate a title of the following text.
 ---
 """+d["content"]
 )
         chain = prompt_template | llm | StrOutputParser()
         d['summary'] = chain.invoke({})
-        # print(chain.invoke({}))
+        print(chain.invoke({}))
 
     # opinion
 #     prompt_template = PromptTemplate.from_template(
@@ -66,4 +67,4 @@ Summarize the topic of following text. You must use less than 10 words.
     ret_list.append(d)
     i += 1
 
-with open("postDataRealAnnotated.json", "w") as f1: json.dump(ret_list, f1, indent=4)
+with open("postDataTitle.json", "w") as f1: json.dump(ret_list, f1, indent=4)

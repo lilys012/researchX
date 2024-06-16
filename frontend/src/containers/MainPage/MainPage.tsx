@@ -279,10 +279,10 @@ function MainPage({
                                             // indicatorColor="secondary"
                                         >
                                             <Tab label="Opinons" value="1" />
-                                            <Tab
+                                            {/* <Tab
                                                 label="Conferences"
                                                 value="2"
-                                            />
+                                            /> */}
                                         </TabList>
                                     </Box>
                                     <TabPanel
@@ -325,7 +325,7 @@ function MainPage({
                                                   })}
                                         </List>
                                     </TabPanel>
-                                    <TabPanel value="2">Conferences</TabPanel>
+                                    {/* <TabPanel value="2">Conferences</TabPanel> */}
                                 </TabContext>
                             </Box>
                         </div>
