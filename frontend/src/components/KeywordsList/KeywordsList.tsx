@@ -29,12 +29,12 @@ function KeywordsList({
     }, [keywordId]);
 
     return (
-        <Container fluid id="KeywordsList">
-            <span>Trending Keywords</span>
-            <Row id="keywords-container">
+        <div id="KeywordsList">
+            <span className="keyword-title">Trending Keywords</span>
+            <div id="keywords-container">
                 {slicedKeywords.map((k) => {
                     return (
-                        <Col
+                        <div
                             key={k.id}
                             className="col-4"
                             id="keyword-container"
@@ -45,11 +45,11 @@ function KeywordsList({
                             }
                         >
                             {k.id + 1}. {k.content}
-                        </Col>
+                        </div>
                     );
                 })}
-            </Row>
-        </Container>
+            </div>
+        </div>
     );
 }
 

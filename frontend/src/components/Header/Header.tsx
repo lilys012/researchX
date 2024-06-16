@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import KeywordsList from "../KeywordsList/KeywordsList";
 import { Layout, Checkbox, Space } from "antd";
 import { styled } from "@material-ui/core/styles";
-import SearchBar from "material-ui-search-bar";
+// import SearchBar from "material-ui-search-bar";
 import {
     ArrowLeftOutlined,
     BarsOutlined,
@@ -14,17 +14,20 @@ import {
 } from "@ant-design/icons";
 import { selectPost, KeywordType } from "../../store/slices/post";
 import "./Header.scss";
+import SearchBar from "../SearchBar/SearchBar";
+import RefreshIcon from '@mui/icons-material/Refresh';
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
 
 // TODO : saved posts
 
 const { Header } = Layout;
 
-export const CustomSearchBar = styled(SearchBar)({
-    backgroundColor: "#F5F5F5",
-    borderRadius: "10px",
-    fontFamily: '"NanumGothic", sans-serif',
-    fontSize: "10px",
-});
+// export const CustomSearchBar = styled(SearchBar)({
+//     backgroundColor: "#F5F5F5",
+//     borderRadius: "10px",
+//     fontFamily: '"NanumGothic", sans-serif',
+//     fontSize: "10px",
+// });
 
 function HeaderComponent({
     setCurKeyword,
@@ -43,6 +46,8 @@ function HeaderComponent({
     const onClickClose = () => {
         setSearchQuery("");
     };
+
+    
     const onSubmitSearchBox = () => {
         if (setCurKeyword != null) setCurKeyword(searchQuery);
         setSearchQuery("");
@@ -78,17 +83,8 @@ function HeaderComponent({
             >
                 <img src="/RXLogo.svg" />
             </div>
-            <div id="search-container">
-                <div id="search-box-container">
-                    <CustomSearchBar
-                        className="search-box"
-                        value={searchQuery}
-                        onChange={(searchVal) => setSearchQuery(searchVal)}
-                        onCancelSearch={() => onClickClose()}
-                        onRequestSearch={() => onSubmitSearchBox()}
-                        placeholder="Search"
-                    />
-                </div>
+            <div id="middle-container">
+                <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} setCurKeyword={setCurKeyword}/>
     
                 <KeywordsList
                     keywordId={keywordId}
@@ -96,17 +92,13 @@ function HeaderComponent({
                     setCurKeyword={setCurKeyword}
                 ></KeywordsList>
             </div>
-            <div id="button-container">
-                <SyncOutlined
-                    id="refresh-button"
-                    className="button"
-                    onClick={onClickRefreshButton}
-                />
-                <PushpinOutlined
-                    id="saved-button"
-                    className="button"
-                    onClick={onClickIsMyPostsButton}
-                />
+            <div className="button-container">
+                <button className="refresh-btn" onClick={onClickRefreshButton}>
+                    <RefreshIcon />
+                </button>
+                <button className="saved-btn" onClick={onClickIsMyPostsButton}>
+                    <BookmarksIcon />
+                </button>
                 {/* <UserOutlined id="account-button" className="button" /> */}
                 <div id="user-main-badge">
                     <img

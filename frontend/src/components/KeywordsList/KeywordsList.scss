@@ -1,19 +1,27 @@
 #KeywordsList {
     margin: 0;
+    padding: 0;
+    // height: 30px;
     // padding: 0 5px;
     // flex-direction: column;
+    text-align: center;
+}
+.keyword-title {
+    font-size: 12px;
+    font-weight: 1000;
 }
 #KeywordsList #keywords-container {
     display: inline-flex;
-    flex-direction: row;
+    // flex-direction: row;
     // width: auto;
     // margin-bottom: 5px;
 }
 #KeywordsList #keyword-container {
     border-bottom: 1px solid;
     max-height: 20px;
-    min-width: 200px;
-    margin: 0 20px;
+    min-width: 150px;
+    margin-left: 30px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
