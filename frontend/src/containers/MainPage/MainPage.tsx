@@ -213,7 +213,6 @@ function MainPage({
     useEffect(() => {
         // set default overview post
         if (acPosts.length && curKeyword !== "Saved Posts") {
-            console.log(acPosts[0].users[0].name);
             setPostId(acPosts[0].id);
         }
     }, [acPosts]);
@@ -259,11 +258,27 @@ function MainPage({
                             id="tabs-container"
                             className="lowerContainer leftContainer"
                         >
+                            <div
+                                style={{
+                                    textAlign: "left",
+                                    marginLeft: "10px",
+                                    paddingTop: "10px",
+                                }}
+                            >
+                                <h2>Top Keywords in {curKeyword}</h2>
+                            </div>
+                            <div id="word-container">{wordcloudJSX}</div>
+                        </div>
+                    </div>
+                    <div className="columnContainer">
+                        <div
+                            id="summaries-container"
+                            className="rightContainer"
+                        >
                             <Box
                                 sx={{
                                     width: "100%",
                                     typography: "body1",
-                                    marginTop: "15px",
                                 }}
                             >
                                 <TabContext value={tabValue}>
@@ -273,20 +288,31 @@ function MainPage({
                                             borderColor: "divider",
                                         }}
                                     >
-                                        <TabList
-                                            onChange={handleTabChange}
-                                            // textColor="secondary"
-                                            // indicatorColor="secondary"
-                                        >
-                                            <Tab label="Opinons" value="1" />
-                                            {/* <Tab
-                                                label="Conferences"
-                                                value="2"
-                                            /> */}
+                                        <TabList onChange={handleTabChange}>
+                                            <Tab
+                                                label="Academic Findings"
+                                                value="1"
+                                            />
+                                            <Tab label="Opinons" value="2" />
                                         </TabList>
                                     </Box>
+                                    <TabPanel value="1" sx={{ padding: "0px" }}>
+                                        <PostScroll
+                                            posts={
+                                                curKeyword === "Saved Posts"
+                                                    ? getMyPost().filter(
+                                                          (post) =>
+                                                              post.isOpinion ===
+                                                              false
+                                                      )
+                                                    : acPosts
+                                            }
+                                            postId={postId}
+                                            setPostId={setPostId}
+                                        ></PostScroll>
+                                    </TabPanel>
                                     <TabPanel
-                                        value="1"
+                                        value="2"
                                         sx={{ padding: "10px" }}
                                     >
                                         <List
@@ -295,7 +321,7 @@ function MainPage({
                                                 bgcolor: "background.paper",
                                                 position: "relative",
                                                 overflow: "auto",
-                                                maxHeight: 200,
+                                                maxHeight: 570,
                                                 "& ul": { padding: 0 },
                                             }}
                                             subheader={<li />}
@@ -325,41 +351,8 @@ function MainPage({
                                                   })}
                                         </List>
                                     </TabPanel>
-                                    {/* <TabPanel value="2">Conferences</TabPanel> */}
                                 </TabContext>
                             </Box>
-                        </div>
-                    </div>
-                    <div className="columnContainer">
-                        <div
-                            id="summaries-container"
-                            className="upperContainer rightContainer"
-                        >
-                            <PostScroll
-                                posts={
-                                    curKeyword === "Saved Posts"
-                                        ? getMyPost().filter(
-                                              (post) => post.isOpinion === false
-                                          )
-                                        : acPosts
-                                }
-                                postId={postId}
-                                setPostId={setPostId}
-                            ></PostScroll>
-                        </div>
-                        <div
-                            id="top-keywords-container"
-                            className="lowerContainer rightContainer"
-                        >
-                            <div
-                                style={{
-                                    textAlign: "left",
-                                    marginLeft: "10px",
-                                }}
-                            >
-                                <h2>Top Keywords in {curKeyword}</h2>
-                            </div>
-                            <div id="word-container">{wordcloudJSX}</div>
                         </div>
                     </div>
                 </Container>

@@ -30,6 +30,7 @@ function KeywordsList({
 
     return (
         <Container fluid id="KeywordsList">
+            <span>Trending Keywords</span>
             <Row id="keywords-container">
                 {slicedKeywords.map((k) => {
                     return (

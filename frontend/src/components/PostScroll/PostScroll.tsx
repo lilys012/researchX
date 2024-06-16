@@ -21,7 +21,7 @@ function PostScroll({
                 width: "100%",
                 maxWidth: 500,
                 bgcolor: "background.paper",
-                marginTop: "30px",
+                // marginTop: "30px",
             }}
             id="scroll-container"
         >
@@ -33,7 +33,7 @@ function PostScroll({
                     bgcolor: "background.paper",
                     position: "relative",
                     overflow: "auto",
-                    maxHeight: 350,
+                    maxHeight: 600,
                     "& ul": { padding: 0 },
                     "&& .Mui-selected, && .Mui-selected:hover": {
                         bgcolor: "#3E4F5B",
