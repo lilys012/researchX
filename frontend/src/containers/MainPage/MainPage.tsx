@@ -41,13 +41,19 @@ function MainPage({
     const [opPosts, setOpPosts] = useState<PostType[]>([]);
     const [refresh, setRefresh] = useState<Boolean>(false);
     const [isMyPost, setIsMyPost] = useState<Boolean>(false);
+    const [curLock, setCurLock] = useState<Boolean>(false);
 
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
 
     const wordcloudJSX = useMemo(() => {
-        return <WordCloud setCurKeyword={setCurKeyword} posts={posts} />;
-    }, [curKeyword]);
+        return (
+            <WordCloud
+                setCurKeyword={setCurKeyword}
+                posts={posts.slice(0, Math.ceil(posts.length * 0.7))}
+            />
+        );
+    }, [curKeyword, refresh]);
 
     const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
         setTabValue(newValue);
@@ -56,10 +62,14 @@ function MainPage({
     const calculateTokenRecall = (keyword: string, content: string) => {
         const contentTokens = content.split(/\s+/);
         const keywordTokens = keyword.split(/\s+/);
-        const recall = keywordTokens.reduce((count, token) => {
-            return contentTokens.includes(token) ? count + 1 : count;
-        }, 0);
-        return recall / keywordTokens.length;
+        let count = 0;
+        for (let i = keywordTokens.length - 1; i >= 0; i--) {
+            for (let j = contentTokens.length - 1; j >= 0; j--) {
+                if (contentTokens[j].includes(keywordTokens[i]))
+                    count = count + 1;
+            }
+        }
+        return count;
     };
 
     const sortPosts = (posts: PostType[], curKeyword: string) => {
@@ -75,8 +85,15 @@ function MainPage({
             if (!aContainsKeyword && bContainsKeyword) return 1;
 
             if (aContainsKeyword && bContainsKeyword) {
-                const aRecall = calculateTokenRecall(curKeyword, a.content);
-                const bRecall = calculateTokenRecall(curKeyword, b.content);
+                const aRecall = calculateTokenRecall(
+                    curKeyword.toLowerCase(),
+                    a.content.toLowerCase()
+                );
+                const bRecall = calculateTokenRecall(
+                    curKeyword.toLowerCase(),
+                    b.content.toLowerCase()
+                );
+                console.log(aRecall, bRecall);
                 if (aRecall !== bRecall) return bRecall - aRecall;
                 return (
                     new Date(b.created_at).getTime() -
@@ -129,46 +146,76 @@ function MainPage({
     };
 
     useEffect(() => {
-        // initial redirection from 'main'
-        if (keyword)
-            setCurKeyword(keyword === "main" ? keywords[0].content : keyword);
-    }, [keyword]);
-
-    useEffect(() => {
         // navigation if curKeyword changes
-        if (curKeyword) navigate(`/${curKeyword}`);
+        if (curKeyword) {
+            navigate(`/${curKeyword}`);
+        }
     }, [curKeyword]);
 
     useEffect(() => {
-        // classify into academic and opinions
-        setAcPosts(
-            sortPosts(
-                posts.filter((post) => post.isOpinion === false),
-                curKeyword
-            )
-        );
-        setOpPosts(
-            sortPosts(
-                posts.filter((post) => post.isOpinion === true),
-                curKeyword
-            )
-        );
-    }, [posts, curKeyword]);
+        // initial redirection from 'main'
+        if (keyword) {
+            setCurKeyword(keyword === "main" ? keywords[0].content : keyword);
+            setRefresh(true);
+            if (curKeyword) setCurLock(true);
+        }
+    }, [keyword]);
 
     useEffect(() => {
         // refresh posts
         if (refresh && curKeyword !== "Saved Posts") {
             const shuffledPosts = shuffleArray(postState.posts);
-            const sampleSize = Math.ceil(shuffledPosts.length * 1.0);
+            const sampleSize = Math.ceil(shuffledPosts.length * 0.7);
             setPosts(shuffledPosts.slice(0, sampleSize));
             setRefresh(false);
         }
     }, [refresh]);
 
     useEffect(() => {
+        // classify into academic and opinions
+        if (curKeyword) {
+            setAcPosts(
+                sortPosts(
+                    posts.filter((post) => post.isOpinion === false),
+                    curKeyword
+                )
+            );
+
+            setOpPosts(
+                sortPosts(
+                    posts.filter((post) => post.isOpinion === true),
+                    curKeyword
+                )
+            );
+        }
+    }, [posts]);
+
+    useEffect(() => {
+        // classify into academic and opinions
+        if (curLock && curKeyword) {
+            setAcPosts(
+                sortPosts(
+                    posts.filter((post) => post.isOpinion === false),
+                    curKeyword
+                )
+            );
+            setOpPosts(
+                sortPosts(
+                    posts.filter((post) => post.isOpinion === true),
+                    curKeyword
+                )
+            );
+
+            setCurLock(false);
+        }
+    }, [curLock]);
+
+    useEffect(() => {
         // set default overview post
-        if (acPosts.length && curKeyword !== "Saved Posts")
+        if (acPosts.length && curKeyword !== "Saved Posts") {
+            console.log(acPosts[0].users[0].name);
             setPostId(acPosts[0].id);
+        }
     }, [acPosts]);
 
     useEffect(() => {
@@ -202,10 +249,10 @@ function MainPage({
                                 {curKeyword}
                             </h1>
                             <PostOverview
-                                    post={posts.length ? getCurPost() : null}
-                                    overview={true}
-                                    myposts={myposts}
-                                    setMyPosts={setMyPosts}
+                                post={posts.length ? getCurPost() : null}
+                                overview={true}
+                                myposts={myposts}
+                                setMyPosts={setMyPosts}
                             />
                         </div>
                         <div

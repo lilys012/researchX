@@ -6,7 +6,7 @@ import { Col, Container, Row, Image } from "react-bootstrap";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export interface viewProps {
@@ -81,12 +81,14 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                             {isInMyPost() ? (
                                 <FavoriteIcon
                                     color="action"
-                                    onClick={overview ? () => {} : removePost}
+                                    // onClick={overview ? () => {} : removePost}
+                                    onClick={removePost}
                                 />
                             ) : (
                                 <FavoriteBorderIcon
                                     color="action"
-                                    onClick={overview ? () => {} : addPost}
+                                    // onClick={overview ? () => {} : addPost}
+                                    onClick={addPost}
                                 />
                             )}
                         </div>
@@ -135,8 +137,16 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                 </span>
                             </div>
                         )}
-                        {overview? 
-                        <button onClick={()=>{navigate(`/post/${post.id}`)}}>View Full Post <FontAwesomeIcon icon={faArrowRight} /></button>: null}
+                        {overview ? (
+                            <button
+                                onClick={() => {
+                                    navigate(`/post/${post.id}`);
+                                }}
+                            >
+                                View Full Post{" "}
+                                <FontAwesomeIcon icon={faArrowRight} />
+                            </button>
+                        ) : null}
                     </div>
                 </div>
             )}
