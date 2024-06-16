@@ -6,7 +6,6 @@ import { Avatar, Badge } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate } from "react-router-dom";
-import { ImageList, ImageListItem } from '@mui/material';
 
 export interface viewProps {
     post: PostType | null;
@@ -52,22 +51,15 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
         else if(post.imgs.length===0) return;
 
         const numImg = post.imgs.length;
-        const cols=numImg>=2? 2: 1;
+        const numShow = overview? 2: numImg;
 
         return (
         <ul
-            // sx={{
-            //     height: "250px", 
-            //     width: "100%",
-            //     overflow: "hidden",
-            // }}
-            // cols={cols}
-            // gap={4}
-            className="image-list"
+            className={overview?`image-list image-oveview`: "image-list image-showall"}
         >
-            {post.imgs.slice(0, 2).map((img, i)=>{
+            {post.imgs.slice(0, numShow).map((img, i)=>{
                 return(
-                <li >
+                <li key={i} className={numImg===1? "n1": "n"}>
                     <a href={img} className="img-link">
                         <img src={img} alt=""/>
                     </a>
@@ -152,7 +144,7 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                         overflowX: "hidden",
                                         WebkitLineClamp: 14, // Set the number of lines to show before truncation
                                         height: "auto", // Adjust the height based on the content
-                                        maxHeight: "60px", // Optionally set a max height
+                                        maxHeight: overview? "60px": "250px", // Optionally set a max height
                                     }}
                                 >
                                     {post.content}

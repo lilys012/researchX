@@ -259,7 +259,7 @@ function MainPage({
                                 style={{
                                     textAlign: "left",
                                     marginLeft: "10px",
-                                    paddingTop: "10px",
+                                    marginTop: "20px",
                                 }}
                             >
                                 <h2>Top Keywords in {curKeyword}</h2>

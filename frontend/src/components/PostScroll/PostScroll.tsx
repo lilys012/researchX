@@ -33,6 +33,7 @@ function PostScroll({
                     bgcolor: "background.paper",
                     position: "relative",
                     overflow: "auto",
+                    borderRadius: "10px",
                     maxHeight: 600,
                     "& ul": { padding: 0 },
                     "&& .Mui-selected, && .Mui-selected:hover": {
@@ -68,7 +69,7 @@ function PostScroll({
                                         paddingLeft: "2%",
                                     },
                                 }}
-                                primary={post.summary}
+                                primary={post.summary.slice(0, 120)}
                             />
                         </ListItemButton>
                     );

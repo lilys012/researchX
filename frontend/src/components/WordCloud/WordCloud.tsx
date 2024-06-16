@@ -57,7 +57,7 @@ function WordCloud({
     };
 
     return (
-        <div style={{ height: "200px", width: "750px", fontSize: "14px" }}>
+        <div className="WordCloud">
             <ReactWordcloud callbacks={callbacks} words={words} />
         </div>
     );

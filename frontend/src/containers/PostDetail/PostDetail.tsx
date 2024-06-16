@@ -43,31 +43,43 @@ function PostDetail({
                 setIsMyPost={null}
             />
             <div className="postdetail-main-container">
-                <div className="upper">
-                    <div className="postdetail-overview">
-                        <PostOverview
-                            post={targetPost}
-                            overview={false}
-                            myposts={myposts}
-                            setMyPosts={setMyPosts}
-                        />
-                    </div>
+                <div className="postdetail-overview">
+                    <PostOverview
+                        post={targetPost}
+                        overview={false}
+                        myposts={myposts}
+                        setMyPosts={setMyPosts}
+                    />
+                </div>
+                {/* <div className="upper">
+                </div> */}
+                <div className="right-container">
                     <div className="gpt-container">
                         <div className="gpt-header">
                             <h2>Ask GPT</h2>
                         </div>
                         <GPTInteraction tweet={targetPost.content}/>
                     </div>
-                </div>
-                <div className="lower">
+                    {targetPost.urls.length>=1? <div className="links-container">
+                        <h2>Links</h2>
+                        <ul className="links-list">
+                            {targetPost.urls.map((url, i)=><li key={i}><a href={url}>{url}</a></li>)}
+                        </ul>
+                        
+                    </div>: null}
                     <div className="author-bio-container">
+                        
                         <div className="author-bio-header">
                             <h2>Authors</h2>
                         </div>
                         <ul className="authors">
                             {targetPost.users.map((u, i)=><li key={i}>
                                 <a href={u?.url||`https://x.com/${u.username}`} className="link-author-profile">
-                                    <Avatar alt={u.name} src={u.profile_image_url} />
+                                    <Avatar 
+                                        alt={u.name} 
+                                        src={u.profile_image_url} 
+                                        sx={{ width: "30px",  height: "30px",}}
+                                    />
                                     <div className="author-name">{u.name}</div>
                                 </a>
                             </li>)}

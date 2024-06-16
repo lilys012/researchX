@@ -37,6 +37,13 @@ $top: 20px;
             margin: 0;
             font-weight: 1000;
         }
+
+        #word-container {
+            
+            .WordCloud {
+                height: 200px;
+            }
+        }
     }
 
     .right-container {

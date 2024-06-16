@@ -11,6 +11,17 @@ $top: 20px;
 $primary: hsl(212, 79%, 55%);
 $img-size: 250px;
 
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  }
+
 .PostOverview {
     // width: 100%;
     border: 2px solid $main-color;
@@ -18,6 +29,7 @@ $img-size: 250px;
     border-radius: 20px;
     padding: 7px;
     font-size: $text-size;
+    box-shadow: 5px 5px 5px $shadow-color;
     // height: 325px;
 
     #main-post-div {
@@ -78,30 +90,51 @@ $img-size: 250px;
                 font-weight: 600;
                 margin-top: 5px;
                 margin-right: 10px;
+                cursor: pointer;
             }
         }
 
         .image-list {
             // border: 1px solid;
-            width: 100%;
+            // width: 100%;
             height: 250px;
-            overflow: hidden;
+            // overflow-x: scroll;
             border-radius: 20px;
             margin: 10px 0 0 0;
             padding: 0;
             display: flex;
             gap: 4px;
 
-            li {
+            li.n1 {
+                width: 100%;
+            }
+            li.n {
                 width: calc(50% - 2px);
+            }
+
+
+            li {
                 list-style: none;
-                // border: 1px solid;
 
                 img {
                     width:100%;
                     height:100%;
                     object-fit: cover;
                 }
+            }
+        }
+
+        .image-showall {
+            overflow-y: hidden;
+            overflow-x: scroll;
+
+            li.n {
+                // width: 100px;
+            }
+            img {
+                width:100%;
+                height:100%;
+                object-fit: cover;
             }
         }
     }
