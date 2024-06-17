@@ -60,7 +60,7 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
             {post.imgs.slice(0, numShow).map((img, i)=>{
                 return(
                 <li key={i} className={numImg===1? "n1": "n"}>
-                    <a href={img} className="img-link">
+                    <a href={img} className="img-link" target="_blank">
                         <img src={img} alt=""/>
                     </a>
                 </li>
@@ -80,7 +80,7 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
             ) : (
                 <div id="main-post-div">
                     <div id="upper-post-div">
-                        <a id="user-info" href={userUrl()}>
+                        <a id="user-info" href={userUrl()} target="_blank">
                             <Avatar
                                 alt={
                                     post.users.find(
@@ -150,28 +150,19 @@ function PostOverview({ post, overview, myposts, setMyPosts }: viewProps) {
                                     {post.content}
                                 </div>
                                 
-                                
-                                {imgContainer()}
-                                {/* <ul className="image-list">
-                                    {post.imgs.slice(0, 4).map((img, i)=>{
-                                        return <li className="image-wrapper" key={i}>
-                                            <img src={img} alt="image in the post" />
-                                        </li>
-                                    })}
-                                </ul> */}
-                                {/* <Image src={post.imgs[0]} fluid /> */}
-                                <div className="showall-btn-container">
-                                    {overview ? (
-                                        <button
-                                            onClick={() => {
-                                                navigate(`/post/${post.id}`);
-                                            }}
-                                        >
-                                            <span>View Full Post</span>
-                                        </button>
-                                    ) : null}
+                                <div className="img-container">
+                                    {imgContainer()}
                                 </div>
-                            
+                                
+                                {overview ? ( <div className="showall-btn-container">
+                                    <button
+                                        onClick={() => {
+                                            navigate(`/post/${post.id}`);
+                                        }}
+                                    >
+                                        <span>View Full Post</span>
+                                    </button>
+                                </div>) : null}
                             </div>
                         ) : (
                             <div id="post-content">

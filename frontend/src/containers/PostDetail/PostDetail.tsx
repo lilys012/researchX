@@ -17,24 +17,18 @@ function PostDetail({
 }) {
     const { id } = useParams();
     const postState = useSelector(selectPost);
-    const [targetPost, setTargetPost] = useState<PostType>({
-        id: -1,
-        content: "404",
-        keywords: [],
-        summary: "",
-        isOpinion: false,
-        imgs: [],
-        urls: [],
-        author_id: "",
-        postId: "",
-        created_at: "",
-        users: [],
-    });
-    useEffect(() => {
-        postState.posts.forEach((e) => {
-            if (id && e.id === parseInt(id)) setTargetPost(e);
-        });
-    }, [id]);
+
+    if(!id) return <div></div>;
+
+    const targetPost = postState.posts.find((post)=>post.id===parseInt(id));
+
+    if (!targetPost) return <div><h1>404: Post doesn't exists</h1></div>
+
+
+    const author = targetPost.users.find(
+        (u) => u.id === targetPost.author_id
+    )
+
     return (
         <div id="PostDetail">
             <HeaderComponent
@@ -63,7 +57,9 @@ function PostDetail({
                     {targetPost.urls.length>=1? <div className="links-container">
                         <h2>Links</h2>
                         <ul className="links-list">
-                            {targetPost.urls.map((url, i)=><li key={i}><a href={url}>{url}</a></li>)}
+                            <li key={0}><a href={`https://x.com/${author?.username}/status/${targetPost.postId}`} target="_blank">
+                            Original post on X</a></li>
+                            {targetPost.urls.map((url, i)=><li key={i+1}><a href={url} target="_blank">{url}</a></li>)}
                         </ul>
                         
                     </div>: null}
@@ -74,7 +70,7 @@ function PostDetail({
                         </div>
                         <ul className="authors">
                             {targetPost.users.map((u, i)=><li key={i}>
-                                <a href={u?.url||`https://x.com/${u.username}`} className="link-author-profile">
+                                <a href={u?.url||`https://x.com/${u.username}`} className="link-author-profile" target="_blank">
                                     <Avatar 
                                         alt={u.name} 
                                         src={u.profile_image_url} 
