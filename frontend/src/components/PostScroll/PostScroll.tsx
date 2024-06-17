@@ -56,6 +56,7 @@ function PostScroll({
                                 // borderRadius: "20px",
                                 margin: "2px",
                                 padding: "2px",
+                                borderBottom: "1px solid #3E4F5B"
                             }}
                             key={post.id}
                         >
@@ -63,13 +64,18 @@ function PostScroll({
                                 primaryTypographyProps={{
                                     style: {
                                         fontFamily: "NanumGothic",
-                                        fontSize: "12px",
-                                        fontWeight: 500,
+                                        fontSize: "13px",
+                                        fontWeight: 600,
                                         width: "96%",
                                         paddingLeft: "2%",
+                                        textOverflow: "ellipsis",
+                                        overflow: "hidden",
+                                        whiteSpace: "pre-wrap",
+                                        height: "40px",
+                                        
                                     },
                                 }}
-                                primary={post.summary.slice(0, 120)}
+                                primary={post.summary}
                             />
                         </ListItemButton>
                     );
