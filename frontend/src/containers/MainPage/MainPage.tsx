@@ -41,13 +41,19 @@ function MainPage({
     const [opPosts, setOpPosts] = useState<PostType[]>([]);
     const [refresh, setRefresh] = useState<Boolean>(false);
     const [isMyPost, setIsMyPost] = useState<Boolean>(false);
+    const [curLock, setCurLock] = useState<Boolean>(false);
 
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate();
 
     const wordcloudJSX = useMemo(() => {
-        return <WordCloud setCurKeyword={setCurKeyword} posts={posts} />;
-    }, [curKeyword]);
+        return (
+            <WordCloud
+                setCurKeyword={setCurKeyword}
+                posts={posts.slice(0, Math.ceil(posts.length * 0.7))}
+            />
+        );
+    }, [curKeyword, refresh]);
 
     const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
         setTabValue(newValue);
@@ -56,10 +62,14 @@ function MainPage({
     const calculateTokenRecall = (keyword: string, content: string) => {
         const contentTokens = content.split(/\s+/);
         const keywordTokens = keyword.split(/\s+/);
-        const recall = keywordTokens.reduce((count, token) => {
-            return contentTokens.includes(token) ? count + 1 : count;
-        }, 0);
-        return recall / keywordTokens.length;
+        let count = 0;
+        for (let i = keywordTokens.length - 1; i >= 0; i--) {
+            for (let j = contentTokens.length - 1; j >= 0; j--) {
+                if (contentTokens[j].includes(keywordTokens[i]))
+                    count = count + 1;
+            }
+        }
+        return count;
     };
 
     const sortPosts = (posts: PostType[], curKeyword: string) => {
@@ -75,8 +85,15 @@ function MainPage({
             if (!aContainsKeyword && bContainsKeyword) return 1;
 
             if (aContainsKeyword && bContainsKeyword) {
-                const aRecall = calculateTokenRecall(curKeyword, a.content);
-                const bRecall = calculateTokenRecall(curKeyword, b.content);
+                const aRecall = calculateTokenRecall(
+                    curKeyword.toLowerCase(),
+                    a.content.toLowerCase()
+                );
+                const bRecall = calculateTokenRecall(
+                    curKeyword.toLowerCase(),
+                    b.content.toLowerCase()
+                );
+
                 if (aRecall !== bRecall) return bRecall - aRecall;
                 return (
                     new Date(b.created_at).getTime() -
@@ -119,41 +136,42 @@ function MainPage({
         return curPost;
     };
 
+    const getIdPost = (id: number) => {
+        let curPost = posts[0];
+        for (let i = posts.length - 1; i > 0; i--) {
+            if (posts[i].id === id) {
+                curPost = posts[i];
+                break;
+            }
+        }
+        return curPost;
+    };
+
     const getMyPost = () => {
         // return array containing saved posts
         let curPost: PostType[] = [];
         for (let i = myposts.length - 1; i >= 0; i--) {
-            curPost = [posts[myposts[i]], ...curPost];
+            // curPost = [posts[myposts[i]], ...curPost];
+            curPost = [getIdPost(myposts[i]), ...curPost];
         }
         return curPost;
     };
 
     useEffect(() => {
-        // initial redirection from 'main'
-        if (keyword)
-            setCurKeyword(keyword === "main" ? keywords[0].content : keyword);
-    }, [keyword]);
-
-    useEffect(() => {
         // navigation if curKeyword changes
-        if (curKeyword) navigate(`/${curKeyword}`);
+        if (curKeyword) {
+            navigate(`/${curKeyword}`);
+        }
     }, [curKeyword]);
 
     useEffect(() => {
-        // classify into academic and opinions
-        setAcPosts(
-            sortPosts(
-                posts.filter((post) => post.isOpinion === false),
-                curKeyword
-            )
-        );
-        setOpPosts(
-            sortPosts(
-                posts.filter((post) => post.isOpinion === true),
-                curKeyword
-            )
-        );
-    }, [posts, curKeyword]);
+        // initial redirection from 'main'
+        if (keyword) {
+            setCurKeyword(keyword === "main" ? keywords[0].content : keyword);
+            setRefresh(true);
+            if (curKeyword) setCurLock(true);
+        }
+    }, [keyword]);
 
     useEffect(() => {
         // refresh posts
@@ -166,9 +184,49 @@ function MainPage({
     }, [refresh]);
 
     useEffect(() => {
+        // classify into academic and opinions
+        if (curKeyword) {
+            setAcPosts(
+                sortPosts(
+                    posts.filter((post) => post.isOpinion === false),
+                    curKeyword
+                )
+            );
+
+            setOpPosts(
+                sortPosts(
+                    posts.filter((post) => post.isOpinion === true),
+                    curKeyword
+                )
+            );
+        }
+    }, [posts]);
+
+    useEffect(() => {
+        // classify into academic and opinions
+        if (curLock && curKeyword) {
+            setAcPosts(
+                sortPosts(
+                    posts.filter((post) => post.isOpinion === false),
+                    curKeyword
+                )
+            );
+            setOpPosts(
+                sortPosts(
+                    posts.filter((post) => post.isOpinion === true),
+                    curKeyword
+                )
+            );
+
+            setCurLock(false);
+        }
+    }, [curLock]);
+
+    useEffect(() => {
         // set default overview post
-        if (acPosts.length && curKeyword !== "Saved Posts")
+        if (acPosts.length && curKeyword !== "Saved Posts") {
             setPostId(acPosts[0].id);
+        }
     }, [acPosts]);
 
     useEffect(() => {
@@ -183,150 +241,125 @@ function MainPage({
     }, [isMyPost]);
 
     return (
-        <Layout className="MainPage">
+        <div className="MainPage">
             <HeaderComponent
                 setCurKeyword={setCurKeyword}
                 setRefresh={setRefresh}
                 setIsMyPost={setIsMyPost}
             />
-            <Content className="Content">
-                <Container className="Container">
-                    <div className="columnContainer">
+            <div className="Container">
+                <div className="columnContainer left-container">
+                    <div
+                        id="posts-container"
+                        className="upperContainer leftContainer"
+                    >
+                        <h1>Topic: {curKeyword}</h1>
+                        <PostOverview
+                            post={posts.length ? getCurPost() : null}
+                            overview={true}
+                            myposts={myposts}
+                            setMyPosts={setMyPosts}
+                        />
+                    </div>
+                    <div
+                        id="tabs-container"
+                        className="lowerContainer leftContainer"
+                    >
                         <div
-                            id="posts-container"
-                            className="upperContainer leftContainer"
+                            style={{
+                                textAlign: "left",
+                                marginLeft: "10px",
+                                marginTop: "20px",
+                            }}
                         >
-                            <h1
-                                style={{ textAlign: "left", marginLeft: "3px" }}
-                            >
-                                {curKeyword}
-                            </h1>
-                            <Link
-                                to={`/post/${
-                                    posts.length ? getCurPost().id : 0
-                                }`}
-                                style={{
-                                    color: "#000",
-                                }}
-                            >
-                                <PostOverview
-                                    post={posts.length ? getCurPost() : null}
-                                    overview={true}
-                                    myposts={myposts}
-                                    setMyPosts={setMyPosts}
-                                />
-                            </Link>
+                            <h2>Top Keywords in {curKeyword}</h2>
                         </div>
-                        <div
-                            id="tabs-container"
-                            className="lowerContainer leftContainer"
+                        <div id="word-container">{wordcloudJSX}</div>
+                    </div>
+                </div>
+                <div className="columnContainer right-container">
+                    <div id="summaries-container" className="rightContainer">
+                        <Box
+                            sx={{
+                                width: "100%",
+                                typography: "body1",
+                            }}
                         >
-                            <Box
-                                sx={{
-                                    width: "100%",
-                                    typography: "body1",
-                                    marginTop: "15px",
-                                }}
-                            >
-                                <TabContext value={tabValue}>
-                                    <Box
+                            <TabContext value={tabValue}>
+                                <Box
+                                    sx={{
+                                        borderBottom: 1,
+                                        borderColor: "divider",
+                                    }}
+                                >
+                                    <TabList onChange={handleTabChange}>
+                                        <Tab
+                                            label="Academic Findings"
+                                            value="1"
+                                        />
+                                        <Tab label="Opinons" value="2" />
+                                    </TabList>
+                                </Box>
+                                <TabPanel value="1" sx={{ padding: "0px" }}>
+                                    <PostScroll
+                                        posts={
+                                            curKeyword === "Saved Posts"
+                                                ? getMyPost().filter(
+                                                      (post) =>
+                                                          post.isOpinion ===
+                                                          false
+                                                  )
+                                                : acPosts
+                                        }
+                                        postId={postId}
+                                        setPostId={setPostId}
+                                    ></PostScroll>
+                                </TabPanel>
+                                <TabPanel value="2" sx={{ padding: "10px" }}>
+                                    <List
                                         sx={{
-                                            borderBottom: 1,
-                                            borderColor: "divider",
+                                            width: "100%",
+                                            bgcolor: "background.paper",
+                                            position: "relative",
+                                            overflow: "auto",
+                                            maxHeight: 570,
+                                            "& ul": { padding: 0 },
                                         }}
+                                        subheader={<li />}
                                     >
-                                        <TabList
-                                            onChange={handleTabChange}
-                                            // textColor="secondary"
-                                            // indicatorColor="secondary"
-                                        >
-                                            <Tab label="Opinons" value="1" />
-                                            <Tab
-                                                label="Conferences"
-                                                value="2"
-                                            />
-                                        </TabList>
-                                    </Box>
-                                    <TabPanel
-                                        value="1"
-                                        sx={{ padding: "10px" }}
-                                    >
-                                        <List
-                                            sx={{
-                                                width: "100%",
-                                                bgcolor: "background.paper",
-                                                position: "relative",
-                                                overflow: "auto",
-                                                maxHeight: 200,
-                                                "& ul": { padding: 0 },
-                                            }}
-                                            subheader={<li />}
-                                        >
-                                            {curKeyword === "Saved Posts"
-                                                ? getMyPost()
-                                                      .filter(
-                                                          (post) =>
-                                                              post.isOpinion ===
-                                                              true
-                                                      )
-                                                      .map((post) => {
-                                                          return (
-                                                              <OpinionLink
-                                                                  post={post}
-                                                                  key={post.id}
-                                                              />
-                                                          );
-                                                      })
-                                                : opPosts.map((post) => {
+                                        {curKeyword === "Saved Posts"
+                                            ? getMyPost()
+                                                  .filter(
+                                                      (post) =>
+                                                          post.isOpinion ===
+                                                          true
+                                                  )
+                                                  .map((post) => {
                                                       return (
                                                           <OpinionLink
                                                               post={post}
                                                               key={post.id}
                                                           />
                                                       );
-                                                  })}
-                                        </List>
-                                    </TabPanel>
-                                    <TabPanel value="2">Conferences</TabPanel>
-                                </TabContext>
-                            </Box>
-                        </div>
+                                                  })
+                                            : opPosts.map((post) => {
+                                                  return (
+                                                      <OpinionLink
+                                                          post={post}
+                                                          key={post.id}
+                                                      />
+                                                  );
+                                              })}
+                                    </List>
+                                </TabPanel>
+                            </TabContext>
+                        </Box>
                     </div>
-                    <div className="columnContainer">
-                        <div
-                            id="summaries-container"
-                            className="upperContainer rightContainer"
-                        >
-                            <PostScroll
-                                posts={
-                                    curKeyword === "Saved Posts"
-                                        ? getMyPost().filter(
-                                              (post) => post.isOpinion === false
-                                          )
-                                        : acPosts
-                                }
-                                postId={postId}
-                                setPostId={setPostId}
-                            ></PostScroll>
-                        </div>
-                        <div
-                            id="top-keywords-container"
-                            className="lowerContainer rightContainer"
-                        >
-                            <div
-                                style={{
-                                    textAlign: "left",
-                                    marginLeft: "10px",
-                                }}
-                            >
-                                <h2>Top Keywords in {curKeyword}</h2>
-                            </div>
-                            <div id="word-container">{wordcloudJSX}</div>
-                        </div>
-                    </div>
-                </Container>
-            </Content>
-        </Layout>
+                </div>
+            </div>
+            {/* <div className="Content">
+            </div> */}
+        </div>
     );
 }
 

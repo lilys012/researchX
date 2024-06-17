@@ -1,59 +1,166 @@
-$main-color: #3185e7;
-$sub-color: #edf9ff;
+$main-color: #3E4F5B;
+$main-shadow-color: #667f92;
+$sub-color: #f5f5f5;
+$shadow-color: rgba(0, 0, 0, 0.1);
 $small-text: 12px;
 $button-size: 40px;
 $top: 20px;
 
 .Header {
-    padding: 10px;
-    height: 125px;
-    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
+    padding-top: 10px;
+    height: 110px;
+    // filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.1));
+    // border-bottom: 1px solid $main-color;
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
 }
+#middle-container {
+    width: 70%;
+}
+
+button {
+    cursor: pointer;
+}
+.search-container {
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    gap: 5px;
+    align-items: center;
+
+    .search-input-cancel {
+        width: calc(100% - 50px);
+        margin: 0;
+        // padding: 10px 10px;
+        border: 2px solid $main-color;
+        border-radius: 18px;
+        display: flex;
+        padding: 5px;
+        align-items: center;
+        background-color: $sub-color;
+    }
+
+    button {
+        background: none;
+        // border: 1px solid black;
+        color: $main-color;
+        border: none;
+        
+    }
+
+    .cancel-btn {
+        // width: 25px;
+        padding: 0;
+        margin: 0;
+        margin-right: 5px;
+        height: 25px;
+        border-radius: 12px;
+        // font-size: 20px;
+        &:hover {
+            background-color: $shadow-color;
+        }
+    }
+    .search-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+
+        &:hover {
+            background-color: $shadow-color;
+        }
+
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+
+    }
+    
+    .search-input {
+        background: none;
+        border: none;
+        width: calc(100% - 30px);
+        font-size: 18px;
+        margin: 5px;
+        outline: none;
+    }
+    .hidden {
+        display: none;
+    }
+}
 
 #logo-container {
-    width: auto;
-    display: flex;
-    align-items: center;
+    // display: flex;
+    // align-items: center;
+    padding-top: 15px;
     cursor: pointer;
+
+    img {
+        height: 50px;
+    }
 }
-#search-container {
+
+.button-container {
+    margin-top: 10px;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 0px;
+    gap: 10px;
+
+    button {
+        width: 45px;
+        height: 45px;
+        background: none;
+        border: none;
+        color: $main-color;
+
+        &:hover {
+            color: $main-shadow-color;
+        }
+    }
+
+    svg {
+        height: 100%;
+        width: 100%;
+    }
+
+    #user-main-badge {
+        cursor: pointer;
+        width: 45px;
+        padding-left: 10px;
+
+        img {
+            width: 45px;
+            height: 45px;
+            border-radius: 22px;
+            border: 2px solid $main-color;
+        }
+
+    }
 }
-#search-box-container {
-    flex-direction: row;
-    flex-wrap: nowrap;
+
+#mainpage-upper-container {
+    line-height: 1.2;
 }
-#search-box-container .search-box {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-    font-family: "NanumGothic", serif;
-    font-size: 10px;
-    min-width: 800px;
-}
-#button-container {
-    margin: 0;
-    text-align: left;
-    width: auto;
-    display: flex;
-    align-items: start;
-    justify-content: space-around;
-    margin-top: 15px;
-    min-width: 200px;
-}
-#button-container .button {
-    font-size: $button-size;
-    // height: $button-size;
-    width: $button-size;
-    cursor: pointer;
-    z-index: 100;
-}
-#user-main-badge img {
-    width: 47px;
-    cursor: pointer;
-}
+
+
+// #button-container {
+//     margin: 0;
+//     text-align: left;
+//     width: auto;
+//     display: flex;
+//     align-items: start;
+//     justify-content: space-around;
+//     margin-top: 15px;
+//     min-width: 200px;
+// }
+// #button-container .button {
+//     font-size: $button-size;
+//     // height: $button-size;
+//     width: $button-size;
+//     cursor: pointer;
+//     z-index: 100;
+// }
+// #user-main-badge img {
+//     width: 47px;
+//     cursor: pointer;
+// }

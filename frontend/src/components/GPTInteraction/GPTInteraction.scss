@@ -12,17 +12,22 @@ $border-color: #f4f4f4e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   // margin-bottom: 20px;
   border: 2px solid;
-  width: 100%;
-  height: 300px;
   margin: 0;
+  height: 100%;
+
+  .chat-container {
+    height: calc(100% - 50px);
+    width: 100%;
+
+  }
 
   .chatview-container {
     padding: 0;
     text-align: center;
     margin: 0;
-    height: 250px;
     overflow: scroll;
-    width: 100%;
+    height: 100%;
+    // width: 100%;
     // width: calc(100% - 20px);
   }
 

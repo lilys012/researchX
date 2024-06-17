@@ -9,6 +9,7 @@ function OpinionLink({ post }: { post: PostType }) {
         <Link
             style={{
                 color: "#000",
+                textDecoration: "none"
             }}
             to={`/post/${post.id}`}
             className="OpinionLink"
@@ -27,20 +28,6 @@ function OpinionLink({ post }: { post: PostType }) {
                     </div>
                     <div
                         id="op-text"
-                        style={{
-                            whiteSpace: "pre-wrap",
-                            display: "-webkit-box",
-                            WebkitBoxOrient: "vertical",
-                            overflow: "hidden",
-                            WebkitLineClamp: 1,
-                            height: "auto",
-                            fontSize: "12px",
-                            fontWeight: 500,
-                            fontFamily: "NanumGothic",
-                            width: "96%",
-                            marginBottom: "2px",
-                            padding: "0",
-                        }}
                     >
                         {post.content}
                     </div>

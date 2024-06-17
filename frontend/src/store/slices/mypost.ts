@@ -7,7 +7,7 @@ export interface MyPostState {
 }
 
 const initialState: MyPostState = {
-    myposts: [0, 2, 4, 11],
+    myposts: [0, 2, 4, 11, 24, 35, 33],
 };
 
 export const mypostSlice = createSlice({

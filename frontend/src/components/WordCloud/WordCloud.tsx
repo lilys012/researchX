@@ -17,8 +17,15 @@ function WordCloud({
 }) {
     const processContent = (posts: PostType[]) => {
         const allContent = posts.map((post) => post.content).join(" ");
-        let words = allContent.split(/\s+/);
-        words = removeStopwords(words);
+        let allWords = allContent.split(/\s+/);
+        allWords = removeStopwords(allWords);
+        let words: string[] = [];
+        const alphabetRegex = /[a-zA-Z]/;
+        allWords.forEach((word) => {
+            if (alphabetRegex.test(word)) {
+                words.push(word);
+            }
+        });
         const wordFrequencies = words.reduce<Record<string, number>>(
             (freq, word) => {
                 if (!freq[word]) {
@@ -50,7 +57,7 @@ function WordCloud({
     };
 
     return (
-        <div style={{ height: 230, width: 500 }}>
+        <div className="WordCloud">
             <ReactWordcloud callbacks={callbacks} words={words} />
         </div>
     );

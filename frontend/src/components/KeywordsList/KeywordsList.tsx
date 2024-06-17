@@ -29,26 +29,29 @@ function KeywordsList({
     }, [keywordId]);
 
     return (
-        <Container fluid id="KeywordsList">
-            <Row id="keywords-container">
-                {slicedKeywords.map((k) => {
-                    return (
-                        <Col
-                            key={k.id}
-                            className="col-4"
-                            id="keyword-container"
-                            onClick={() =>
-                                setCurKeyword == null
-                                    ? {}
-                                    : setCurKeyword(k.content)
-                            }
-                        >
-                            {k.id + 1}. {k.content}
-                        </Col>
-                    );
-                })}
-            </Row>
-        </Container>
+        <div id="KeywordsList">
+            <div className="keywords-container">
+                <span className="keyword-title">Trending Keywords</span>
+                <div id="keywords-container">
+                    {slicedKeywords.map((k) => {
+                        return (
+                            <div
+                                key={k.id}
+                                className="col-4"
+                                id="keyword-container"
+                                onClick={() =>
+                                    setCurKeyword == null
+                                        ? {}
+                                        : setCurKeyword(k.content)
+                                }
+                            >
+                                {k.id + 1}. {k.content}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </div>
     );
 }
 

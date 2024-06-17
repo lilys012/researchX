@@ -1,15 +1,41 @@
+$main-color: #3E4F5B;
+
 .OpinionLink #op-container {
-    border: solid 2px;
+    border: 1px solid $main-color;
     border-radius: 20px;
     padding: 5px;
     margin-bottom: 5px;
     display: flex;
     flex-direction: row;
+    font-weight: 500;
+    width: 95%;
 }
 .OpinionLink #op-right-container {
-    padding-left: 10px;
+    padding-left: 7px;
+    width: calc(100% - 35px);
 }
 .OpinionLink #user-name {
     margin-top: 2px;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    width: calc(100% - 35px);
+}
+
+.OpinionLink #op-text {
+    // white-space: pre-wrap;
+    // display: -webkit-box;
+    // -webkit-box-orient: vertical;
+    // overflow: hidden;
+    // -webkit-line-clamp: 1;
+    // height: auto;
+    font-size: 12px;
+    font-weight: 500;
+    width: 90%;
+    // margin-bottom: 2px;
+    // padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    // width: 160px; 
+    // height: 1.2em; 
+    white-space: nowrap;
 }

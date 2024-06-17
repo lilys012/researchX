@@ -16,7 +16,7 @@ interface chatProps {
 }
 
 function ChatView({ chatList }: chatProps) {
-    const chatListItems = chatList.map((chat, i) => (
+    const chatListItems = chatList.slice(1).map((chat, i) => (
         <li key={`${i}`} className={`chat-element ${chat.role}`}>
             {String(chat.content)}
         </li>
@@ -32,17 +32,16 @@ const callGPT = async (content: string, chat: ChatCompletionMessageParam[]) =>
     });
 
 function GPTInteraction({ tweet } : {tweet: string|null}) {
+        
     const [text, setText] = useState<string>("");
+    const instruction = `${tweet} \n\n This is a tweet that I'm reading. I'm going to ask questions related to this.`
     const [chat, setChat] = useState<ChatCompletionMessageParam[]>([
-        { role: "system", content: "Ask anything!" },
+        {role: "user", content: instruction},
     ]);
-
-    if(tweet){
-        const instruction = `${tweet} \n\n This is a tweet that I'm reading. I'm going to ask questions related to this.`
-        callGPT(instruction, []);
-    }
+    // const messages = [{role: "user", content: instruction}]
 
     const onClickSubmit = async () => {
+
         await callGPT(text, chat).then((res) => {
             setChat((prevChat) => {
                 return [
